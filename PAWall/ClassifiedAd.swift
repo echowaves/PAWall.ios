@@ -19,4 +19,5 @@ class ClassifiedAd : BaseDataModel {
     let HASH_TAGS = "hashtags"
     let DESCRIPTION = "description"
     let LOCATION = "location"
+    let ACTIVE = "active"
 }

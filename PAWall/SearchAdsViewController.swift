@@ -49,6 +49,7 @@ class SearchAdsViewController: UIViewController, UITableViewDelegate, UITableVie
                 var query = PFQuery(className:CLASSIFIED_AD.CLASS_NAME)
                 // Interested in locations near user.
                 query.whereKey(CLASSIFIED_AD.LOCATION, nearGeoPoint:self.myLocation)
+                query.whereKey(CLASSIFIED_AD.ACTIVE, equalTo: true)
                 NSLog("Searching for string \(text)")
                 if !text.isEmpty {
                     let textArr = split(text.lowercaseString) {$0 == " "}
@@ -124,6 +125,8 @@ class SearchAdsViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         println("You selected cell #\(indexPath.row)!")
+        
+        
     }
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

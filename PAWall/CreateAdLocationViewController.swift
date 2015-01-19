@@ -72,6 +72,7 @@ class CreateAdLocationViewController: UIViewController {
             classifiedAd[CLASSIFIED_AD.PHONE_NUMBER] = phoneNumber
             classifiedAd[CLASSIFIED_AD.DESCRIPTION] = adDescription
             classifiedAd[CLASSIFIED_AD.LOCATION] = geoPoint
+            classifiedAd[CLASSIFIED_AD.ACTIVE] = true
             classifiedAd.saveInBackgroundWithBlock(nil)
         }
     }

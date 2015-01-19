@@ -31,6 +31,7 @@
 		0A9A18951A697A6F00B31406 /* ClassifiedAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A18941A697A6F00B31406 /* ClassifiedAd.swift */; };
 		0A9A18971A69856E00B31406 /* SearchAdsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A18961A69856E00B31406 /* SearchAdsViewController.swift */; };
 		0A9A18991A6B513C00B31406 /* AdSummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A18981A6B513C00B31406 /* AdSummaryTableViewCell.swift */; };
+		0AC601451A6D7380004594C0 /* AdDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC601441A6D7380004594C0 /* AdDetailsViewController.swift */; };
 		0AC6078E1A64CC7600C3DA50 /* CreateAdLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC6078D1A64CC7600C3DA50 /* CreateAdLocationViewController.swift */; };
 		0AE071971A623DC900E18B59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE071961A623DC900E18B59 /* AppDelegate.swift */; };
 		0AE0719E1A623DC900E18B59 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AE0719D1A623DC900E18B59 /* Images.xcassets */; };
@@ -75,6 +76,7 @@
 		0A9A18941A697A6F00B31406 /* ClassifiedAd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassifiedAd.swift; sourceTree = "<group>"; };
 		0A9A18961A69856E00B31406 /* SearchAdsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAdsViewController.swift; sourceTree = "<group>"; };
 		0A9A18981A6B513C00B31406 /* AdSummaryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdSummaryTableViewCell.swift; sourceTree = "<group>"; };
+		0AC601441A6D7380004594C0 /* AdDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdDetailsViewController.swift; sourceTree = "<group>"; };
 		0AC6078D1A64CC7600C3DA50 /* CreateAdLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAdLocationViewController.swift; sourceTree = "<group>"; };
 		0AE071911A623DC900E18B59 /* PAWall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PAWall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AE071951A623DC900E18B59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				0AC6078D1A64CC7600C3DA50 /* CreateAdLocationViewController.swift */,
 				0A9A18961A69856E00B31406 /* SearchAdsViewController.swift */,
 				0A9A18981A6B513C00B31406 /* AdSummaryTableViewCell.swift */,
+				0AC601441A6D7380004594C0 /* AdDetailsViewController.swift */,
 				0AE071941A623DC900E18B59 /* Supporting Files */,
 			);
 			path = PAWall;
@@ -339,6 +342,7 @@
 				0A9A18951A697A6F00B31406 /* ClassifiedAd.swift in Sources */,
 				0A2AB8BB1A64411900DF08DF /* HomeViewController.swift in Sources */,
 				0A9A18971A69856E00B31406 /* SearchAdsViewController.swift in Sources */,
+				0AC601451A6D7380004594C0 /* AdDetailsViewController.swift in Sources */,
 				0A2AB8BD1A64418F00DF08DF /* CreateAdViewController.swift in Sources */,
 				0A9A18991A6B513C00B31406 /* AdSummaryTableViewCell.swift in Sources */,
 				0AE071971A623DC900E18B59 /* AppDelegate.swift in Sources */,
