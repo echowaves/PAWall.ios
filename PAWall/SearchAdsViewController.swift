@@ -125,10 +125,26 @@ class SearchAdsViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         println("You selected cell #\(indexPath.row)!")
-        
-        
+        self.performSegueWithIdentifier("ad_details", sender: self)
     }
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "ad_details") {
+            let adDetailsViewController:AdDetailsViewController = segue.destinationViewController as AdDetailsViewController
+            
+            let indexPath = self.searchDisplayController!.searchResultsTableView.indexPathForSelectedRow()!
+//            self.tableView.indexPathForSelectedRow()
+
+            let numberOfPlaces = 2.0
+            let multiplier = pow(10.0, numberOfPlaces)
+            let distance = (adsNearMe[indexPath.row][CLASSIFIED_AD.LOCATION] as PFGeoPoint).distanceInMilesTo(self.myLocation)
+            let roundedDistance = round(distance * multiplier) / multiplier
+
+            adDetailsViewController.rawDistance = roundedDistance
+            adDetailsViewController.rawDescription = adsNearMe[indexPath.row][CLASSIFIED_AD.DESCRIPTION] as String
+        }
+    }
+    
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
       return 80
     }
@@ -143,4 +159,11 @@ class SearchAdsViewController: UIViewController, UITableViewDelegate, UITableVie
         self.search(self.searchDisplayController!.searchBar.text)
         return true
     }
+    
+    @IBAction func unwindToAdsNearYou (segue : UIStoryboardSegue) {
+        NSLog("CreateAd seque from segue id: \(segue.identifier)")
+    }
+
 }
+
+//http://www.raywenderlich.com/76519/add-table-view-search-swift

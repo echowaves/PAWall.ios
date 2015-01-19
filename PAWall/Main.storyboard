@@ -146,7 +146,7 @@
         <!--Search Ads View Controller-->
         <scene sceneID="JYr-Yb-1VF">
             <objects>
-                <viewController id="MKC-ZP-avC" customClass="SearchAdsViewController" customModule="PAWall" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="MKC-ZP-avC" customClass="SearchAdsViewController" customModule="PAWall" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uAa-36-rhC"/>
                         <viewControllerLayoutGuide type="bottom" id="hI7-aR-vML"/>
@@ -243,6 +243,7 @@
                                             <outlet property="details" destination="iKg-1U-nRG" id="QHD-Rc-ZIQ"/>
                                             <outlet property="distance" destination="ovg-9E-yhP" id="S9q-1B-F50"/>
                                             <outlet property="summary" destination="QL6-t2-ijr" id="Qaa-Ew-xbj"/>
+                                            <segue destination="7ki-V4-4t4" kind="show" identifier="ad_details" id="oJD-Ec-lJq"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -289,7 +290,7 @@
         <!--Ads near you-->
         <scene sceneID="tha-bD-ybm">
             <objects>
-                <viewController id="7ki-V4-4t4" customClass="AdDetailsViewController" customModule="PAWall" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7ki-V4-4t4" customClass="AdDetailsViewController" customModule="PAWall" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OFM-dd-BD4"/>
                         <viewControllerLayoutGuide type="bottom" id="xot-UA-x4T"/>
@@ -306,18 +307,32 @@
                                 <color key="barTintColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="Ad detail" id="Tfr-YZ-fwa">
-                                        <barButtonItem key="leftBarButtonItem" image="ic_backspace_black_48dp" id="Jk4-1q-QOh"/>
-                                        <barButtonItem key="rightBarButtonItem" image="ic_reply_black_48dp" id="hkp-Wo-lzc"/>
+                                        <barButtonItem key="leftBarButtonItem" image="ic_backspace_black_48dp" id="Jk4-1q-QOh">
+                                            <connections>
+                                                <segue destination="FJb-6F-Kvi" kind="unwind" unwindAction="unwindToAdsNearYou:" id="2cp-JC-K44"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" image="ic_reply_black_48dp" id="hkp-Wo-lzc">
+                                            <connections>
+                                                <action selector="replyToAd:" destination="7ki-V4-4t4" id="av4-wQ-aLk"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_reply_black_48dp" translatesAutoresizingMaskIntoConstraints="NO" id="LUz-9m-c0c">
-                                <rect key="frame" x="0.0" y="553" width="48" height="48"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Mc-49-ar9">
+                                <rect key="frame" x="0.0" y="552" width="600" height="48"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="48" id="J7G-dg-qbQ"/>
-                                    <constraint firstAttribute="height" constant="48" id="sJd-Pw-x6M"/>
+                                    <constraint firstAttribute="height" constant="48" id="YLR-0I-EnH"/>
                                 </constraints>
-                            </imageView>
+                                <state key="normal" title="Reply to Ad (charges may apply)">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="replyToAd:" destination="7ki-V4-4t4" eventType="touchUpInside" id="o5c-JT-m1q"/>
+                                </connections>
+                            </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eqw-Tr-Xkj">
                                 <rect key="frame" x="16" y="105" width="568" height="440"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -334,16 +349,13 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Mc-49-ar9">
-                                <rect key="frame" x="0.0" y="552" width="600" height="48"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_reply_black_48dp" translatesAutoresizingMaskIntoConstraints="NO" id="LUz-9m-c0c">
+                                <rect key="frame" x="0.0" y="553" width="48" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="YLR-0I-EnH"/>
+                                    <constraint firstAttribute="width" constant="48" id="J7G-dg-qbQ"/>
+                                    <constraint firstAttribute="height" constant="48" id="sJd-Pw-x6M"/>
                                 </constraints>
-                                <state key="normal" title="Reply to Ad (charges may apply)">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -368,8 +380,13 @@
                     <navigationItem key="navigationItem" title="Ads near you" id="tqm-Ff-yYn">
                         <barButtonItem key="leftBarButtonItem" image="ic_backspace_black_48dp" id="lQ4-ak-cLt"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="adDescription" destination="eqw-Tr-Xkj" id="jxZ-JV-HBR"/>
+                        <outlet property="adDistance" destination="xQo-mI-Cer" id="INf-qm-2xV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rnm-03-vLn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="FJb-6F-Kvi" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2075" y="1174"/>
         </scene>

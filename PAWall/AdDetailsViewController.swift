@@ -9,4 +9,27 @@
 import Foundation
 
 class AdDetailsViewController: UIViewController {
+    
+    var rawDistance = 0.0
+    var rawDescription = ""
+    
+    @IBOutlet weak var adDistance: UILabel!
+    @IBOutlet weak var adDescription: UITextView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        adDistance.text = "This ad is \(rawDistance) miles away from you"
+        adDescription.text = rawDescription
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        adDescription.setContentOffset(CGPoint.zeroPoint, animated: true)
+    }
+    
+    @IBAction func replyToAd(sender: AnyObject) {
+    }
+    
+    
+    
 }
