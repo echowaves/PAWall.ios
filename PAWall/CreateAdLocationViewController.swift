@@ -13,7 +13,6 @@ import MapKit
 class CreateAdLocationViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var searchLocationBar: UISearchBar!
    
     var phoneNumber = ""
     var adDescription = ""

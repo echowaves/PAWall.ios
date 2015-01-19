@@ -313,33 +313,22 @@
                                 </items>
                             </navigationBar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6Yc-vQ-pK3">
-                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                             </mapView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="iWf-6h-2mU">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="weZ-Ee-bdG"/>
-                                </constraints>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="KCy-eP-s1j" firstAttribute="leading" secondItem="Rmn-xd-olY" secondAttribute="leadingMargin" constant="-16" id="2ab-Bd-Yzk"/>
-                            <constraint firstItem="IjQ-dH-0H3" firstAttribute="top" secondItem="iWf-6h-2mU" secondAttribute="bottom" id="2tw-3N-8pn"/>
-                            <constraint firstItem="6Yc-vQ-pK3" firstAttribute="top" secondItem="KCy-eP-s1j" secondAttribute="bottom" id="7dT-aM-wvZ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="iWf-6h-2mU" secondAttribute="trailing" constant="-16" id="8LR-jo-Bj5"/>
-                            <constraint firstItem="iWf-6h-2mU" firstAttribute="leading" secondItem="Rmn-xd-olY" secondAttribute="leadingMargin" constant="-16" id="P1W-Fp-I1D"/>
-                            <constraint firstItem="iWf-6h-2mU" firstAttribute="top" secondItem="6Yc-vQ-pK3" secondAttribute="bottom" id="PYH-3B-3Hg"/>
+                            <constraint firstItem="6Yc-vQ-pK3" firstAttribute="top" secondItem="KCy-eP-s1j" secondAttribute="bottom" id="4gF-pT-tTD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6Yc-vQ-pK3" secondAttribute="trailing" constant="-16" id="I1M-07-ac2"/>
                             <constraint firstItem="KCy-eP-s1j" firstAttribute="top" secondItem="rZF-dD-Mqc" secondAttribute="bottom" id="RhA-db-1If"/>
                             <constraint firstAttribute="trailingMargin" secondItem="KCy-eP-s1j" secondAttribute="trailing" constant="-16" id="UuA-s1-9GA"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="6Yc-vQ-pK3" secondAttribute="trailing" constant="-16" id="aUK-5e-3hD"/>
-                            <constraint firstItem="6Yc-vQ-pK3" firstAttribute="leading" secondItem="Rmn-xd-olY" secondAttribute="leadingMargin" constant="-16" id="gP7-LH-afT"/>
+                            <constraint firstItem="6Yc-vQ-pK3" firstAttribute="leading" secondItem="Rmn-xd-olY" secondAttribute="leadingMargin" constant="-16" id="uTe-VQ-lXj"/>
+                            <constraint firstItem="IjQ-dH-0H3" firstAttribute="top" secondItem="6Yc-vQ-pK3" secondAttribute="bottom" id="zSW-WQ-EHz"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="6Yc-vQ-pK3" id="Lc3-d3-1LG"/>
-                        <outlet property="searchLocationBar" destination="iWf-6h-2mU" id="TeP-GL-THT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JSc-xd-IKm" userLabel="First Responder" sceneMemberID="firstResponder"/>
