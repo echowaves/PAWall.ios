@@ -13,12 +13,12 @@ import MapKit
 class CreateAdLocationViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
-   
+    
     var phoneNumber = ""
     var adDescription = ""
     
     var geoPoint:PFGeoPoint = PFGeoPoint()
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,14 +58,23 @@ class CreateAdLocationViewController: UIViewController {
         
     }
     
+        override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+            NSLog("----------------seguiing \(segue.identifier)")
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        NSLog("----------------seguiing \(segue.identifier)")
-     
-        
-        // Make sure your segue name in storyboard is the same as this line
-        if segue.destinationViewController.isKindOfClass(HomeViewControler)
-        {
+            // Make sure your segue name in storyboard is the same as this line
+            if segue.identifier == "unwindToHome" {
+                let alertMessage = UIAlertController(title: "Posting Ad", message: "You Ad Will be Posted Now.", preferredStyle: UIAlertControllerStyle.Alert)
+                self.presentViewController(alertMessage, animated: true, completion: { () -> Void in
+                    sleep(3)
+                    return Void()
+                })
+            }
+        }
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+        NSLog("segue identifier is: \(identifier)")
+
+        if identifier == "unwindToHome" {
             NSLog("----calling prepareForSegue unwind")
             var classifiedAd = PFObject(className:CLASSIFIED_AD.CLASS_NAME)
             classifiedAd[CLASSIFIED_AD.DEVICE_TOKEN] = DEVICE_TOKEN
@@ -73,8 +82,13 @@ class CreateAdLocationViewController: UIViewController {
             classifiedAd[CLASSIFIED_AD.DESCRIPTION] = adDescription
             classifiedAd[CLASSIFIED_AD.LOCATION] = geoPoint
             classifiedAd[CLASSIFIED_AD.ACTIVE] = true
-            classifiedAd.saveInBackgroundWithBlock(nil)
+            var error:NSErrorPointer = nil
+            classifiedAd.saveEventually()
+            
+            
+           
         }
+        return true
     }
     
 }

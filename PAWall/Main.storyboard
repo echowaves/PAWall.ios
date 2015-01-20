@@ -412,12 +412,12 @@
                                     <navigationItem title="My Location" id="Yn2-I5-IgZ">
                                         <barButtonItem key="leftBarButtonItem" image="ic_backspace_black_48dp" id="lqd-aL-mAE">
                                             <connections>
-                                                <segue destination="LYg-QD-IP4" kind="unwind" unwindAction="unwindToCreateAd:" id="dff-g7-RMo"/>
+                                                <segue destination="LYg-QD-IP4" kind="unwind" identifier="unwindToCreateAd" unwindAction="unwindToCreateAd:" id="dff-g7-RMo"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" image="ic_save_black_48dp" id="F5U-yl-TuE">
                                             <connections>
-                                                <segue destination="LYg-QD-IP4" kind="unwind" unwindAction="unwindToHome:" id="swR-SP-ehV"/>
+                                                <segue destination="LYg-QD-IP4" kind="unwind" identifier="unwindToHome" unwindAction="unwindToHome:" id="swR-SP-ehV"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>

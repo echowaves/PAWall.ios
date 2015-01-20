@@ -30,6 +30,4 @@ class AdDetailsViewController: UIViewController {
     @IBAction func replyToAd(sender: AnyObject) {
     }
     
-    
-    
 }
