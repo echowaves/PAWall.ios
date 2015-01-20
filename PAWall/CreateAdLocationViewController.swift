@@ -63,7 +63,7 @@ class CreateAdLocationViewController: UIViewController {
     
             // Make sure your segue name in storyboard is the same as this line
             if segue.identifier == "unwindToHome" {
-                let alertMessage = UIAlertController(title: "Posting Ad", message: "You Ad Will be Posted Now.", preferredStyle: UIAlertControllerStyle.Alert)
+                let alertMessage = UIAlertController(title: nil, message: "You Ad Will be Posted Now.", preferredStyle: UIAlertControllerStyle.Alert)
                 self.presentViewController(alertMessage, animated: true, completion: { () -> Void in
                     sleep(3)
                     return Void()
@@ -83,9 +83,13 @@ class CreateAdLocationViewController: UIViewController {
             classifiedAd[CLASSIFIED_AD.LOCATION] = geoPoint
             classifiedAd[CLASSIFIED_AD.ACTIVE] = true
             var error:NSErrorPointer = nil
-            classifiedAd.saveEventually()
-            
-            
+            classifiedAd.saveEventually({ (saved:Bool, error: NSError!) -> Void in
+                if saved == true {
+                    NSLog("new object saved id: \(classifiedAd.objectId)")
+                } else {
+                    NSLog("error saving an oject: \(error.debugDescription)")
+                }
+            })
            
         }
         return true

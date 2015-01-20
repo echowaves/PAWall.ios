@@ -27,7 +27,7 @@
                                     <navigationItem title="PAWall" id="LtU-Wj-fl2">
                                         <barButtonItem key="leftBarButtonItem" image="ic_search_black_48dp" id="Qta-l1-20c">
                                             <connections>
-                                                <segue destination="MKC-ZP-avC" kind="show" id="3Yd-kx-u4f"/>
+                                                <segue destination="asf-VK-lAo" kind="show" id="3Yd-kx-u4f"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" image="ic_add_circle_outline_black_48dp" id="GM6-ic-qIi">
@@ -143,7 +143,7 @@
             </objects>
             <point key="canvasLocation" x="1316" y="436"/>
         </scene>
-        <!--Search Ads View Controller-->
+        <!--Search-->
         <scene sceneID="JYr-Yb-1VF">
             <objects>
                 <viewController id="MKC-ZP-avC" customClass="SearchAdsViewController" customModule="PAWall" sceneMemberID="viewController">
@@ -168,21 +168,23 @@
                                                 <segue destination="7Xx-T8-nfr" kind="unwind" unwindAction="unwindToHome:" id="TKq-M9-Vej"/>
                                             </connections>
                                         </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" image="ic_bookmark_black_48dp" id="ePu-gE-5Xd"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <searchBar contentMode="redraw" placeholder="Search ads near your current location" translatesAutoresizingMaskIntoConstraints="NO" id="Oio-QX-hcc">
+                            <searchBar contentMode="redraw" text="" placeholder="Search ads near your current location" translatesAutoresizingMaskIntoConstraints="NO" id="Oio-QX-hcc">
                                 <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="6uU-g8-XcH"/>
                                 </constraints>
+                                <color key="barTintColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="MKC-ZP-avC" id="NrR-17-7P6"/>
                                 </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="9BH-me-9pN">
-                                <rect key="frame" x="0.0" y="108" width="600" height="492"/>
+                                <rect key="frame" x="0.0" y="108" width="600" height="443"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ad_summary" rowHeight="80" id="98O-9O-G8J" customClass="AdSummaryTableViewCell" customModule="PAWall">
@@ -255,18 +257,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="9BH-me-9pN" firstAttribute="top" secondItem="Oio-QX-hcc" secondAttribute="bottom" id="2Jy-bh-oZT"/>
                             <constraint firstItem="H9R-6F-7K1" firstAttribute="leading" secondItem="vET-ie-0Nd" secondAttribute="leadingMargin" constant="-16" id="Adb-bT-r3m"/>
-                            <constraint firstItem="hI7-aR-vML" firstAttribute="top" secondItem="9BH-me-9pN" secondAttribute="bottom" id="FMi-bo-0eH"/>
-                            <constraint firstItem="9BH-me-9pN" firstAttribute="leading" secondItem="vET-ie-0Nd" secondAttribute="leadingMargin" constant="-16" id="GY5-eC-bhf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9BH-me-9pN" secondAttribute="trailing" constant="-16" id="Bgh-hg-mFZ"/>
+                            <constraint firstItem="hI7-aR-vML" firstAttribute="top" secondItem="9BH-me-9pN" secondAttribute="bottom" id="JIn-ug-kHm"/>
                             <constraint firstItem="H9R-6F-7K1" firstAttribute="top" secondItem="uAa-36-rhC" secondAttribute="bottom" id="Mz8-0N-Gtg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Oio-QX-hcc" secondAttribute="trailing" constant="-16" id="NGo-dk-Lfj"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="9BH-me-9pN" secondAttribute="trailing" constant="-16" id="dLO-s6-7TD"/>
                             <constraint firstItem="Oio-QX-hcc" firstAttribute="top" secondItem="H9R-6F-7K1" secondAttribute="bottom" id="gVT-ls-aBa"/>
                             <constraint firstItem="Oio-QX-hcc" firstAttribute="leading" secondItem="vET-ie-0Nd" secondAttribute="leadingMargin" constant="-16" id="m3K-A2-dPq"/>
+                            <constraint firstItem="9BH-me-9pN" firstAttribute="leading" secondItem="vET-ie-0Nd" secondAttribute="leadingMargin" constant="-16" id="rZg-ig-dCC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="H9R-6F-7K1" secondAttribute="trailing" constant="-16" id="tUY-xn-XFH"/>
+                            <constraint firstItem="9BH-me-9pN" firstAttribute="top" secondItem="Oio-QX-hcc" secondAttribute="bottom" id="wls-Dd-8dH"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Search" image="ic_search_black_48dp" id="VIF-7s-J9m"/>
                     <connections>
                         <outlet property="searchBar" destination="Oio-QX-hcc" id="3Xx-l5-S1G"/>
                         <outlet property="searchDisplayController" destination="JHS-aN-Cv1" id="9Id-0k-tJi"/>
@@ -285,7 +288,93 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1316" y="1174"/>
+            <point key="canvasLocation" x="2128" y="1174"/>
+        </scene>
+        <!--bookmarks-->
+        <scene sceneID="qML-8f-46q">
+            <objects>
+                <viewController id="Qbe-gK-OUy" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hwU-Pl-Xhp"/>
+                        <viewControllerLayoutGuide type="bottom" id="TPh-Tr-mNU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5Ww-oN-bHv">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yPd-X9-GPP">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="cLK-XT-XhQ"/>
+                                </constraints>
+                                <color key="barTintColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem title="Bookmarked Searches" id="DX6-8g-sYF">
+                                        <barButtonItem key="leftBarButtonItem" image="ic_backspace_black_48dp" id="bak-8V-LxK">
+                                            <connections>
+                                                <segue destination="FDH-JB-xQr" kind="unwind" unwindAction="unwindToHome:" id="WZ8-ss-yfr"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yPd-X9-GPP" firstAttribute="leading" secondItem="5Ww-oN-bHv" secondAttribute="leadingMargin" constant="-16" id="9dN-H5-b5M"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yPd-X9-GPP" secondAttribute="trailing" constant="-16" id="UfN-Pj-bLV"/>
+                            <constraint firstItem="yPd-X9-GPP" firstAttribute="top" secondItem="hwU-Pl-Xhp" secondAttribute="bottom" id="v8b-Xi-Grt"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="bookmarks" image="ic_bookmark_outline_black_48dp" id="0mL-M1-StB"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aJ6-Cw-XiT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="FDH-JB-xQr" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2128" y="1891"/>
+        </scene>
+        <!--my Ads-->
+        <scene sceneID="1xe-ab-p04">
+            <objects>
+                <viewController id="z70-SV-ybL" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pxt-c2-DoE"/>
+                        <viewControllerLayoutGuide type="bottom" id="v8Q-sT-ecR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Zbs-RV-TLH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kaR-UO-rMP">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="aD7-tg-Xzy"/>
+                                </constraints>
+                                <color key="barTintColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem title="Ads posted by me" id="0aT-tU-IZL">
+                                        <barButtonItem key="leftBarButtonItem" image="ic_backspace_black_48dp" id="5KP-Q6-24h">
+                                            <connections>
+                                                <segue destination="zGq-LL-euB" kind="unwind" unwindAction="unwindToHome:" id="m3K-P2-aiN"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="kaR-UO-rMP" secondAttribute="trailing" constant="-16" id="AXk-FI-IFn"/>
+                            <constraint firstItem="kaR-UO-rMP" firstAttribute="top" secondItem="pxt-c2-DoE" secondAttribute="bottom" id="PL1-Y5-UvL"/>
+                            <constraint firstItem="kaR-UO-rMP" firstAttribute="leading" secondItem="Zbs-RV-TLH" secondAttribute="leadingMargin" constant="-16" id="pm0-aw-6aA"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="my Ads" image="ic_list_black_48dp" id="eEe-qA-w5Q"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5c4-gN-mql" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="zGq-LL-euB" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2128" y="2605"/>
         </scene>
         <!--Ads near you-->
         <scene sceneID="tha-bD-ybm">
@@ -388,7 +477,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rnm-03-vLn" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="FJb-6F-Kvi" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2075" y="1174"/>
+            <point key="canvasLocation" x="2887" y="1174"/>
         </scene>
         <!--Create Ad Location View Controller-->
         <scene sceneID="P9f-zL-d15">
@@ -447,12 +536,35 @@
             </objects>
             <point key="canvasLocation" x="2075" y="436"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="cXV-5v-qYC">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="asf-VK-lAo" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Nbc-Gl-les">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="MKC-ZP-avC" kind="relationship" relationship="viewControllers" id="ePp-Cp-lHM"/>
+                        <segue destination="Qbe-gK-OUy" kind="relationship" relationship="viewControllers" id="lAW-NU-i6s"/>
+                        <segue destination="z70-SV-ybL" kind="relationship" relationship="viewControllers" id="qTa-IN-hY2"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yVL-oe-dZk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1298" y="2007"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ic_add_circle_outline_black_48dp" width="48" height="48"/>
         <image name="ic_backspace_black_48dp" width="48" height="48"/>
+        <image name="ic_bookmark_black_48dp" width="48" height="48"/>
+        <image name="ic_bookmark_outline_black_48dp" width="48" height="48"/>
         <image name="ic_chevron_right_black_48dp" width="48" height="48"/>
         <image name="ic_forward_black_48dp" width="48" height="48"/>
+        <image name="ic_list_black_48dp" width="48" height="48"/>
         <image name="ic_reply_black_48dp" width="48" height="48"/>
         <image name="ic_save_black_48dp" width="48" height="48"/>
         <image name="ic_search_black_48dp" width="48" height="48"/>
