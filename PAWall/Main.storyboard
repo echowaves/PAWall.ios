@@ -20,7 +20,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qug-wQ-7sz">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="7k6-Ry-uzN"/>
+                                    <constraint firstAttribute="height" constant="44" id="7MJ-rW-gu6"/>
                                 </constraints>
                                 <color key="barTintColor" red="0.80000001192092896" green="1" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
@@ -38,26 +38,158 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search for Ads near your,  or post a new Ad  so that people close to you can find it. " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZk-yv-vga">
-                                <rect key="frame" x="151" y="270" width="298" height="61"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_expand_less_black_48dp" translatesAutoresizingMaskIntoConstraints="NO" id="FJT-Ii-yLf">
+                                <rect key="frame" x="16" y="64" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="48" id="sf0-Mg-nF3"/>
+                                    <constraint firstAttribute="height" constant="48" id="t1i-pt-j3H"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_expand_less_black_48dp" translatesAutoresizingMaskIntoConstraints="NO" id="SFO-4t-k2m">
+                                <rect key="frame" x="536" y="64" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="48" id="bPO-qa-lPz"/>
+                                    <constraint firstAttribute="height" constant="48" id="tFe-pV-tpA"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1la-Iw-TEs">
+                                <rect key="frame" x="38" y="86" width="4" height="82"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="4" id="r2z-Pn-cpL"/>
+                                    <constraint firstAttribute="height" constant="82" id="tRt-TE-kz6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uuh-7I-9uh">
+                                <rect key="frame" x="558" y="86" width="4" height="400"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="4" id="Mbr-9e-SS9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ULT-JU-lnJ">
+                                <rect key="frame" x="16" y="176" width="298" height="101.5"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="298" id="hcR-MU-PkR"/>
+                                    <constraint firstAttribute="height" constant="101.5" id="pLx-RF-I7c"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Search for Ads near your,  or post a new Ad  so that people close to you can find it.  Typical search may look like: "snow blower buy" or: "laundry"</string>
+                                        <attributes>
+                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="v0t-cB-U2D">
+                                <rect key="frame" x="325" y="494" width="259" height="86"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="86" id="g8D-GY-CYe"/>
+                                    <constraint firstAttribute="width" constant="259" id="uJ2-fL-mQN"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Create new Ads. Typical Ad may say thing like: &quot;Will sell a used snow blower for $150 &quot; Or:  &quot;Need my Laundry done&quot;">
+                                        <attributes>
+                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mn-cS-T2i">
+                                <rect key="frame" x="135" y="293" width="331" height="81"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="81" id="QM2-Bx-z5S"/>
+                                    <constraint firstAttribute="width" constant="331" id="zzk-uw-M8X"/>
+                                </constraints>
+                                <string key="text">PAWall is a location based  ads engine  for your smart phone. 
+</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="ZZk-yv-vga" secondAttribute="centerX" id="e90-9d-vQJ"/>
-                            <constraint firstAttribute="centerY" secondItem="ZZk-yv-vga" secondAttribute="centerY" id="iYc-Uy-UHc"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Qug-wQ-7sz" secondAttribute="trailing" constant="-16" id="ndY-qp-Ajd"/>
-                            <constraint firstItem="Qug-wQ-7sz" firstAttribute="leading" secondItem="MsO-sK-2Y1" secondAttribute="leadingMargin" constant="-16" id="oXy-aO-3vT"/>
-                            <constraint firstItem="Qug-wQ-7sz" firstAttribute="top" secondItem="ZA4-y0-1N1" secondAttribute="bottom" id="ywG-Ym-nLI"/>
+                            <constraint firstItem="1la-Iw-TEs" firstAttribute="leading" secondItem="MsO-sK-2Y1" secondAttribute="leadingMargin" constant="22" id="09i-LK-G6l"/>
+                            <constraint firstItem="ULT-JU-lnJ" firstAttribute="top" secondItem="1la-Iw-TEs" secondAttribute="bottom" constant="8" id="2pH-eX-vbt"/>
+                            <constraint firstAttribute="centerX" secondItem="9mn-cS-T2i" secondAttribute="centerX" id="9Py-on-xrL"/>
+                            <constraint firstItem="v0t-cB-U2D" firstAttribute="top" secondItem="Uuh-7I-9uh" secondAttribute="bottom" constant="8" id="Ehn-CV-LRb"/>
+                            <constraint firstItem="FJT-Ii-yLf" firstAttribute="leading" secondItem="MsO-sK-2Y1" secondAttribute="leadingMargin" id="Ejs-Rj-fUm"/>
+                            <constraint firstItem="SFO-4t-k2m" firstAttribute="top" secondItem="Qug-wQ-7sz" secondAttribute="bottom" id="Ufr-UU-IpY"/>
+                            <constraint firstItem="ULT-JU-lnJ" firstAttribute="top" secondItem="1la-Iw-TEs" secondAttribute="bottom" constant="8" id="V58-Gx-gDa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Uuh-7I-9uh" secondAttribute="trailing" constant="22" id="dN5-sH-WCv"/>
+                            <constraint firstItem="SFO-4t-k2m" firstAttribute="trailing" secondItem="MsO-sK-2Y1" secondAttribute="trailingMargin" id="ecA-Ug-1VY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Qug-wQ-7sz" secondAttribute="trailing" constant="-16" id="f74-VJ-UAB"/>
+                            <constraint firstItem="Qug-wQ-7sz" firstAttribute="top" secondItem="ZA4-y0-1N1" secondAttribute="bottom" id="gqg-r0-pMz"/>
+                            <constraint firstItem="ULT-JU-lnJ" firstAttribute="leading" secondItem="MsO-sK-2Y1" secondAttribute="leadingMargin" id="j9b-9r-fJT"/>
+                            <constraint firstItem="ca9-ao-C4h" firstAttribute="top" secondItem="v0t-cB-U2D" secondAttribute="bottom" constant="20" id="jMq-pA-bMh"/>
+                            <constraint firstItem="1la-Iw-TEs" firstAttribute="top" secondItem="Qug-wQ-7sz" secondAttribute="bottom" constant="22" id="oek-ug-16v"/>
+                            <constraint firstItem="Qug-wQ-7sz" firstAttribute="leading" secondItem="MsO-sK-2Y1" secondAttribute="leadingMargin" constant="-16" id="rgS-h5-kDz"/>
+                            <constraint firstItem="9mn-cS-T2i" firstAttribute="top" secondItem="ULT-JU-lnJ" secondAttribute="bottom" constant="15.5" id="t2Z-Nq-bgJ"/>
+                            <constraint firstItem="v0t-cB-U2D" firstAttribute="top" secondItem="Uuh-7I-9uh" secondAttribute="bottom" constant="8" id="wOR-O6-GKX"/>
+                            <constraint firstItem="FJT-Ii-yLf" firstAttribute="top" secondItem="Qug-wQ-7sz" secondAttribute="bottom" id="xMV-m8-laz"/>
+                            <constraint firstItem="v0t-cB-U2D" firstAttribute="trailing" secondItem="MsO-sK-2Y1" secondAttribute="trailingMargin" id="xR7-YF-d8t"/>
+                            <constraint firstItem="Uuh-7I-9uh" firstAttribute="top" secondItem="Qug-wQ-7sz" secondAttribute="bottom" constant="22" id="xkY-Qz-gXt"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="2pH-eX-vbt"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o3Y-U5-wWA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="524" y="850"/>
+            <point key="canvasLocation" x="414" y="848"/>
         </scene>
         <!--Title-->
         <scene sceneID="cYg-NG-fzk">
@@ -563,6 +695,7 @@
         <image name="ic_bookmark_black_48dp" width="48" height="48"/>
         <image name="ic_bookmark_outline_black_48dp" width="48" height="48"/>
         <image name="ic_chevron_right_black_48dp" width="48" height="48"/>
+        <image name="ic_expand_less_black_48dp" width="48" height="48"/>
         <image name="ic_forward_black_48dp" width="48" height="48"/>
         <image name="ic_list_black_48dp" width="48" height="48"/>
         <image name="ic_reply_black_48dp" width="48" height="48"/>

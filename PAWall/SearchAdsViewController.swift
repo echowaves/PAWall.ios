@@ -29,7 +29,7 @@ class SearchAdsViewController: UIViewController, UITableViewDelegate, UITableVie
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        self.searchBar.becomeFirstResponder()
+//        self.searchBar.becomeFirstResponder()
         self.searchBar.showsCancelButton = false
     }
     
