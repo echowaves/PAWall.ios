@@ -20,4 +20,5 @@ class ClassifiedAd : BaseDataModel {
     let DESCRIPTION = "description"
     let LOCATION = "location"
     let ACTIVE = "active"
+    let UUID = "uuid"
 }

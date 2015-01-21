@@ -58,7 +58,7 @@ class CreateAdViewController: UIViewController {
             svc.phoneNumber = phoneNumber.text
             svc.adDescription = adDescription.text
             
-            BaseDataModel.storeCredential(phoneNumber.text)
+            BaseDataModel.storeCredential(phoneNumber.text, uuid: DEVICE_UUID)
         }
     }
     

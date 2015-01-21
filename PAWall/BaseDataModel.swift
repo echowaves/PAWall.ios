@@ -28,7 +28,7 @@ class BaseDataModel : NSObject {
         return protSpace
     }
     
-    class func storeCredential(phoneNumber: String)  -> () {
+    class func storeCredential(phoneNumber: String, uuid: String)  -> () {
         let protSpace = pwProtectionSpace()
         
         if let credentials: NSDictionary = NSURLCredentialStorage.sharedCredentialStorage().credentialsForProtectionSpace(protSpace) {
@@ -40,7 +40,7 @@ class BaseDataModel : NSObject {
             }
         }
         //store new credential
-        let credential = NSURLCredential(user: phoneNumber, password: "", persistence: NSURLCredentialPersistence.Permanent)
+        let credential = NSURLCredential(user: phoneNumber, password: uuid, persistence: NSURLCredentialPersistence.Permanent)
         NSURLCredentialStorage.sharedCredentialStorage().setCredential(credential, forProtectionSpace: protSpace)
         
     }

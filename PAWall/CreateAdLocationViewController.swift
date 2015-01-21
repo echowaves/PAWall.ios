@@ -82,6 +82,7 @@ class CreateAdLocationViewController: UIViewController {
             classifiedAd[CLASSIFIED_AD.DESCRIPTION] = adDescription
             classifiedAd[CLASSIFIED_AD.LOCATION] = geoPoint
             classifiedAd[CLASSIFIED_AD.ACTIVE] = true
+            classifiedAd[CLASSIFIED_AD.UUID] = DEVICE_UUID
             var error:NSErrorPointer = nil
             classifiedAd.saveEventually({ (saved:Bool, error: NSError!) -> Void in
                 if saved == true {

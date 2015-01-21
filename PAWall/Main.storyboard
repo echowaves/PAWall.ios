@@ -79,8 +79,7 @@
                                     <constraint firstAttribute="height" constant="101.5" id="pLx-RF-I7c"/>
                                 </constraints>
                                 <attributedString key="attributedText">
-                                    <fragment>
-                                        <string key="content">Search for Ads near your,  or post a new Ad  so that people close to you can find it.  Typical search may look like: "snow blower buy" or: "laundry"</string>
+                                    <fragment content="Search for Ads near your.  Typical search may look like: &quot;snow blower buy&quot; or: &quot;laundry&quot;">
                                         <attributes>
                                             <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <font key="NSFont" size="17" name="HelveticaNeue"/>
