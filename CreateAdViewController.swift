@@ -55,8 +55,8 @@ class CreateAdViewController: UIViewController {
             
             var svc = segue.destinationViewController as CreateAdLocationViewController
             
-            svc.phoneNumber = phoneNumber.text
-            svc.adDescription = adDescription.text
+            svc.phoneNumber = self.phoneNumber.text
+            svc.adDescription = self.adDescription.text
             
             BaseDataModel.storeCredential(phoneNumber.text, uuid: DEVICE_UUID)
         }
