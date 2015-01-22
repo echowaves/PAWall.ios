@@ -10,8 +10,7 @@ import Foundation
 
 let CLASSIFIED_AD = ClassifiedAd()
 
-class ClassifiedAd : BaseDataModel {
-    
+class ClassifiedAd : BaseDataModel {    
     let CLASS_NAME = "ClassifiedAd"
     let DEVICE_TOKEN = "deviceToken"
     let PHONE_NUMBER = "phoneNumber"
@@ -20,5 +19,6 @@ class ClassifiedAd : BaseDataModel {
     let DESCRIPTION = "description"
     let LOCATION = "location"
     let ACTIVE = "active"
+    let REPLIES = "replies"
     let UUID = "uuid"
 }

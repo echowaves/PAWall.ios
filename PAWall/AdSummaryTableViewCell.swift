@@ -9,7 +9,8 @@
 import Foundation
 
 class AdSummaryTableViewCell: UITableViewCell {
-    @IBOutlet weak var summary: UILabel!
+    @IBOutlet weak var replies: UILabel!
+    @IBOutlet weak var postedAt: UILabel!
     @IBOutlet weak var details: UILabel!
     @IBOutlet weak var distance: UILabel!
 }

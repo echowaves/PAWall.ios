@@ -165,7 +165,15 @@ class SearchAdsViewController: UIViewController, UITableViewDelegate, UITableVie
             advertizement = adsNearMe[indexPath.row]
         }
         
-        cell.summary.text = advertizement[CLASSIFIED_AD.DESCRIPTION] as? String
+        if let replies = advertizement[CLASSIFIED_AD.REPLIES] as Int? {
+            cell.replies.text = "Replies: \(replies)"
+        } else {
+            cell.replies.text = "Replies: 0"
+        }
+
+        let df = NSDateFormatter()
+        df.dateFormat = "MM-dd-yyyy"
+        cell.postedAt.text = NSString(format: "%@", df.stringFromDate(advertizement.createdAt))
         cell.details.text = advertizement[CLASSIFIED_AD.DESCRIPTION] as? String
         
         let numberOfPlaces = 2.0
