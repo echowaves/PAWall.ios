@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C94b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="DrG-Fe-498">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C106a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="DrG-Fe-498">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -286,34 +286,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H9R-6F-7K1">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="vHU-jX-eXw"/>
-                                </constraints>
-                                <color key="barTintColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <items>
-                                    <navigationItem title="Ads near you" id="ajb-lq-A9g">
-                                        <barButtonItem key="leftBarButtonItem" image="ic_backspace_black_48dp" id="WFg-RD-GMx">
-                                            <connections>
-                                                <segue destination="7Xx-T8-nfr" kind="unwind" unwindAction="unwindToHome:" id="TKq-M9-Vej"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" image="ic_bookmark_black_48dp" id="ePu-gE-5Xd"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <searchBar contentMode="redraw" text="" placeholder="Search ads near your current location" translatesAutoresizingMaskIntoConstraints="NO" id="Oio-QX-hcc">
-                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="6uU-g8-XcH"/>
-                                </constraints>
-                                <color key="barTintColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="MKC-ZP-avC" id="NrR-17-7P6"/>
-                                </connections>
-                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="9BH-me-9pN">
                                 <rect key="frame" x="0.0" y="108" width="600" height="443"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -381,10 +353,38 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="MKC-ZP-avC" id="BBO-sh-IB8"/>
-                                    <outlet property="delegate" destination="MKC-ZP-avC" id="D61-Vq-DGW"/>
+                                    <outlet property="dataSource" destination="MKC-ZP-avC" id="VQW-km-dkP"/>
+                                    <outlet property="delegate" destination="MKC-ZP-avC" id="vf3-sr-oaj"/>
                                 </connections>
                             </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H9R-6F-7K1">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="vHU-jX-eXw"/>
+                                </constraints>
+                                <color key="barTintColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem title="Ads near you" id="ajb-lq-A9g">
+                                        <barButtonItem key="leftBarButtonItem" image="ic_backspace_black_48dp" id="WFg-RD-GMx">
+                                            <connections>
+                                                <segue destination="7Xx-T8-nfr" kind="unwind" unwindAction="unwindToHome:" id="TKq-M9-Vej"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" image="ic_bookmark_black_48dp" id="ePu-gE-5Xd"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <searchBar contentMode="redraw" text="" placeholder="Search ads near you" translatesAutoresizingMaskIntoConstraints="NO" id="Oio-QX-hcc">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="6uU-g8-XcH"/>
+                                </constraints>
+                                <color key="barTintColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="MKC-ZP-avC" id="NrR-17-7P6"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -404,7 +404,7 @@
                     <connections>
                         <outlet property="searchBar" destination="Oio-QX-hcc" id="3Xx-l5-S1G"/>
                         <outlet property="searchDisplayController" destination="JHS-aN-Cv1" id="9Id-0k-tJi"/>
-                        <outlet property="tableView" destination="9BH-me-9pN" id="90M-eY-knk"/>
+                        <outlet property="tableView" destination="9BH-me-9pN" id="XJD-PL-6A8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gCj-7v-tsd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -522,7 +522,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pjg-iv-FEP">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="AW6-9L-pd2"/>
+                                    <constraint firstAttribute="height" constant="44" id="gfQ-ju-41K"/>
                                 </constraints>
                                 <color key="barTintColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
@@ -541,10 +541,10 @@
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Mc-49-ar9">
-                                <rect key="frame" x="0.0" y="552" width="600" height="48"/>
+                                <rect key="frame" x="0.0" y="503" width="600" height="48"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="YLR-0I-EnH"/>
+                                    <constraint firstAttribute="height" constant="48" id="zKB-V6-ntF"/>
                                 </constraints>
                                 <state key="normal" title="Reply to Ad (charges may apply)">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -554,7 +554,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eqw-Tr-Xkj">
-                                <rect key="frame" x="16" y="105" width="568" height="440"/>
+                                <rect key="frame" x="16" y="105" width="568" height="390"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -563,38 +563,39 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="distance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQo-mI-Cer">
                                 <rect key="frame" x="16" y="76" width="568" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="51Z-pO-bq4"/>
+                                    <constraint firstAttribute="height" constant="21" id="cS6-5n-DJT"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_reply_black_48dp" translatesAutoresizingMaskIntoConstraints="NO" id="LUz-9m-c0c">
-                                <rect key="frame" x="0.0" y="553" width="48" height="48"/>
+                                <rect key="frame" x="0.0" y="503" width="48" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="48" id="J7G-dg-qbQ"/>
-                                    <constraint firstAttribute="height" constant="48" id="sJd-Pw-x6M"/>
+                                    <constraint firstAttribute="width" constant="48" id="ahw-Rn-I96"/>
+                                    <constraint firstAttribute="height" constant="48" id="lmL-Ns-4CM"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="2Mc-49-ar9" firstAttribute="top" secondItem="eqw-Tr-Xkj" secondAttribute="bottom" constant="7" id="2mh-Cf-aBc"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Pjg-iv-FEP" secondAttribute="trailing" constant="-16" id="5sv-10-zBY"/>
-                            <constraint firstItem="xQo-mI-Cer" firstAttribute="top" secondItem="Pjg-iv-FEP" secondAttribute="bottom" constant="12" id="BMs-m8-Kq5"/>
-                            <constraint firstItem="xot-UA-x4T" firstAttribute="top" secondItem="2Mc-49-ar9" secondAttribute="bottom" id="Cc8-nF-Ihm"/>
-                            <constraint firstItem="eqw-Tr-Xkj" firstAttribute="top" secondItem="xQo-mI-Cer" secondAttribute="bottom" constant="8" id="G6s-nZ-F5e"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="2Mc-49-ar9" secondAttribute="trailing" constant="-16" id="Hpj-UQ-7qn"/>
-                            <constraint firstItem="xQo-mI-Cer" firstAttribute="leading" secondItem="hvT-bL-vQs" secondAttribute="leadingMargin" id="Nye-ag-CDf"/>
-                            <constraint firstItem="2Mc-49-ar9" firstAttribute="top" secondItem="eqw-Tr-Xkj" secondAttribute="bottom" constant="7" id="TSp-ZO-8WO"/>
-                            <constraint firstItem="Pjg-iv-FEP" firstAttribute="leading" secondItem="hvT-bL-vQs" secondAttribute="leadingMargin" constant="-16" id="XX4-mh-4LZ"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="LUz-9m-c0c" secondAttribute="bottom" constant="-1" id="ZVS-PM-dlE"/>
-                            <constraint firstItem="xQo-mI-Cer" firstAttribute="trailing" secondItem="hvT-bL-vQs" secondAttribute="trailingMargin" id="aw1-uK-mbS"/>
-                            <constraint firstItem="eqw-Tr-Xkj" firstAttribute="leading" secondItem="hvT-bL-vQs" secondAttribute="leadingMargin" id="eGh-60-deV"/>
-                            <constraint firstItem="eqw-Tr-Xkj" firstAttribute="trailing" secondItem="hvT-bL-vQs" secondAttribute="trailingMargin" id="nWR-Ue-mAb"/>
-                            <constraint firstItem="LUz-9m-c0c" firstAttribute="leading" secondItem="hvT-bL-vQs" secondAttribute="leadingMargin" constant="-16" id="qpT-V0-yKg"/>
-                            <constraint firstItem="Pjg-iv-FEP" firstAttribute="top" secondItem="OFM-dd-BD4" secondAttribute="bottom" id="sEc-n8-kxn"/>
-                            <constraint firstItem="2Mc-49-ar9" firstAttribute="leading" secondItem="hvT-bL-vQs" secondAttribute="leadingMargin" constant="-16" id="va7-5d-I4D"/>
+                            <constraint firstItem="2Mc-49-ar9" firstAttribute="leading" secondItem="hvT-bL-vQs" secondAttribute="leadingMargin" constant="-16" id="0yu-sc-dkX"/>
+                            <constraint firstItem="LUz-9m-c0c" firstAttribute="top" secondItem="eqw-Tr-Xkj" secondAttribute="bottom" constant="8" id="1kP-Sg-g81"/>
+                            <constraint firstItem="eqw-Tr-Xkj" firstAttribute="trailing" secondItem="hvT-bL-vQs" secondAttribute="trailingMargin" id="2Wi-kd-2IJ"/>
+                            <constraint firstItem="Pjg-iv-FEP" firstAttribute="top" secondItem="OFM-dd-BD4" secondAttribute="bottom" id="429-gh-uXf"/>
+                            <constraint firstItem="eqw-Tr-Xkj" firstAttribute="leading" secondItem="hvT-bL-vQs" secondAttribute="leadingMargin" id="5oR-DT-jtI"/>
+                            <constraint firstItem="xQo-mI-Cer" firstAttribute="trailing" secondItem="hvT-bL-vQs" secondAttribute="trailingMargin" id="70o-tG-uax"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Pjg-iv-FEP" secondAttribute="trailing" constant="-16" id="9qR-l0-4HA"/>
+                            <constraint firstItem="LUz-9m-c0c" firstAttribute="leading" secondItem="hvT-bL-vQs" secondAttribute="leadingMargin" constant="-16" id="AQz-f1-9Kw"/>
+                            <constraint firstItem="2Mc-49-ar9" firstAttribute="top" secondItem="eqw-Tr-Xkj" secondAttribute="bottom" constant="8" id="E8g-pX-op7"/>
+                            <constraint firstItem="LUz-9m-c0c" firstAttribute="top" secondItem="eqw-Tr-Xkj" secondAttribute="bottom" constant="8" id="JzZ-h5-Jig"/>
+                            <constraint firstItem="xQo-mI-Cer" firstAttribute="top" secondItem="Pjg-iv-FEP" secondAttribute="bottom" constant="12" id="KiX-5X-8VZ"/>
+                            <constraint firstItem="xot-UA-x4T" firstAttribute="top" secondItem="LUz-9m-c0c" secondAttribute="bottom" id="XZw-G8-u0Y"/>
+                            <constraint firstItem="Pjg-iv-FEP" firstAttribute="leading" secondItem="hvT-bL-vQs" secondAttribute="leadingMargin" constant="-16" id="bzC-72-OFu"/>
+                            <constraint firstItem="xQo-mI-Cer" firstAttribute="leading" secondItem="hvT-bL-vQs" secondAttribute="leadingMargin" id="mrk-Yu-tdG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2Mc-49-ar9" secondAttribute="trailing" constant="-16" id="uJd-Ue-OVz"/>
+                            <constraint firstItem="eqw-Tr-Xkj" firstAttribute="top" secondItem="xQo-mI-Cer" secondAttribute="bottom" constant="8" id="wBb-gp-rnV"/>
+                            <constraint firstItem="xot-UA-x4T" firstAttribute="top" secondItem="2Mc-49-ar9" secondAttribute="bottom" id="wHe-ap-3TS"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Ads near you" id="tqm-Ff-yYn">
