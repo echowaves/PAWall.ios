@@ -12,7 +12,7 @@ import MapKit
 class SearchAdsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchDisplayDelegate {
     
     var adsNearMe = [PFObject]()
-    var fileteredAdsNearMe = [PFObject]()
+    var filteredAdsNearMe = [PFObject]()
     var myLocation:PFGeoPoint = PFGeoPoint()
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -112,7 +112,7 @@ class SearchAdsViewController: UIViewController, UITableViewDelegate, UITableVie
                             
                             NSLog("Successfully retrieved \(objects.count)")
                             if objects.count > 0 {
-                                self.fileteredAdsNearMe = objects as [PFObject]
+                                self.filteredAdsNearMe = objects as [PFObject]
                                 self.searchDisplayController?.searchResultsTableView.reloadData()
 //                                self.searchDisplayController?.searchResultsTableView.reloadInputViews()
                             }
@@ -147,7 +147,7 @@ class SearchAdsViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == self.searchDisplayController!.searchResultsTableView {
-            return self.fileteredAdsNearMe.count
+            return self.filteredAdsNearMe.count
         } else {
             return self.adsNearMe.count
         }
@@ -160,7 +160,7 @@ class SearchAdsViewController: UIViewController, UITableViewDelegate, UITableVie
         var advertizement:PFObject
         
         if tableView == self.searchDisplayController!.searchResultsTableView {
-            advertizement = fileteredAdsNearMe[indexPath.row]
+            advertizement = filteredAdsNearMe[indexPath.row]
         } else {
             advertizement = adsNearMe[indexPath.row]
         }
@@ -197,16 +197,24 @@ class SearchAdsViewController: UIViewController, UITableViewDelegate, UITableVie
         if (segue.identifier == "ad_details") {
             let adDetailsViewController:AdDetailsViewController = segue.destinationViewController as AdDetailsViewController
             
-            let indexPath = self.searchDisplayController!.searchResultsTableView.indexPathForSelectedRow()!
-//            self.tableView.indexPathForSelectedRow()
-
+            var indexPath:NSIndexPath = NSIndexPath(index: 0)
+            var adObject:PFObject = PFObject()
+            
+            if sender as UITableView == self.searchDisplayController!.searchResultsTableView {
+                 indexPath = self.searchDisplayController!.searchResultsTableView.indexPathForSelectedRow()!
+                 adObject = self.filteredAdsNearMe[indexPath.row]
+            } else {
+                indexPath = self.tableView.indexPathForSelectedRow()!
+                adObject = self.adsNearMe[indexPath.row]
+            }
+            
             let numberOfPlaces = 2.0
             let multiplier = pow(10.0, numberOfPlaces)
-            let distance = (adsNearMe[indexPath.row][CLASSIFIED_AD.LOCATION] as PFGeoPoint).distanceInMilesTo(self.myLocation)
+            let distance = (adObject[CLASSIFIED_AD.LOCATION]? as PFGeoPoint).distanceInMilesTo(self.myLocation)
             let roundedDistance = round(distance * multiplier) / multiplier
 
             adDetailsViewController.rawDistance = roundedDistance
-            adDetailsViewController.rawDescription = adsNearMe[indexPath.row][CLASSIFIED_AD.DESCRIPTION] as String
+            adDetailsViewController.rawDescription = adObject[CLASSIFIED_AD.DESCRIPTION]? as String
         }
     }
     
