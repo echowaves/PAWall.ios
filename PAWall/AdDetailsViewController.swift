@@ -12,6 +12,7 @@ class AdDetailsViewController: UIViewController {
     
     var rawDistance = 0.0
     var rawDescription = ""
+    var rawPhoneNumber = ""
     
     @IBOutlet weak var adDistance: UILabel!
     @IBOutlet weak var adDescription: UITextView!
@@ -28,6 +29,9 @@ class AdDetailsViewController: UIViewController {
     }
     
     @IBAction func replyToAd(sender: AnyObject) {
+        NSLog("calling phone number: \(rawPhoneNumber)")
+        UIApplication.sharedApplication().openURL(NSURL(string:"tel:\(rawPhoneNumber)")!)
+
     }
     
 }

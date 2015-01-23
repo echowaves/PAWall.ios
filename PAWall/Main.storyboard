@@ -62,11 +62,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uuh-7I-9uh">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uuh-7I-9uh">
                                 <rect key="frame" x="558" y="86" width="4" height="386"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="4" id="Mbr-9e-SS9"/>
+                                    <constraint firstAttribute="width" constant="4" id="dQr-gV-g83"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -101,12 +101,12 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="v0t-cB-U2D">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="v0t-cB-U2D">
                                 <rect key="frame" x="283" y="480" width="301" height="100"/>
                                 <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="86" id="g8D-GY-CYe"/>
-                                    <constraint firstAttribute="width" constant="259" id="uJ2-fL-mQN"/>
+                                    <constraint firstAttribute="width" constant="301" id="NEw-lZ-YcQ"/>
+                                    <constraint firstAttribute="height" constant="100" id="U9p-tQ-yhG"/>
                                 </constraints>
                                 <attributedString key="attributedText">
                                     <fragment content="Create new Ads Typical Ad may say things like: &quot;Will sell a used snow blower for $150 &quot; Or &quot;Need my Laundry done&quot;">
@@ -161,23 +161,22 @@
                             <constraint firstItem="1la-Iw-TEs" firstAttribute="leading" secondItem="MsO-sK-2Y1" secondAttribute="leadingMargin" constant="22" id="09i-LK-G6l"/>
                             <constraint firstItem="ULT-JU-lnJ" firstAttribute="top" secondItem="1la-Iw-TEs" secondAttribute="bottom" constant="8" id="2pH-eX-vbt"/>
                             <constraint firstAttribute="centerX" secondItem="9mn-cS-T2i" secondAttribute="centerX" id="9Py-on-xrL"/>
-                            <constraint firstItem="v0t-cB-U2D" firstAttribute="top" secondItem="Uuh-7I-9uh" secondAttribute="bottom" constant="8" id="Ehn-CV-LRb"/>
                             <constraint firstItem="FJT-Ii-yLf" firstAttribute="leading" secondItem="MsO-sK-2Y1" secondAttribute="leadingMargin" id="Ejs-Rj-fUm"/>
+                            <constraint firstItem="v0t-cB-U2D" firstAttribute="top" secondItem="Uuh-7I-9uh" secondAttribute="bottom" constant="8" id="Ie8-iL-Eej"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Uuh-7I-9uh" secondAttribute="trailing" constant="22" id="J96-tp-mvz"/>
                             <constraint firstItem="SFO-4t-k2m" firstAttribute="top" secondItem="Qug-wQ-7sz" secondAttribute="bottom" id="Ufr-UU-IpY"/>
                             <constraint firstItem="ULT-JU-lnJ" firstAttribute="top" secondItem="1la-Iw-TEs" secondAttribute="bottom" constant="8" id="V58-Gx-gDa"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Uuh-7I-9uh" secondAttribute="trailing" constant="22" id="dN5-sH-WCv"/>
+                            <constraint firstItem="Uuh-7I-9uh" firstAttribute="top" secondItem="Qug-wQ-7sz" secondAttribute="bottom" constant="22" id="ZFj-CH-TLO"/>
+                            <constraint firstItem="v0t-cB-U2D" firstAttribute="trailing" secondItem="MsO-sK-2Y1" secondAttribute="trailingMargin" id="bCE-JZ-pFt"/>
+                            <constraint firstItem="ca9-ao-C4h" firstAttribute="top" secondItem="v0t-cB-U2D" secondAttribute="bottom" constant="20" id="dUW-62-UV4"/>
                             <constraint firstItem="SFO-4t-k2m" firstAttribute="trailing" secondItem="MsO-sK-2Y1" secondAttribute="trailingMargin" id="ecA-Ug-1VY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Qug-wQ-7sz" secondAttribute="trailing" constant="-16" id="f74-VJ-UAB"/>
                             <constraint firstItem="Qug-wQ-7sz" firstAttribute="top" secondItem="ZA4-y0-1N1" secondAttribute="bottom" id="gqg-r0-pMz"/>
                             <constraint firstItem="ULT-JU-lnJ" firstAttribute="leading" secondItem="MsO-sK-2Y1" secondAttribute="leadingMargin" id="j9b-9r-fJT"/>
-                            <constraint firstItem="ca9-ao-C4h" firstAttribute="top" secondItem="v0t-cB-U2D" secondAttribute="bottom" constant="20" id="jMq-pA-bMh"/>
                             <constraint firstItem="1la-Iw-TEs" firstAttribute="top" secondItem="Qug-wQ-7sz" secondAttribute="bottom" constant="22" id="oek-ug-16v"/>
                             <constraint firstItem="Qug-wQ-7sz" firstAttribute="leading" secondItem="MsO-sK-2Y1" secondAttribute="leadingMargin" constant="-16" id="rgS-h5-kDz"/>
                             <constraint firstItem="9mn-cS-T2i" firstAttribute="top" secondItem="ULT-JU-lnJ" secondAttribute="bottom" constant="15.5" id="t2Z-Nq-bgJ"/>
-                            <constraint firstItem="v0t-cB-U2D" firstAttribute="top" secondItem="Uuh-7I-9uh" secondAttribute="bottom" constant="8" id="wOR-O6-GKX"/>
                             <constraint firstItem="FJT-Ii-yLf" firstAttribute="top" secondItem="Qug-wQ-7sz" secondAttribute="bottom" id="xMV-m8-laz"/>
-                            <constraint firstItem="v0t-cB-U2D" firstAttribute="trailing" secondItem="MsO-sK-2Y1" secondAttribute="trailingMargin" id="xR7-YF-d8t"/>
-                            <constraint firstItem="Uuh-7I-9uh" firstAttribute="top" secondItem="Qug-wQ-7sz" secondAttribute="bottom" constant="22" id="xkY-Qz-gXt"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
