@@ -62,8 +62,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uuh-7I-9uh">
-                                <rect key="frame" x="558" y="86" width="4" height="400"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uuh-7I-9uh">
+                                <rect key="frame" x="558" y="86" width="4" height="386"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="4" id="Mbr-9e-SS9"/>
@@ -101,15 +101,15 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="v0t-cB-U2D">
-                                <rect key="frame" x="325" y="494" width="259" height="86"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="v0t-cB-U2D">
+                                <rect key="frame" x="283" y="480" width="301" height="100"/>
                                 <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="86" id="g8D-GY-CYe"/>
                                     <constraint firstAttribute="width" constant="259" id="uJ2-fL-mQN"/>
                                 </constraints>
                                 <attributedString key="attributedText">
-                                    <fragment content="Create new Ads Typical Ad may say thing like: &quot;Will sell a used snow blower for $150 &quot; Or &quot;Need my Laundry done&quot;">
+                                    <fragment content="Create new Ads Typical Ad may say things like: &quot;Will sell a used snow blower for $150 &quot; Or &quot;Need my Laundry done&quot;">
                                         <attributes>
                                             <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <font key="NSFont" size="17" name="HelveticaNeue"/>
