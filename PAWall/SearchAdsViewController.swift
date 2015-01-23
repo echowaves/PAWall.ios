@@ -21,16 +21,16 @@ class SearchAdsViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.tableView.registerClass(AdSummaryTableViewCell.self, forCellReuseIdentifier: "ad_summary")
+        //        self.tableView.registerClass(AdSummaryTableViewCell.self, forCellReuseIdentifier: "ad_summary")
         self.tableView.delegate      =   self
         self.tableView.dataSource    =   self
         self.searchBar.delegate      =   self
-//        search("")
+        //        search("")
     }
-
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-
+        
         PFGeoPoint.geoPointForCurrentLocationInBackground {
             (geoPoint: PFGeoPoint!, error: NSError!) -> Void in
             
@@ -73,14 +73,14 @@ class SearchAdsViewController: UIViewController, UITableViewDelegate, UITableVie
                 })
             }
         }
-
-    
+        
+        
     }
     
     func filterContentForSearchText(searchText:String) {
         
-//        self.adsNearMe = []
-//        self.tableView.reloadData()
+        //        self.adsNearMe = []
+        //        self.tableView.reloadData()
         
         PFGeoPoint.geoPointForCurrentLocationInBackground {
             (geoPoint: PFGeoPoint!, error: NSError!) -> Void in
@@ -102,40 +102,39 @@ class SearchAdsViewController: UIViewController, UITableViewDelegate, UITableVie
                 // Limit what could be a lot of points.
                 query.limit = 100
                 // Final list of objects
-//                self.adsNearMe =
+                //                self.adsNearMe =
                 
-                    query.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]!, error: NSError!) -> Void in
-                        if error == nil {
-                            // The find succeeded.
-                            // Do something with the found objects
-                            
-                            
-                            NSLog("Successfully retrieved \(objects.count)")
-                            if objects.count > 0 {
-                                self.filteredAdsNearMe = objects as [PFObject]
-                                self.searchDisplayController?.searchResultsTableView.reloadData()
-//                                self.searchDisplayController?.searchResultsTableView.reloadInputViews()
-                            }
-
-                        } else {
-                            // Log details of the failure
-                            NSLog("Error: %@ %@", error, error.userInfo!)
-                            
-                            let alertMessage = UIAlertController(title: "Error", message: "Error retreiving ads, try agin.", preferredStyle: UIAlertControllerStyle.Alert)
-                            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
-                            alertMessage.addAction(ok)
-                            self.presentViewController(alertMessage, animated: true, completion: nil)
-
+                query.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]!, error: NSError!) -> Void in
+                    if error == nil {
+                        // The find succeeded.
+                        // Do something with the found objects
+                        
+                        
+                        NSLog("Successfully retrieved \(objects.count)")
+                        if objects.count > 0 {
+                            self.filteredAdsNearMe = objects as [PFObject]
+                            self.searchDisplayController?.searchResultsTableView.reloadData()
+                            //                                self.searchDisplayController?.searchResultsTableView.reloadInputViews()
                         }
-                    }) 
+                        
+                    } else {
+                        // Log details of the failure
+                        NSLog("Error: %@ %@", error, error.userInfo!)
+                        
+                        let alertMessage = UIAlertController(title: "Error", message: "Error retreiving ads, try agin.", preferredStyle: UIAlertControllerStyle.Alert)
+                        let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
+                        alertMessage.addAction(ok)
+                        self.presentViewController(alertMessage, animated: true, completion: nil)
+                        
+                    }
+                })
             }
         }
     }
     
-    func searchBar(searchBar: UISearchBar,
-        textDidChange searchText: String) {
-            filterContentForSearchText(searchBar.text)
-            println("editing")
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        filterContentForSearchText(searchBar.text)
+        println("editing")
     }
     
     
@@ -170,7 +169,7 @@ class SearchAdsViewController: UIViewController, UITableViewDelegate, UITableVie
         } else {
             cell.replies.text = "Replies: 0"
         }
-
+        
         let df = NSDateFormatter()
         df.dateFormat = "MM-dd-yyyy"
         cell.postedAt.text = NSString(format: "%@", df.stringFromDate(advertizement.createdAt))
@@ -180,46 +179,49 @@ class SearchAdsViewController: UIViewController, UITableViewDelegate, UITableVie
         let multiplier = pow(10.0, numberOfPlaces)
         let distance = (advertizement[CLASSIFIED_AD.LOCATION] as PFGeoPoint).distanceInMilesTo(myLocation)
         let roundedDistance = round(distance * multiplier) / multiplier
-
+        
         cell.distance.text = "\(roundedDistance) Miles"
-
-//        cell.details.sizeToFit()
+        
+        //        cell.details.sizeToFit()
         return cell
     }
- 
+    
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         println("You selected cell #\(indexPath.row)!")
         self.performSegueWithIdentifier("ad_details", sender: self)
     }
-
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "ad_details") {
             let adDetailsViewController:AdDetailsViewController = segue.destinationViewController as AdDetailsViewController
             
-            var indexPath:NSIndexPath = NSIndexPath(index: 0)
-            var adObject:PFObject = PFObject()
+//            var indexPath:NSIndexPath = NSIndexPath()
+            var adObject:PFObject? = nil
             
-            if sender as UITableView == self.searchDisplayController!.searchResultsTableView {
-                 indexPath = self.searchDisplayController!.searchResultsTableView.indexPathForSelectedRow()!
-                 adObject = self.filteredAdsNearMe[indexPath.row]
+            
+            if self.searchDisplayController!.active  {
+                let indexPath = self.searchDisplayController!.searchResultsTableView.indexPathForSelectedRow()!
+                NSLog("indexpath row1: \(indexPath.row)")
+                adObject = self.filteredAdsNearMe[indexPath.row]
             } else {
-                indexPath = self.tableView.indexPathForSelectedRow()!
+                let indexPath = self.tableView.indexPathForSelectedRow()!
+                NSLog("indexpath row2: \(indexPath.row)")
                 adObject = self.adsNearMe[indexPath.row]
             }
             
             let numberOfPlaces = 2.0
             let multiplier = pow(10.0, numberOfPlaces)
-            let distance = (adObject[CLASSIFIED_AD.LOCATION]? as PFGeoPoint).distanceInMilesTo(self.myLocation)
+            let distance = (adObject![CLASSIFIED_AD.LOCATION] as PFGeoPoint).distanceInMilesTo(self.myLocation)
             let roundedDistance = round(distance * multiplier) / multiplier
-
+            
             adDetailsViewController.rawDistance = roundedDistance
-            adDetailsViewController.rawDescription = adObject[CLASSIFIED_AD.DESCRIPTION]? as String
+            adDetailsViewController.rawDescription = adObject![CLASSIFIED_AD.DESCRIPTION]? as String
         }
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-      return 80
+        return 80
     }
     
     
@@ -236,7 +238,7 @@ class SearchAdsViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBAction func unwindToAdsNearYou (segue : UIStoryboardSegue) {
         NSLog("CreateAd seque from segue id: \(segue.identifier)")
     }
-
+    
 }
 
 //http://www.raywenderlich.com/76519/add-table-view-search-swift
