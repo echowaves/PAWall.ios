@@ -216,8 +216,7 @@ class SearchAdsViewController: UIViewController, UITableViewDelegate, UITableVie
             let roundedDistance = round(distance * multiplier) / multiplier
             
             adDetailsViewController.rawDistance = roundedDistance
-            adDetailsViewController.rawDescription = adObject![CLASSIFIED_AD.DESCRIPTION]? as String
-            adDetailsViewController.rawPhoneNumber = adObject![CLASSIFIED_AD.PHONE_NUMBER]? as String
+            adDetailsViewController.adObject = adObject!
         }
     }
     

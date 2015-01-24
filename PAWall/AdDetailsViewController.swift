@@ -11,8 +11,8 @@ import Foundation
 class AdDetailsViewController: UIViewController {
     
     var rawDistance = 0.0
-    var rawDescription = ""
-    var rawPhoneNumber = ""
+    var adObject:PFObject?
+
     
     @IBOutlet weak var adDistance: UILabel!
     @IBOutlet weak var adDescription: UITextView!
@@ -20,7 +20,7 @@ class AdDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         adDistance.text = "This ad is \(rawDistance) miles away from you"
-        adDescription.text = rawDescription
+        adDescription.text = adObject?[CLASSIFIED_AD.DESCRIPTION] as String
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -29,8 +29,8 @@ class AdDetailsViewController: UIViewController {
     }
     
     @IBAction func replyToAd(sender: AnyObject) {
-        NSLog("calling phone number: \(rawPhoneNumber)")
-        UIApplication.sharedApplication().openURL(NSURL(string:"tel:\(rawPhoneNumber)")!)
+        NSLog("calling phone number: \(adObject![CLASSIFIED_AD.PHONE_NUMBER])")
+        UIApplication.sharedApplication().openURL(NSURL(string:"tel:\(adObject![CLASSIFIED_AD.PHONE_NUMBER])")!)
 
     }
     
