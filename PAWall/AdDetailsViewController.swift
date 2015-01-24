@@ -31,6 +31,8 @@ class AdDetailsViewController: UIViewController {
     @IBAction func replyToAd(sender: AnyObject) {
         NSLog("calling phone number: \(adObject![CLASSIFIED_AD.PHONE_NUMBER])")
         UIApplication.sharedApplication().openURL(NSURL(string:"tel:\(adObject![CLASSIFIED_AD.PHONE_NUMBER])")!)
+        adObject?.incrementKey(CLASSIFIED_AD.REPLIES)
+        adObject?.saveInBackgroundWithBlock(nil)
 
     }
     
