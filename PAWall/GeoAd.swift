@@ -8,12 +8,11 @@
 
 import Foundation
 
-let CLASSIFIED_AD = ClassifiedAd()
+let GEO_AD = GeoAd()
 
-class ClassifiedAd : BaseDataModel {    
-    let CLASS_NAME = "ClassifiedAd"
+class GeoAd : BaseDataModel {
+    let CLASS_NAME = "GeoAds"
     let DEVICE_TOKEN = "deviceToken"
-    let PHONE_NUMBER = "phoneNumber"
     let WORDS = "words"
     let HASH_TAGS = "hashtags"
     let DESCRIPTION = "description"

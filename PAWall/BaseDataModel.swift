@@ -54,5 +54,9 @@ class BaseDataModel : NSObject {
         }
         return nil
     }
+    class func clearStoredCredential() -> Void  {
+        //check if credentials are already stored, then show it in the tune in fields        
+        NSURLCredentialStorage.sharedCredentialStorage().removeCredential(getStoredCredential()!, forProtectionSpace: pwProtectionSpace())
+    }
     
 }

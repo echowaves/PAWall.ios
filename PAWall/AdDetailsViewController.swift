@@ -20,7 +20,7 @@ class AdDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         adDistance.text = "This ad is \(rawDistance) miles away from you"
-        adDescription.text = adObject?[CLASSIFIED_AD.DESCRIPTION] as String
+        adDescription.text = adObject?[GEO_AD.DESCRIPTION] as String
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -29,9 +29,9 @@ class AdDetailsViewController: UIViewController {
     }
     
     @IBAction func replyToAd(sender: AnyObject) {
-        NSLog("calling phone number: \(adObject![CLASSIFIED_AD.PHONE_NUMBER])")
-        UIApplication.sharedApplication().openURL(NSURL(string:"tel:\(adObject![CLASSIFIED_AD.PHONE_NUMBER])")!)
-        adObject?.incrementKey(CLASSIFIED_AD.REPLIES)
+//        NSLog("calling phone number: \(adObject![GEO_AD.PHONE_NUMBER])")
+//        UIApplication.sharedApplication().openURL(NSURL(string:"tel:\(adObject![GEO_AD.PHONE_NUMBER])")!)
+        adObject?.incrementKey(GEO_AD.REPLIES)
         adObject?.saveInBackgroundWithBlock(nil)
 
     }

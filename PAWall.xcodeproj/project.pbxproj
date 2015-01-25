@@ -27,11 +27,10 @@
 		0A6499F31A6246B1001E013D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A6499F21A6246B1001E013D /* libsqlite3.dylib */; };
 		0A6499F61A624D03001E013D /* pawall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0A6499F51A624D03001E013D /* pawall.jpg */; };
 		0A6499FB1A625122001E013D /* libFlurry_6.0.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A6499FA1A625122001E013D /* libFlurry_6.0.0.a */; };
-		0A9A18951A697A6F00B31406 /* ClassifiedAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A18941A697A6F00B31406 /* ClassifiedAd.swift */; };
+		0A9A18951A697A6F00B31406 /* GeoAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A18941A697A6F00B31406 /* GeoAd.swift */; };
 		0A9A18971A69856E00B31406 /* SearchAdsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A18961A69856E00B31406 /* SearchAdsViewController.swift */; };
 		0A9A18991A6B513C00B31406 /* AdSummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A18981A6B513C00B31406 /* AdSummaryTableViewCell.swift */; };
 		0AC601451A6D7380004594C0 /* AdDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC601441A6D7380004594C0 /* AdDetailsViewController.swift */; };
-		0AC6078E1A64CC7600C3DA50 /* CreateAdLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC6078D1A64CC7600C3DA50 /* CreateAdLocationViewController.swift */; };
 		0AE071971A623DC900E18B59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE071961A623DC900E18B59 /* AppDelegate.swift */; };
 		0AE0719E1A623DC900E18B59 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AE0719D1A623DC900E18B59 /* Images.xcassets */; };
 		0AE071AD1A623DC900E18B59 /* PAWallTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE071AC1A623DC900E18B59 /* PAWallTests.swift */; };
@@ -71,11 +70,10 @@
 		0A6499F51A624D03001E013D /* pawall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pawall.jpg; sourceTree = "<group>"; };
 		0A6499F91A625122001E013D /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
 		0A6499FA1A625122001E013D /* libFlurry_6.0.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_6.0.0.a; sourceTree = "<group>"; };
-		0A9A18941A697A6F00B31406 /* ClassifiedAd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassifiedAd.swift; sourceTree = "<group>"; };
+		0A9A18941A697A6F00B31406 /* GeoAd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoAd.swift; sourceTree = "<group>"; };
 		0A9A18961A69856E00B31406 /* SearchAdsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAdsViewController.swift; sourceTree = "<group>"; };
 		0A9A18981A6B513C00B31406 /* AdSummaryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdSummaryTableViewCell.swift; sourceTree = "<group>"; };
 		0AC601441A6D7380004594C0 /* AdDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdDetailsViewController.swift; sourceTree = "<group>"; };
-		0AC6078D1A64CC7600C3DA50 /* CreateAdLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAdLocationViewController.swift; sourceTree = "<group>"; };
 		0AE071911A623DC900E18B59 /* PAWall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PAWall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AE071951A623DC900E18B59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AE071961A623DC900E18B59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -146,7 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				0AF790B31A671B35001B87F0 /* BaseDataModel.swift */,
-				0A9A18941A697A6F00B31406 /* ClassifiedAd.swift */,
+				0A9A18941A697A6F00B31406 /* GeoAd.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -195,7 +193,6 @@
 				0A6499F01A62432C001E013D /* Main.storyboard */,
 				0A2AB8BA1A64411900DF08DF /* HomeViewController.swift */,
 				0A2AB8BC1A64418F00DF08DF /* CreateAdViewController.swift */,
-				0AC6078D1A64CC7600C3DA50 /* CreateAdLocationViewController.swift */,
 				0A9A18961A69856E00B31406 /* SearchAdsViewController.swift */,
 				0A9A18981A6B513C00B31406 /* AdSummaryTableViewCell.swift */,
 				0AC601441A6D7380004594C0 /* AdDetailsViewController.swift */,
@@ -340,14 +337,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AF790B41A671B35001B87F0 /* BaseDataModel.swift in Sources */,
-				0A9A18951A697A6F00B31406 /* ClassifiedAd.swift in Sources */,
+				0A9A18951A697A6F00B31406 /* GeoAd.swift in Sources */,
 				0A2AB8BB1A64411900DF08DF /* HomeViewController.swift in Sources */,
 				0A9A18971A69856E00B31406 /* SearchAdsViewController.swift in Sources */,
 				0AC601451A6D7380004594C0 /* AdDetailsViewController.swift in Sources */,
 				0A2AB8BD1A64418F00DF08DF /* CreateAdViewController.swift in Sources */,
 				0A9A18991A6B513C00B31406 /* AdSummaryTableViewCell.swift in Sources */,
 				0AE071971A623DC900E18B59 /* AppDelegate.swift in Sources */,
-				0AC6078E1A64CC7600C3DA50 /* CreateAdLocationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

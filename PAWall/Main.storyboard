@@ -79,7 +79,7 @@
                                     <constraint firstAttribute="height" constant="101.5" id="pLx-RF-I7c"/>
                                 </constraints>
                                 <attributedString key="attributedText">
-                                    <fragment content="Search for Ads near your Typical search may look like: &quot;snow blower used&quot; or &quot;laundry&quot;">
+                                    <fragment content="Search for Ads near you Typical search may look like: &quot;snow blower used&quot; or &quot;laundry&quot;">
                                         <attributes>
                                             <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <font key="NSFont" size="17" name="HelveticaNeue"/>
@@ -214,9 +214,9 @@
                                                 <segue destination="TZO-hv-g0F" kind="unwind" unwindAction="unwindToHome:" id="b3k-AI-uqb"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" image="ic_forward_black_48dp" id="BOo-ki-efO">
+                                        <barButtonItem key="rightBarButtonItem" image="ic_save_black_48dp" id="BOo-ki-efO">
                                             <connections>
-                                                <segue destination="2qa-Ve-oTX" kind="show" identifier="CreateAdLocation" id="zho-Y4-dfC"/>
+                                                <action selector="saveAd:" destination="rga-hB-ssV" id="mPh-fx-3N4"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -239,39 +239,69 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hAP-TS-E9a">
-                                <rect key="frame" x="16" y="75" width="568" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DC7-zc-1ID">
+                                <rect key="frame" x="16" y="346" width="568" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="s8h-GA-lsn"/>
+                                    <constraint firstAttribute="height" constant="50" id="4gP-6b-RrG"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="numberPad"/>
-                            </textField>
+                                <state key="normal" title="Post">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveAd:" destination="rga-hB-ssV" eventType="touchUpInside" id="UTD-eX-nmb"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_save_black_48dp" translatesAutoresizingMaskIntoConstraints="NO" id="Zpz-48-tyC">
+                                <rect key="frame" x="16" y="348" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="48" id="4RD-ky-ZlX"/>
+                                    <constraint firstAttribute="width" constant="48" id="A4h-qX-PHM"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="48" id="KNa-H0-ryb"/>
+                                    <constraint firstAttribute="height" constant="48" id="Rj5-eT-NUH"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="...detecting current location..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="t2e-xF-BBV">
+                                <rect key="frame" x="0.0" y="64" width="600" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="7N6-WP-CL8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="t2e-xF-BBV" firstAttribute="top" secondItem="5dw-Sn-AFY" secondAttribute="bottom" id="4m9-Zp-aqH"/>
+                            <constraint firstItem="DC7-zc-1ID" firstAttribute="top" secondItem="c1k-au-acX" secondAttribute="bottom" constant="8" id="4mt-2y-iwS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5dw-Sn-AFY" secondAttribute="trailing" constant="-16" id="6rV-nx-KGk"/>
-                            <constraint firstItem="hAP-TS-E9a" firstAttribute="trailing" secondItem="zp4-sA-5bq" secondAttribute="trailingMargin" id="Eqk-Ov-ZJC"/>
+                            <constraint firstItem="DC7-zc-1ID" firstAttribute="leading" secondItem="zp4-sA-5bq" secondAttribute="leadingMargin" id="8eT-jc-k56"/>
+                            <constraint firstItem="t2e-xF-BBV" firstAttribute="leading" secondItem="zp4-sA-5bq" secondAttribute="leadingMargin" constant="-16" id="AJ1-9F-K9J"/>
                             <constraint firstItem="5dw-Sn-AFY" firstAttribute="top" secondItem="JCN-cD-8RI" secondAttribute="bottom" id="N1S-tW-nmE"/>
+                            <constraint firstItem="Zpz-48-tyC" firstAttribute="leading" secondItem="zp4-sA-5bq" secondAttribute="leadingMargin" id="Rc9-M9-L3f"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="t2e-xF-BBV" secondAttribute="trailing" constant="-16" id="Vhb-Vm-gus"/>
                             <constraint firstItem="5dw-Sn-AFY" firstAttribute="leading" secondItem="zp4-sA-5bq" secondAttribute="leadingMargin" constant="-16" id="W0o-fE-sfr"/>
-                            <constraint firstItem="c1k-au-acX" firstAttribute="trailing" secondItem="zp4-sA-5bq" secondAttribute="trailingMargin" id="Yd7-qC-jg1"/>
-                            <constraint firstItem="c1k-au-acX" firstAttribute="top" secondItem="hAP-TS-E9a" secondAttribute="bottom" constant="8" id="hcA-x7-LWl"/>
-                            <constraint firstItem="o9O-7y-M0P" firstAttribute="top" secondItem="c1k-au-acX" secondAttribute="bottom" constant="262" id="iSh-Vu-Ey0"/>
-                            <constraint firstItem="hAP-TS-E9a" firstAttribute="leading" secondItem="zp4-sA-5bq" secondAttribute="leadingMargin" id="joF-Qw-9oD"/>
-                            <constraint firstItem="hAP-TS-E9a" firstAttribute="top" secondItem="5dw-Sn-AFY" secondAttribute="bottom" constant="11" id="vEf-my-PSQ"/>
-                            <constraint firstItem="c1k-au-acX" firstAttribute="leading" secondItem="zp4-sA-5bq" secondAttribute="leadingMargin" id="wwT-MG-2uC"/>
+                            <constraint firstItem="Zpz-48-tyC" firstAttribute="leading" secondItem="zp4-sA-5bq" secondAttribute="leadingMargin" id="cYv-Wj-odi"/>
+                            <constraint firstItem="Zpz-48-tyC" firstAttribute="top" secondItem="c1k-au-acX" secondAttribute="bottom" constant="10" id="e40-OQ-z4Q"/>
+                            <constraint firstItem="c1k-au-acX" firstAttribute="top" secondItem="t2e-xF-BBV" secondAttribute="bottom" constant="8" id="fQf-O1-OpY"/>
+                            <constraint firstItem="DC7-zc-1ID" firstAttribute="trailing" secondItem="zp4-sA-5bq" secondAttribute="trailingMargin" id="k6q-KC-XCr"/>
+                            <constraint firstItem="c1k-au-acX" firstAttribute="trailing" secondItem="zp4-sA-5bq" secondAttribute="trailingMargin" id="ocw-Jd-1Tx"/>
+                            <constraint firstItem="c1k-au-acX" firstAttribute="leading" secondItem="zp4-sA-5bq" secondAttribute="leadingMargin" id="vvC-dL-smJ"/>
+                            <constraint firstItem="o9O-7y-M0P" firstAttribute="top" secondItem="c1k-au-acX" secondAttribute="bottom" constant="262" id="zWV-bo-Rid"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="065-6L-ibX"/>
                     <connections>
                         <outlet property="adDescription" destination="c1k-au-acX" id="gHR-CA-2l5"/>
-                        <outlet property="phoneNumber" destination="hAP-TS-E9a" id="ttf-dO-3eI"/>
+                        <outlet property="locationLable" destination="t2e-xF-BBV" id="35v-fq-8Cm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lvh-fX-qMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="TZO-hv-g0F" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1316" y="436"/>
+            <point key="canvasLocation" x="1313" y="436"/>
         </scene>
         <!--Search-->
         <scene sceneID="JYr-Yb-1VF">
@@ -622,63 +652,6 @@
             </objects>
             <point key="canvasLocation" x="2931" y="1196"/>
         </scene>
-        <!--Create Ad Location View Controller-->
-        <scene sceneID="P9f-zL-d15">
-            <objects>
-                <viewController id="2qa-Ve-oTX" customClass="CreateAdLocationViewController" customModule="PAWall" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="rZF-dD-Mqc"/>
-                        <viewControllerLayoutGuide type="bottom" id="IjQ-dH-0H3"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Rmn-xd-olY">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KCy-eP-s1j">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="6TC-e5-dzy"/>
-                                </constraints>
-                                <color key="barTintColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <items>
-                                    <navigationItem title="My Location" id="Yn2-I5-IgZ">
-                                        <barButtonItem key="leftBarButtonItem" image="ic_backspace_black_48dp" id="lqd-aL-mAE">
-                                            <connections>
-                                                <segue destination="LYg-QD-IP4" kind="unwind" identifier="unwindToCreateAd" unwindAction="unwindToCreateAd:" id="dff-g7-RMo"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" image="ic_save_black_48dp" id="F5U-yl-TuE">
-                                            <connections>
-                                                <segue destination="LYg-QD-IP4" kind="unwind" identifier="unwindToHome" unwindAction="unwindToHome:" id="swR-SP-ehV"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6Yc-vQ-pK3">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
-                            </mapView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="KCy-eP-s1j" firstAttribute="leading" secondItem="Rmn-xd-olY" secondAttribute="leadingMargin" constant="-16" id="2ab-Bd-Yzk"/>
-                            <constraint firstItem="6Yc-vQ-pK3" firstAttribute="top" secondItem="KCy-eP-s1j" secondAttribute="bottom" id="4gF-pT-tTD"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="6Yc-vQ-pK3" secondAttribute="trailing" constant="-16" id="I1M-07-ac2"/>
-                            <constraint firstItem="KCy-eP-s1j" firstAttribute="top" secondItem="rZF-dD-Mqc" secondAttribute="bottom" id="RhA-db-1If"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="KCy-eP-s1j" secondAttribute="trailing" constant="-16" id="UuA-s1-9GA"/>
-                            <constraint firstItem="6Yc-vQ-pK3" firstAttribute="leading" secondItem="Rmn-xd-olY" secondAttribute="leadingMargin" constant="-16" id="uTe-VQ-lXj"/>
-                            <constraint firstItem="IjQ-dH-0H3" firstAttribute="top" secondItem="6Yc-vQ-pK3" secondAttribute="bottom" id="zSW-WQ-EHz"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="mapView" destination="6Yc-vQ-pK3" id="Lc3-d3-1LG"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JSc-xd-IKm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="LYg-QD-IP4" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="2075" y="436"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="cXV-5v-qYC">
             <objects>
@@ -707,7 +680,6 @@
         <image name="ic_bookmark_outline_black_48dp" width="48" height="48"/>
         <image name="ic_chevron_right_black_48dp" width="48" height="48"/>
         <image name="ic_expand_less_black_48dp" width="48" height="48"/>
-        <image name="ic_forward_black_48dp" width="48" height="48"/>
         <image name="ic_list_black_48dp" width="48" height="48"/>
         <image name="ic_reply_black_48dp" width="48" height="48"/>
         <image name="ic_save_black_48dp" width="48" height="48"/>
