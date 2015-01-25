@@ -69,30 +69,28 @@ class CreateAdViewController: UIViewController {
                 
                 
                 var classifiedAd = PFObject(className:GEO_AD.CLASS_NAME)
-                classifiedAd[GEO_AD.DEVICE_TOKEN] = DEVICE_TOKEN
+//                classifiedAd[GEO_AD.DEVICE_TOKEN] = DEVICE_TOKEN
                 classifiedAd[GEO_AD.DESCRIPTION] = self.adDescription!.text
                 classifiedAd[GEO_AD.LOCATION] = self.currentLocation?
                 classifiedAd[GEO_AD.ACTIVE] = true
                 classifiedAd[GEO_AD.UUID] = DEVICE_UUID
                 var error:NSErrorPointer = nil
-                classifiedAd.saveInBackgroundWithBlock {
-                    (success: Bool, error: NSError!) -> Void in
+                classifiedAd.saveEventually({ (success: Bool, error: NSError!) -> Void in
                     if success {
                         self.dismissViewControllerAnimated(false, completion: nil)
                     } else {
                         let alertMessage = UIAlertController(title: "Error", message: "Unable to post. Try again.", preferredStyle: UIAlertControllerStyle.Alert)
                         let ok = UIAlertAction(title: "OK", style: .Default, handler:nil)
-                        alertMessage.addAction(ok)
                         self.presentViewController(alertMessage, animated: true, completion: nil)
                     }
-                }
+                })
             })
             let cancel = UIAlertAction(title: "Cancel", style: .Default, handler: { (action) -> Void in
             })
             alertMessage.addAction(cancel)
             alertMessage.addAction(ok)
             presentViewController(alertMessage, animated: true, completion: nil)
-
+            
         }
     }
 }

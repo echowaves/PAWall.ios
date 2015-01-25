@@ -14,6 +14,8 @@ class AdDetailsViewController: UIViewController {
     var adObject:PFObject?
 
     
+    @IBOutlet weak var replyButton: UIButton!
+    
     @IBOutlet weak var adDistance: UILabel!
     @IBOutlet weak var adDescription: UITextView!
     
@@ -21,6 +23,10 @@ class AdDetailsViewController: UIViewController {
         super.viewDidLoad()
         adDistance.text = "This ad is \(rawDistance) miles away from you"
         adDescription.text = adObject?[GEO_AD.DESCRIPTION] as String
+        
+        if adObject?[GEO_AD.UUID] as NSString == DEVICE_UUID {
+            replyButton.hidden = true
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
