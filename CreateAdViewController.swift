@@ -64,7 +64,7 @@ class CreateAdViewController: UIViewController {
             alertMessage.addAction(ok)
             presentViewController(alertMessage, animated: true, completion: nil)
         } else {
-            let alertMessage = UIAlertController(title: "Warning", message: "You Post will be saved now.", preferredStyle: UIAlertControllerStyle.Alert)
+            let alertMessage = UIAlertController(title: nil, message: "You Post will be saved now.", preferredStyle: UIAlertControllerStyle.Alert)
             let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
                 
                 

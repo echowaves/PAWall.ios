@@ -515,18 +515,27 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details:" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YBX-EP-9z1">
-                                                    <rect key="frame" x="8" y="37" width="584" height="62"/>
+                                                    <rect key="frame" x="8" y="37" width="528" height="62"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_chevron_right_black_48dp" translatesAutoresizingMaskIntoConstraints="NO" id="VoM-OQ-y1b">
+                                                    <rect key="frame" x="544" y="37" width="48" height="48"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="48" id="Puf-un-G2C"/>
+                                                        <constraint firstAttribute="height" constant="48" id="t6c-U8-uNm"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="YBX-EP-9z1" secondAttribute="bottom" constant="1" id="Afa-kj-qdn"/>
-                                                <constraint firstItem="YBX-EP-9z1" firstAttribute="top" secondItem="w8V-Mu-3P9" secondAttribute="bottom" constant="8" id="BfT-0d-oJP"/>
-                                                <constraint firstItem="YBX-EP-9z1" firstAttribute="trailing" secondItem="JWg-pF-awa" secondAttribute="trailingMargin" id="GrB-IP-hto"/>
-                                                <constraint firstItem="YBX-EP-9z1" firstAttribute="leading" secondItem="JWg-pF-awa" secondAttribute="leadingMargin" id="Uqg-d4-oJq"/>
+                                                <constraint firstItem="VoM-OQ-y1b" firstAttribute="top" secondItem="w8V-Mu-3P9" secondAttribute="bottom" constant="8" id="HSB-UF-OAq"/>
+                                                <constraint firstItem="YBX-EP-9z1" firstAttribute="top" secondItem="w8V-Mu-3P9" secondAttribute="bottom" constant="8" id="ID7-qY-x81"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="YBX-EP-9z1" secondAttribute="bottom" constant="1" id="NOo-rU-YrA"/>
+                                                <constraint firstItem="VoM-OQ-y1b" firstAttribute="leading" secondItem="YBX-EP-9z1" secondAttribute="trailing" constant="8" id="OLO-xx-2LF"/>
+                                                <constraint firstItem="YBX-EP-9z1" firstAttribute="leading" secondItem="JWg-pF-awa" secondAttribute="leadingMargin" id="ayC-Le-0u2"/>
                                                 <constraint firstItem="w8V-Mu-3P9" firstAttribute="top" secondItem="JWg-pF-awa" secondAttribute="topMargin" id="lS1-Ur-4fP"/>
+                                                <constraint firstItem="VoM-OQ-y1b" firstAttribute="trailing" secondItem="JWg-pF-awa" secondAttribute="trailingMargin" id="r98-fF-B02"/>
                                                 <constraint firstItem="w8V-Mu-3P9" firstAttribute="trailing" secondItem="JWg-pF-awa" secondAttribute="trailingMargin" id="wBo-EX-XnJ"/>
                                                 <constraint firstItem="w8V-Mu-3P9" firstAttribute="leading" secondItem="JWg-pF-awa" secondAttribute="leadingMargin" id="xqg-N2-G5B"/>
                                             </constraints>
@@ -558,7 +567,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5c4-gN-mql" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="zGq-LL-euB" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2121" y="2007"/>
+            <point key="canvasLocation" x="2121" y="2013"/>
         </scene>
         <!--Ads near you-->
         <scene sceneID="tha-bD-ybm">
