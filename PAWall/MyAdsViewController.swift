@@ -26,11 +26,11 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidAppear(animated)
         
         // Create a query for places
-        var query = PFQuery(className:GEO_AD.CLASS_NAME)
+        var query = PFQuery(className:GEO_POST.CLASS_NAME)
         // Interested in locations near user.
 
-        query.whereKey(GEO_AD.ACTIVE, equalTo: true)
-        query.whereKey(GEO_AD.UUID, equalTo: DEVICE_UUID)
+        query.whereKey(GEO_POST.ACTIVE, equalTo: true)
+        query.whereKey(GEO_POST.UUID, equalTo: DEVICE_UUID)
         query.orderByDescending("createdAt")
 
         // Limit what could be a lot of points.
@@ -73,7 +73,7 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let df = NSDateFormatter()
         df.dateFormat = "MM-dd-yyyy"
         cell.postedAt.text = NSString(format: "%@", df.stringFromDate(advertizement.createdAt))
-        cell.details.text = advertizement[GEO_AD.DESCRIPTION] as? String
+        cell.details.text = advertizement[GEO_POST.BODY] as? String
         return cell
     }
     

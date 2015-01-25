@@ -8,14 +8,13 @@
 
 import Foundation
 
-let GEO_AD = GeoAd()
+let GEO_POST = GeoPost()
 
-class GeoAd : BaseDataModel {
-    let CLASS_NAME = "GeoAds"
+class GeoPost : BaseDataModel {
+    let CLASS_NAME = "GeoPosts"
     let DEVICE_TOKEN = "deviceToken"
     let WORDS = "words"
-    let HASH_TAGS = "hashtags"
-    let DESCRIPTION = "description"
+    let BODY = "body"
     let LOCATION = "location"
     let ACTIVE = "active"
     let REPLIES = "replies"

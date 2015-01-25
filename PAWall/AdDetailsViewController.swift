@@ -22,9 +22,9 @@ class AdDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         adDistance.text = "This ad is \(rawDistance) miles away from you"
-        adDescription.text = adObject?[GEO_AD.DESCRIPTION] as String
+        adDescription.text = adObject?[GEO_POST.BODY] as String
         
-        if adObject?[GEO_AD.UUID] as NSString == DEVICE_UUID {
+        if adObject?[GEO_POST.UUID] as NSString == DEVICE_UUID {
             replyButton.hidden = true
         }
     }
@@ -35,9 +35,9 @@ class AdDetailsViewController: UIViewController {
     }
     
     @IBAction func replyToAd(sender: AnyObject) {
-//        NSLog("calling phone number: \(adObject![GEO_AD.PHONE_NUMBER])")
-//        UIApplication.sharedApplication().openURL(NSURL(string:"tel:\(adObject![GEO_AD.PHONE_NUMBER])")!)
-        adObject?.incrementKey(GEO_AD.REPLIES)
+//        NSLog("calling phone number: \(adObject![GEO_POST.PHONE_NUMBER])")
+//        UIApplication.sharedApplication().openURL(NSURL(string:"tel:\(adObject![GEO_POST.PHONE_NUMBER])")!)
+        adObject?.incrementKey(GEO_POST.REPLIES)
         adObject?.saveInBackgroundWithBlock(nil)
 
     }

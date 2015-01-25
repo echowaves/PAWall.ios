@@ -68,12 +68,12 @@ class CreateAdViewController: UIViewController {
             let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
                 
                 
-                var classifiedAd = PFObject(className:GEO_AD.CLASS_NAME)
-//                classifiedAd[GEO_AD.DEVICE_TOKEN] = DEVICE_TOKEN
-                classifiedAd[GEO_AD.DESCRIPTION] = self.adDescription!.text
-                classifiedAd[GEO_AD.LOCATION] = self.currentLocation?
-                classifiedAd[GEO_AD.ACTIVE] = true
-                classifiedAd[GEO_AD.UUID] = DEVICE_UUID
+                var classifiedAd = PFObject(className:GEO_POST.CLASS_NAME)
+//                classifiedAd[GEO_POST.DEVICE_TOKEN] = DEVICE_TOKEN
+                classifiedAd[GEO_POST.BODY] = self.adDescription!.text
+                classifiedAd[GEO_POST.LOCATION] = self.currentLocation?
+                classifiedAd[GEO_POST.ACTIVE] = true
+                classifiedAd[GEO_POST.UUID] = DEVICE_UUID
                 var error:NSErrorPointer = nil
                 classifiedAd.saveEventually({ (success: Bool, error: NSError!) -> Void in
                     if success {
