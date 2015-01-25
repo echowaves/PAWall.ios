@@ -40,6 +40,7 @@ class CreateAdViewController: UIViewController {
             } else {
                 self.locationLable.text = "Unable to detect current location. Make sure to enable GPS."
                 self.locationLable.backgroundColor = UIColor.redColor()
+                self.adDescription.editable = false
             }
             
         }
