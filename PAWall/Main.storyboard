@@ -470,7 +470,7 @@
         <!--my Posts-->
         <scene sceneID="1xe-ab-p04">
             <objects>
-                <viewController id="z70-SV-ybL" sceneMemberID="viewController">
+                <viewController id="z70-SV-ybL" customClass="MyAdsViewController" customModule="PAWall" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pxt-c2-DoE"/>
                         <viewControllerLayoutGuide type="bottom" id="v8Q-sT-ecR"/>
@@ -495,9 +495,48 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="g9I-Xr-ZED">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="108" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="g9I-Xr-ZED">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myad_summary" rowHeight="108" id="AEi-cg-RH1" customClass="MyAdSummaryTableViewCell" customModule="PAWall" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AEi-cg-RH1" id="JWg-pF-awa">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PostedAt:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w8V-Mu-3P9">
+                                                    <rect key="frame" x="8" y="8" width="584" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="vnx-lv-zK7"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details:" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YBX-EP-9z1">
+                                                    <rect key="frame" x="8" y="37" width="584" height="62"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="YBX-EP-9z1" secondAttribute="bottom" constant="1" id="Afa-kj-qdn"/>
+                                                <constraint firstItem="YBX-EP-9z1" firstAttribute="top" secondItem="w8V-Mu-3P9" secondAttribute="bottom" constant="8" id="BfT-0d-oJP"/>
+                                                <constraint firstItem="YBX-EP-9z1" firstAttribute="trailing" secondItem="JWg-pF-awa" secondAttribute="trailingMargin" id="GrB-IP-hto"/>
+                                                <constraint firstItem="YBX-EP-9z1" firstAttribute="leading" secondItem="JWg-pF-awa" secondAttribute="leadingMargin" id="Uqg-d4-oJq"/>
+                                                <constraint firstItem="w8V-Mu-3P9" firstAttribute="top" secondItem="JWg-pF-awa" secondAttribute="topMargin" id="lS1-Ur-4fP"/>
+                                                <constraint firstItem="w8V-Mu-3P9" firstAttribute="trailing" secondItem="JWg-pF-awa" secondAttribute="trailingMargin" id="wBo-EX-XnJ"/>
+                                                <constraint firstItem="w8V-Mu-3P9" firstAttribute="leading" secondItem="JWg-pF-awa" secondAttribute="leadingMargin" id="xqg-N2-G5B"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="details" destination="YBX-EP-9z1" id="XkK-Vm-Tb7"/>
+                                            <outlet property="postedAt" destination="w8V-Mu-3P9" id="Rwq-tg-zRj"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -512,11 +551,14 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="my Posts" image="ic_list_black_48dp" id="eEe-qA-w5Q"/>
+                    <connections>
+                        <outlet property="tableView" destination="g9I-Xr-ZED" id="OO1-7K-m2p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5c4-gN-mql" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="zGq-LL-euB" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2121" y="1876"/>
+            <point key="canvasLocation" x="2121" y="2007"/>
         </scene>
         <!--Ads near you-->
         <scene sceneID="tha-bD-ybm">
@@ -557,6 +599,7 @@
                                 </state>
                                 <connections>
                                     <action selector="replyToAd:" destination="7ki-V4-4t4" eventType="touchUpInside" id="o5c-JT-m1q"/>
+                                    <segue destination="2nD-sd-aN4" kind="show" id="BPZ-tu-OpE"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eqw-Tr-Xkj">
@@ -607,10 +650,10 @@
             </objects>
             <point key="canvasLocation" x="2931" y="1196"/>
         </scene>
-        <!--View Controller-->
+        <!--Reply To Ad View Controller-->
         <scene sceneID="qdA-ft-WEm">
             <objects>
-                <viewController id="2nD-sd-aN4" sceneMemberID="viewController">
+                <viewController id="2nD-sd-aN4" customClass="ReplyToAdViewController" customModule="PAWall" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="i7A-YO-2jA"/>
                         <viewControllerLayoutGuide type="bottom" id="PKK-9b-mz2"/>
@@ -618,12 +661,36 @@
                     <view key="view" contentMode="scaleToFill" id="jg1-EW-J6G">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ADG-Rw-EEY">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="3Tp-CY-LBT"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="Pq2-UW-U8B"/>
+                                </constraints>
+                                <color key="barTintColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem title="Replying" id="QDm-Qn-Yt6">
+                                        <barButtonItem key="leftBarButtonItem" image="ic_backspace_black_48dp" id="YoE-MS-Gck">
+                                            <connections>
+                                                <action selector="goBackAction:" destination="2nD-sd-aN4" id="MMX-PI-tiT"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="ADG-Rw-EEY" secondAttribute="trailing" constant="-16" id="F3f-PW-2wi"/>
+                            <constraint firstItem="ADG-Rw-EEY" firstAttribute="leading" secondItem="jg1-EW-J6G" secondAttribute="leadingMargin" constant="-16" id="eUv-fe-x2B"/>
+                            <constraint firstItem="ADG-Rw-EEY" firstAttribute="top" secondItem="i7A-YO-2jA" secondAttribute="bottom" constant="8" id="z6s-fG-rmm"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GbT-Gh-bJJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3623" y="1201"/>
+            <point key="canvasLocation" x="3651" y="1196"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="cXV-5v-qYC">

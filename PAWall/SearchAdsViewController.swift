@@ -43,6 +43,7 @@ class SearchAdsViewController: UIViewController, UITableViewDelegate, UITableVie
                 // Interested in locations near user.
                 query.whereKey(GEO_AD.LOCATION, nearGeoPoint:self.myLocation)
                 query.whereKey(GEO_AD.ACTIVE, equalTo: true)
+                query.whereKey(GEO_AD.UUID, notEqualTo: DEVICE_UUID)
                 // Limit what could be a lot of points.
                 query.limit = 100
                 // Final list of objects
@@ -94,6 +95,7 @@ class SearchAdsViewController: UIViewController, UITableViewDelegate, UITableVie
                 // Interested in locations near user.
                 query.whereKey(GEO_AD.LOCATION, nearGeoPoint:self.myLocation)
                 query.whereKey(GEO_AD.ACTIVE, equalTo: true)
+                query.whereKey(GEO_AD.UUID, notEqualTo: DEVICE_UUID)
                 NSLog("Searching for string \(searchText)")
                 if !searchText.isEmpty {
                     let textArr = split(searchText.lowercaseString) {$0 == " "}
@@ -192,6 +194,11 @@ class SearchAdsViewController: UIViewController, UITableViewDelegate, UITableVie
         self.performSegueWithIdentifier("ad_details", sender: self)
     }
     
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 80
+    }
+
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "ad_details") {
             let adDetailsViewController:AdDetailsViewController = segue.destinationViewController as AdDetailsViewController
@@ -218,10 +225,6 @@ class SearchAdsViewController: UIViewController, UITableViewDelegate, UITableVie
             adDetailsViewController.rawDistance = roundedDistance
             adDetailsViewController.adObject = adObject!
         }
-    }
-    
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 80
     }
     
     
