@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0A2AB8BB1A64411900DF08DF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2AB8BA1A64411900DF08DF /* HomeViewController.swift */; };
 		0A2AB8BD1A64418F00DF08DF /* CreateAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2AB8BC1A64418F00DF08DF /* CreateAdViewController.swift */; };
-		0A5610E31A755F830023E4A0 /* ReplyToAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5610E21A755F830023E4A0 /* ReplyToAdViewController.swift */; };
+		0A5610E31A755F830023E4A0 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5610E21A755F830023E4A0 /* ChatViewController.swift */; };
 		0A5610E51A7564BE0023E4A0 /* MyAdsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5610E41A7564BE0023E4A0 /* MyAdsViewController.swift */; };
 		0A5610E71A7571860023E4A0 /* MyAdSummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5610E61A7571860023E4A0 /* MyAdSummaryTableViewCell.swift */; };
 		0A5610E91A757AEA0023E4A0 /* ReplyPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5610E81A757AEA0023E4A0 /* ReplyPost.swift */; };
@@ -54,7 +54,7 @@
 /* Begin PBXFileReference section */
 		0A2AB8BA1A64411900DF08DF /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = ../HomeViewController.swift; sourceTree = "<group>"; };
 		0A2AB8BC1A64418F00DF08DF /* CreateAdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateAdViewController.swift; path = ../CreateAdViewController.swift; sourceTree = "<group>"; };
-		0A5610E21A755F830023E4A0 /* ReplyToAdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplyToAdViewController.swift; sourceTree = "<group>"; };
+		0A5610E21A755F830023E4A0 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		0A5610E41A7564BE0023E4A0 /* MyAdsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAdsViewController.swift; sourceTree = "<group>"; };
 		0A5610E61A7571860023E4A0 /* MyAdSummaryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAdSummaryTableViewCell.swift; sourceTree = "<group>"; };
 		0A5610E81A757AEA0023E4A0 /* ReplyPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplyPost.swift; sourceTree = "<group>"; };
@@ -205,7 +205,7 @@
 				0A9A18961A69856E00B31406 /* SearchAdsViewController.swift */,
 				0A9A18981A6B513C00B31406 /* AdSummaryTableViewCell.swift */,
 				0AC601441A6D7380004594C0 /* AdDetailsViewController.swift */,
-				0A5610E21A755F830023E4A0 /* ReplyToAdViewController.swift */,
+				0A5610E21A755F830023E4A0 /* ChatViewController.swift */,
 				0A5610E41A7564BE0023E4A0 /* MyAdsViewController.swift */,
 				0A5610E61A7571860023E4A0 /* MyAdSummaryTableViewCell.swift */,
 				0AE071941A623DC900E18B59 /* Supporting Files */,
@@ -348,7 +348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A5610E31A755F830023E4A0 /* ReplyToAdViewController.swift in Sources */,
+				0A5610E31A755F830023E4A0 /* ChatViewController.swift in Sources */,
 				0AF790B41A671B35001B87F0 /* BaseDataModel.swift in Sources */,
 				0A9A18951A697A6F00B31406 /* GeoPost.swift in Sources */,
 				0A2AB8BB1A64411900DF08DF /* HomeViewController.swift in Sources */,

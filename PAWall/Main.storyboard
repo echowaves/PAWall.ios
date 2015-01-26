@@ -209,12 +209,12 @@
                                 <color key="barTintColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="My New Ad" id="0ra-dn-dje">
-                                        <barButtonItem key="leftBarButtonItem" image="ic_backspace_black_48dp" id="Gfa-xb-fHs">
+                                        <barButtonItem key="leftBarButtonItem" image="ic_cancel_black_48dp" id="Gfa-xb-fHs">
                                             <connections>
                                                 <segue destination="TZO-hv-g0F" kind="unwind" unwindAction="unwindToHome:" id="b3k-AI-uqb"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" image="ic_save_black_48dp" id="BOo-ki-efO">
+                                        <barButtonItem key="rightBarButtonItem" image="ic_send_black_48dp" id="BOo-ki-efO">
                                             <connections>
                                                 <action selector="saveAd:" destination="rga-hB-ssV" id="mPh-fx-3N4"/>
                                             </connections>
@@ -253,7 +253,7 @@
                                     <action selector="saveAd:" destination="rga-hB-ssV" eventType="touchUpInside" id="UTD-eX-nmb"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_save_black_48dp" translatesAutoresizingMaskIntoConstraints="NO" id="Zpz-48-tyC">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_send_black_48dp" translatesAutoresizingMaskIntoConstraints="NO" id="Zpz-48-tyC">
                                 <rect key="frame" x="16" y="348" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="48" id="4RD-ky-ZlX"/>
@@ -417,7 +417,7 @@
                                 <color key="barTintColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="Ads near you" id="ajb-lq-A9g">
-                                        <barButtonItem key="leftBarButtonItem" image="ic_backspace_black_48dp" id="WFg-RD-GMx">
+                                        <barButtonItem key="leftBarButtonItem" image="ic_cancel_black_48dp" id="WFg-RD-GMx">
                                             <connections>
                                                 <segue destination="7Xx-T8-nfr" kind="unwind" unwindAction="unwindToHome:" id="TKq-M9-Vej"/>
                                             </connections>
@@ -487,7 +487,7 @@
                                 <color key="barTintColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="My Posts" id="0aT-tU-IZL">
-                                        <barButtonItem key="leftBarButtonItem" image="ic_backspace_black_48dp" id="5KP-Q6-24h">
+                                        <barButtonItem key="leftBarButtonItem" image="ic_cancel_black_48dp" id="5KP-Q6-24h">
                                             <connections>
                                                 <segue destination="zGq-LL-euB" kind="unwind" unwindAction="unwindToHome:" id="m3K-P2-aiN"/>
                                             </connections>
@@ -589,7 +589,7 @@
                                 <color key="barTintColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="Ad detail" id="Tfr-YZ-fwa">
-                                        <barButtonItem key="leftBarButtonItem" image="ic_backspace_black_48dp" id="Jk4-1q-QOh">
+                                        <barButtonItem key="leftBarButtonItem" image="ic_cancel_black_48dp" id="Jk4-1q-QOh">
                                             <connections>
                                                 <segue destination="FJb-6F-Kvi" kind="unwind" unwindAction="unwindToAdsNearYou:" id="2cp-JC-K44"/>
                                             </connections>
@@ -603,12 +603,12 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="zKB-V6-ntF"/>
                                 </constraints>
-                                <state key="normal" title="Reply to Ad">
+                                <state key="normal" title="Reply (charges may apply)">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="replyToAd:" destination="7ki-V4-4t4" eventType="touchUpInside" id="o5c-JT-m1q"/>
-                                    <segue destination="2nD-sd-aN4" kind="show" id="BPZ-tu-OpE"/>
+                                    <segue destination="2nD-sd-aN4" kind="show" identifier="show_chat" id="BPZ-tu-OpE"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eqw-Tr-Xkj">
@@ -627,6 +627,13 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_reply_black_48dp" translatesAutoresizingMaskIntoConstraints="NO" id="lCW-ql-AdL">
+                                <rect key="frame" x="0.0" y="503" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="ELj-vc-2Sd"/>
+                                    <constraint firstAttribute="width" constant="48" id="G71-eC-TOZ"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -639,8 +646,10 @@
                             <constraint firstItem="2Mc-49-ar9" firstAttribute="top" secondItem="eqw-Tr-Xkj" secondAttribute="bottom" constant="8" id="E8g-pX-op7"/>
                             <constraint firstItem="xQo-mI-Cer" firstAttribute="top" secondItem="Pjg-iv-FEP" secondAttribute="bottom" constant="12" id="KiX-5X-8VZ"/>
                             <constraint firstItem="Pjg-iv-FEP" firstAttribute="leading" secondItem="hvT-bL-vQs" secondAttribute="leadingMargin" constant="-16" id="bzC-72-OFu"/>
+                            <constraint firstItem="lCW-ql-AdL" firstAttribute="leading" secondItem="hvT-bL-vQs" secondAttribute="leadingMargin" constant="-16" id="cA9-L2-qhu"/>
                             <constraint firstItem="xQo-mI-Cer" firstAttribute="leading" secondItem="hvT-bL-vQs" secondAttribute="leadingMargin" id="mrk-Yu-tdG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2Mc-49-ar9" secondAttribute="trailing" constant="-16" id="uJd-Ue-OVz"/>
+                            <constraint firstItem="xot-UA-x4T" firstAttribute="top" secondItem="lCW-ql-AdL" secondAttribute="bottom" id="vYN-Sl-V9v"/>
                             <constraint firstItem="eqw-Tr-Xkj" firstAttribute="top" secondItem="xQo-mI-Cer" secondAttribute="bottom" constant="8" id="wBb-gp-rnV"/>
                             <constraint firstItem="xot-UA-x4T" firstAttribute="top" secondItem="2Mc-49-ar9" secondAttribute="bottom" id="wHe-ap-3TS"/>
                         </constraints>
@@ -659,10 +668,10 @@
             </objects>
             <point key="canvasLocation" x="2931" y="1196"/>
         </scene>
-        <!--Reply To Ad View Controller-->
+        <!--Chat View Controller-->
         <scene sceneID="qdA-ft-WEm">
             <objects>
-                <viewController id="2nD-sd-aN4" customClass="ReplyToAdViewController" customModule="PAWall" sceneMemberID="viewController">
+                <viewController id="2nD-sd-aN4" customClass="ChatViewController" customModule="PAWall" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="i7A-YO-2jA"/>
                         <viewControllerLayoutGuide type="bottom" id="PKK-9b-mz2"/>
@@ -679,8 +688,8 @@
                                 </constraints>
                                 <color key="barTintColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
-                                    <navigationItem title="Replying" id="QDm-Qn-Yt6">
-                                        <barButtonItem key="leftBarButtonItem" image="ic_backspace_black_48dp" id="YoE-MS-Gck">
+                                    <navigationItem title="Chat" id="QDm-Qn-Yt6">
+                                        <barButtonItem key="leftBarButtonItem" image="ic_cancel_black_48dp" id="YoE-MS-Gck">
                                             <connections>
                                                 <action selector="goBackAction:" destination="2nD-sd-aN4" id="MMX-PI-tiT"/>
                                             </connections>
@@ -688,18 +697,51 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="qyL-dx-hvR">
+                                <rect key="frame" x="0.0" y="72" width="609" height="415"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_send_black_48dp" translatesAutoresizingMaskIntoConstraints="NO" id="Eo1-8z-ClE">
+                                <rect key="frame" x="536" y="495" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="48" id="0oZ-cR-LWA"/>
+                                    <constraint firstAttribute="height" constant="48" id="Rrc-9y-Ppt"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xRY-gb-4sN">
+                                <rect key="frame" x="16" y="504" width="512" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="u8P-Ih-4ge"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="ADG-Rw-EEY" secondAttribute="trailing" constant="-16" id="F3f-PW-2wi"/>
+                            <constraint firstItem="xRY-gb-4sN" firstAttribute="leading" secondItem="jg1-EW-J6G" secondAttribute="leadingMargin" id="FU2-li-Lk4"/>
+                            <constraint firstItem="Eo1-8z-ClE" firstAttribute="trailing" secondItem="jg1-EW-J6G" secondAttribute="trailingMargin" id="HTu-ak-uBT"/>
+                            <constraint firstItem="xRY-gb-4sN" firstAttribute="top" secondItem="qyL-dx-hvR" secondAttribute="bottom" constant="17" id="KGh-6C-wDa"/>
+                            <constraint firstItem="qyL-dx-hvR" firstAttribute="leading" secondItem="jg1-EW-J6G" secondAttribute="leadingMargin" constant="-16" id="Nwr-Bw-uZO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qyL-dx-hvR" secondAttribute="trailing" constant="-25" id="Tbc-5V-0s1"/>
+                            <constraint firstItem="Eo1-8z-ClE" firstAttribute="top" secondItem="qyL-dx-hvR" secondAttribute="bottom" constant="8" id="cVV-WN-bCa"/>
+                            <constraint firstItem="Eo1-8z-ClE" firstAttribute="leading" secondItem="xRY-gb-4sN" secondAttribute="trailing" constant="8" id="dKP-cB-zMA"/>
                             <constraint firstItem="ADG-Rw-EEY" firstAttribute="leading" secondItem="jg1-EW-J6G" secondAttribute="leadingMargin" constant="-16" id="eUv-fe-x2B"/>
+                            <constraint firstItem="qyL-dx-hvR" firstAttribute="top" secondItem="ADG-Rw-EEY" secondAttribute="bottom" id="eef-vU-isX"/>
+                            <constraint firstItem="PKK-9b-mz2" firstAttribute="top" secondItem="Eo1-8z-ClE" secondAttribute="bottom" constant="8" id="opc-1l-K44"/>
                             <constraint firstItem="ADG-Rw-EEY" firstAttribute="top" secondItem="i7A-YO-2jA" secondAttribute="bottom" constant="8" id="z6s-fG-rmm"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="sendImage" destination="Eo1-8z-ClE" id="Xka-ZX-FNr"/>
+                        <outlet property="tableView" destination="qyL-dx-hvR" id="Aay-Js-6hh"/>
+                        <outlet property="textField" destination="xRY-gb-4sN" id="owx-wK-ujU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GbT-Gh-bJJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3651" y="1196"/>
+            <point key="canvasLocation" x="3853" y="1196"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="cXV-5v-qYC">
@@ -724,10 +766,12 @@
     <resources>
         <image name="ic_add_circle_outline_black_48dp" width="48" height="48"/>
         <image name="ic_backspace_black_48dp" width="48" height="48"/>
+        <image name="ic_cancel_black_48dp" width="48" height="48"/>
         <image name="ic_chevron_right_black_48dp" width="48" height="48"/>
         <image name="ic_expand_less_black_48dp" width="48" height="48"/>
         <image name="ic_list_black_48dp" width="48" height="48"/>
-        <image name="ic_save_black_48dp" width="48" height="48"/>
+        <image name="ic_reply_black_48dp" width="48" height="48"/>
         <image name="ic_search_black_48dp" width="48" height="48"/>
+        <image name="ic_send_black_48dp" width="48" height="48"/>
     </resources>
 </document>

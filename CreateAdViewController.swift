@@ -11,6 +11,7 @@ import Foundation
 
 class CreateAdViewController: UIViewController {
     
+    
     @IBOutlet weak var locationLable: UILabel!
     @IBOutlet weak var adDescription: UITextView!
     

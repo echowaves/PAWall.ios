@@ -11,7 +11,7 @@ import Foundation
 class AdDetailsViewController: UIViewController {
     
     var rawDistance = 0.0
-    var adObject:PFObject?
+    var geoPostObject:PFObject?
 
     
     @IBOutlet weak var replyButton: UIButton!
@@ -22,9 +22,9 @@ class AdDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         adDistance.text = "This ad is \(rawDistance) miles away from you"
-        adDescription.text = adObject?[GEO_POST.BODY] as String
+        adDescription.text = geoPostObject?[GEO_POST.BODY] as String
         
-        if adObject?[GEO_POST.UUID] as NSString == DEVICE_UUID {
+        if geoPostObject?[GEO_POST.UUID] as NSString == DEVICE_UUID {
             replyButton.hidden = true
         }
     }
@@ -37,9 +37,20 @@ class AdDetailsViewController: UIViewController {
     @IBAction func replyToAd(sender: AnyObject) {
 //        NSLog("calling phone number: \(adObject![GEO_POST.PHONE_NUMBER])")
 //        UIApplication.sharedApplication().openURL(NSURL(string:"tel:\(adObject![GEO_POST.PHONE_NUMBER])")!)
-        adObject?.incrementKey(GEO_POST.REPLIES)
-        adObject?.saveInBackgroundWithBlock(nil)
+        geoPostObject?.incrementKey(GEO_POST.REPLIES)
+        geoPostObject?.saveInBackgroundWithBlock(nil)
 
+        //TODO: insert payment processing here
+        
+        self.performSegueWithIdentifier("show_chat", sender: self)
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "show_chat") {
+            let chatViewController:ChatViewController = segue.destinationViewController as ChatViewController
+            chatViewController.geoPostObject = self.geoPostObject
+        }
+    }
+
     
 }
