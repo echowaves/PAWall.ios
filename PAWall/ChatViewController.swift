@@ -13,6 +13,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     var chatMessages = [PFObject]()
     var geoPostObject:PFObject?
     
+    var currentLocation:PFGeoPoint?
+    
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var sendImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
@@ -21,11 +23,40 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    @IBAction func sendReplyAction(sender: AnyObject) {
+        
+        var chatReply = PFObject(className:REPLY_POST.CLASS_NAME)
+        chatReply[REPLY_POST.BODY] = textView.text
+        chatReply[REPLY_POST.LOCATION] = currentLocation!
+        chatReply[REPLY_POST.PARENT] = geoPostObject?.objectId
+        chatReply[REPLY_POST.REPLIED_BY] = DEVICE_UUID
+        chatReply.saveInBackgroundWithBlock { (success: Bool, error: NSError!) -> Void in
+            NSLog("reply saved")
+            self.chatMessages.insert(chatReply, atIndex:0)
+            self.textView.text = ""
+            self.tableView.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         NSLog("inside ChatViewController, geoPostObject: \(geoPostObject![GEO_POST.BODY])")
         self.tableView.delegate      =   self
         self.tableView.dataSource    =   self
+        
+        PFGeoPoint.geoPointForCurrentLocationInBackground {
+            (geoPoint: PFGeoPoint!, error: NSError!) -> Void in
+            
+            if error == nil {
+                // do something with the new geoPoint
+                // 1
+                var location = CLLocationCoordinate2D(
+                    latitude: geoPoint.latitude,
+                    longitude: geoPoint.longitude
+                )
+                self.currentLocation = geoPoint
+            }
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -35,7 +66,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Interested in locations near user.
         
         query.whereKey(REPLY_POST.PARENT, equalTo: geoPostObject?.objectId)
-        query.orderByAscending("createdAt")
+        query.orderByDescending("createdAt")
         
         // Limit what could be a lot of points.
         
@@ -47,9 +78,9 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                 NSLog("Successfully retrieved \(objects.count)")
                 self.chatMessages = objects as [PFObject]
                 self.chatMessages.append(self.geoPostObject!)
-//                NSLog("there are \(self.chatMessages.count) chat messages")
+                //                NSLog("there are \(self.chatMessages.count) chat messages")
                 self.tableView.reloadData()
-//                self.tableView.reloadInputViews()
+                //                self.tableView.reloadInputViews()
             } else {
                 // Log details of the failure
                 NSLog("Error: %@ %@", error, error.userInfo!)
@@ -62,7 +93,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         })
     }
-
+    
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
     }
@@ -81,7 +112,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         chatMessage = chatMessages[indexPath.row]
         
         let df = NSDateFormatter()
-        df.dateFormat = "MM-dd-yyyy"
+        df.dateFormat = "MM-dd-yyyy hh:mm a"
         cell.postedAt.text = NSString(format: "%@", df.stringFromDate(chatMessage.createdAt))
         
         if(chatMessage.parseClassName! == "GeoPosts") {
@@ -97,12 +128,12 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 80
     }
-
     
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        println("You selected cell #\(indexPath.row)!")
-//        self.performSegueWithIdentifier("myad_details", sender: self)
-//    }
-
+    
+    //    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    //        println("You selected cell #\(indexPath.row)!")
+    //        self.performSegueWithIdentifier("myad_details", sender: self)
+    //    }
+    
     
 }

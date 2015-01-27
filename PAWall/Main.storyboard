@@ -758,33 +758,39 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_send_black_48dp" translatesAutoresizingMaskIntoConstraints="NO" id="Eo1-8z-ClE">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rzn-aU-bBt">
                                 <rect key="frame" x="542" y="84" width="48" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="48" id="1Qd-pt-XVJ"/>
-                                    <constraint firstAttribute="height" constant="48" id="rPK-HZ-heV"/>
+                                    <constraint firstAttribute="height" constant="48" id="URX-vN-ELA"/>
+                                    <constraint firstAttribute="width" constant="48" id="qtH-1Q-yXF"/>
                                 </constraints>
-                            </imageView>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" backgroundImage="ic_send_black_48dp">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendReplyAction:" destination="2nD-sd-aN4" eventType="touchUpInside" id="170-rU-7d0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="rzn-aU-bBt" firstAttribute="leading" secondItem="m7Q-lQ-9WT" secondAttribute="trailing" constant="8" id="13Z-3A-7yw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qyL-dx-hvR" secondAttribute="trailing" constant="-16" id="2OJ-AQ-siH"/>
                             <constraint firstItem="qyL-dx-hvR" firstAttribute="top" secondItem="m7Q-lQ-9WT" secondAttribute="bottom" constant="8" id="A3g-k3-u9G"/>
                             <constraint firstItem="m7Q-lQ-9WT" firstAttribute="top" secondItem="ADG-Rw-EEY" secondAttribute="bottom" constant="8" id="Qgk-Wk-IhL"/>
                             <constraint firstItem="ADG-Rw-EEY" firstAttribute="leading" secondItem="jg1-EW-J6G" secondAttribute="leadingMargin" constant="-16" id="SFs-du-Alc"/>
                             <constraint firstItem="PKK-9b-mz2" firstAttribute="top" secondItem="qyL-dx-hvR" secondAttribute="bottom" id="XwT-iz-F5T"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ADG-Rw-EEY" secondAttribute="trailing" constant="-16" id="YNw-uU-7aN"/>
-                            <constraint firstItem="Eo1-8z-ClE" firstAttribute="top" secondItem="ADG-Rw-EEY" secondAttribute="bottom" constant="12" id="YtC-Lw-q96"/>
                             <constraint firstItem="qyL-dx-hvR" firstAttribute="top" secondItem="m7Q-lQ-9WT" secondAttribute="bottom" constant="8" id="bPe-gz-5D9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rzn-aU-bBt" secondAttribute="trailing" constant="-6" id="fOC-fE-VzP"/>
                             <constraint firstItem="qyL-dx-hvR" firstAttribute="leading" secondItem="jg1-EW-J6G" secondAttribute="leadingMargin" constant="-16" id="fu2-eS-ZNJ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Eo1-8z-ClE" secondAttribute="trailing" constant="-6" id="fx0-wx-apz"/>
-                            <constraint firstItem="Eo1-8z-ClE" firstAttribute="leading" secondItem="m7Q-lQ-9WT" secondAttribute="trailing" constant="8" id="hpv-Hu-0HS"/>
                             <constraint firstItem="m7Q-lQ-9WT" firstAttribute="leading" secondItem="jg1-EW-J6G" secondAttribute="leadingMargin" id="inR-Py-A8U"/>
+                            <constraint firstItem="rzn-aU-bBt" firstAttribute="top" secondItem="ADG-Rw-EEY" secondAttribute="bottom" constant="12" id="tvn-Rp-NAI"/>
                             <constraint firstItem="ADG-Rw-EEY" firstAttribute="top" secondItem="i7A-YO-2jA" secondAttribute="bottom" constant="8" id="vQo-I8-2N0"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="sendImage" destination="Eo1-8z-ClE" id="wNq-2G-9xG"/>
                         <outlet property="tableView" destination="qyL-dx-hvR" id="Aay-Js-6hh"/>
                         <outlet property="textView" destination="m7Q-lQ-9WT" id="0hC-CQ-R9a"/>
                     </connections>
