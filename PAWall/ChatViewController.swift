@@ -119,12 +119,18 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         df.dateFormat = "MM-dd-yyyy hh:mm a"
         cell.postedAt.text = NSString(format: "%@", df.stringFromDate(chatMessage.createdAt))
         
+        
         if(chatMessage.parseClassName! == "GeoPosts") {
             NSLog("rendering GeoPost")
             cell.body.text = chatMessage[GEO_POST.BODY] as? String
         } else {
             NSLog("Rendering ReplyPost")
             cell.body.text = chatMessage[REPLY_POST.BODY] as? String
+            
+            if chatMessage[REPLY_POST.REPLIED_BY] as? String == DEVICE_UUID {
+                 cell.postedAt.text = "Replied by me: \(cell.postedAt.text!)"
+            }
+            
         }
         
         
