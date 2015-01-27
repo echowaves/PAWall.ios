@@ -12,9 +12,9 @@ class ChatViewController: UIViewController {
     
     var geoPostObject:PFObject?
     
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var textField: UITextField!    
+    @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var sendImage: UIImageView!
+    @IBOutlet weak var tableView: UITableView!
     
     @IBAction func goBackAction(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
