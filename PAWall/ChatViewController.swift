@@ -44,6 +44,10 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tableView.delegate      =   self
         self.tableView.dataSource    =   self
         
+        self.tableView.estimatedRowHeight = 100.0
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+
+        
         PFGeoPoint.geoPointForCurrentLocationInBackground {
             (geoPoint: PFGeoPoint!, error: NSError!) -> Void in
             
@@ -122,12 +126,14 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
             NSLog("Rendering ReplyPost")
             cell.body.text = chatMessage[REPLY_POST.BODY] as? String
         }
+        
+        
         return cell
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 80
-    }
+//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        return 180
+//    }
     
     
     //    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

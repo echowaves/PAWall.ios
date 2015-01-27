@@ -10,5 +10,5 @@ import Foundation
 
 class ChatTableViewCell: UITableViewCell {
     @IBOutlet weak var postedAt: UILabel!
-    @IBOutlet weak var body: UITextView!
+    @IBOutlet weak var body: UILabel!
 }
