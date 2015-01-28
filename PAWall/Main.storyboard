@@ -627,6 +627,10 @@
                             <constraint firstAttribute="trailingMargin" secondItem="gLl-sm-bQB" secondAttribute="trailing" constant="-16" id="o4d-Qw-aDS"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="postBody" destination="3aT-LY-dQe" id="05n-A8-6gh"/>
+                        <outlet property="replyButton" destination="gLl-sm-bQB" id="FZz-rw-eOG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Be-6x-KOh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

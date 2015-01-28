@@ -14,9 +14,7 @@ class MyPostDetailsViewController: UIViewController {
     var geoPostObject:PFObject?
     
     
-    @IBOutlet weak var replyButton: UIButton!
-    
-    //    @IBOutlet weak var adDistance: UILabel!
+    @IBOutlet weak var replyButton: UIButton!    
     @IBOutlet weak var postBody: UITextView!
     
     override func viewDidLoad() {
