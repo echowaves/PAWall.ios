@@ -401,7 +401,7 @@
                                             <outlet property="distance" destination="ovg-9E-yhP" id="S9q-1B-F50"/>
                                             <outlet property="postedAt" destination="yYP-6N-3k5" id="ut6-Af-yWR"/>
                                             <outlet property="replies" destination="qkV-W5-xK7" id="oMw-N6-BC0"/>
-                                            <segue destination="7ki-V4-4t4" kind="show" identifier="ad_details" id="oJD-Ec-lJq"/>
+                                            <segue destination="7ki-V4-4t4" kind="show" identifier="post_details" id="oJD-Ec-lJq"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -571,10 +571,10 @@
             </objects>
             <point key="canvasLocation" x="2121" y="2013"/>
         </scene>
-        <!--View Controller-->
+        <!--My Post Details View Controller-->
         <scene sceneID="9HL-fe-rYe">
             <objects>
-                <viewController id="sDi-24-6vB" sceneMemberID="viewController">
+                <viewController id="sDi-24-6vB" customClass="MyPostDetailsViewController" customModule="PAWall" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MTD-pw-a7J"/>
                         <viewControllerLayoutGuide type="bottom" id="2OB-UT-8N3"/>
@@ -583,10 +583,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VvN-5O-dX6">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VvN-5O-dX6">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="wk0-Pq-B87"/>
+                                    <constraint firstAttribute="height" constant="44" id="nSW-kh-cCj"/>
                                 </constraints>
                                 <color key="barTintColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
@@ -595,8 +595,37 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3aT-LY-dQe">
+                                <rect key="frame" x="16" y="74" width="568" height="425"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLl-sm-bQB">
+                                <rect key="frame" x="0.0" y="507" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="30d-XG-sGC"/>
+                                </constraints>
+                                <state key="normal" title="Chat">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VvN-5O-dX6" firstAttribute="leading" secondItem="yZ5-kq-q7o" secondAttribute="leadingMargin" constant="-16" id="244-jc-ZWq"/>
+                            <constraint firstItem="3aT-LY-dQe" firstAttribute="trailing" secondItem="yZ5-kq-q7o" secondAttribute="trailingMargin" id="2ff-mj-gC2"/>
+                            <constraint firstItem="VvN-5O-dX6" firstAttribute="top" secondItem="MTD-pw-a7J" secondAttribute="bottom" id="DBz-v6-Tkf"/>
+                            <constraint firstItem="gLl-sm-bQB" firstAttribute="leading" secondItem="yZ5-kq-q7o" secondAttribute="leadingMargin" constant="-16" id="Ebm-3k-KJF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VvN-5O-dX6" secondAttribute="trailing" constant="-16" id="Wag-eJ-QGh"/>
+                            <constraint firstItem="2OB-UT-8N3" firstAttribute="top" secondItem="gLl-sm-bQB" secondAttribute="bottom" id="e8h-3b-P9o"/>
+                            <constraint firstItem="3aT-LY-dQe" firstAttribute="top" secondItem="VvN-5O-dX6" secondAttribute="bottom" constant="10" id="eH9-Ij-TlX"/>
+                            <constraint firstItem="gLl-sm-bQB" firstAttribute="top" secondItem="3aT-LY-dQe" secondAttribute="bottom" constant="8" id="f0v-mb-cPN"/>
+                            <constraint firstItem="gLl-sm-bQB" firstAttribute="top" secondItem="3aT-LY-dQe" secondAttribute="bottom" constant="8" id="mSf-QC-YPT"/>
+                            <constraint firstItem="3aT-LY-dQe" firstAttribute="leading" secondItem="yZ5-kq-q7o" secondAttribute="leadingMargin" id="mw1-H6-wtD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gLl-sm-bQB" secondAttribute="trailing" constant="-16" id="o4d-Qw-aDS"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Be-6x-KOh" userLabel="First Responder" sceneMemberID="firstResponder"/>

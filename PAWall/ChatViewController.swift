@@ -137,15 +137,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
-//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        return 180
-//    }
-    
-    
-    //    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    //        println("You selected cell #\(indexPath.row)!")
-    //        self.performSegueWithIdentifier("myad_details", sender: self)
-    //    }
+
     
     
 }

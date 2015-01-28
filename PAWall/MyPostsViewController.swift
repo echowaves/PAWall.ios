@@ -20,6 +20,9 @@ class MyPostsViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.tableView.delegate      =   self
         self.tableView.dataSource    =   self
 
+        self.tableView.estimatedRowHeight = 100.0
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -80,11 +83,28 @@ class MyPostsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         println("You selected cell #\(indexPath.row)!")
-        self.performSegueWithIdentifier("myad_details", sender: self)
+        self.performSegueWithIdentifier("mypost_details", sender: self)
     }
 
-//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        return 80
-//    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "mypost_details") {
+            let myPostDetailsViewController:MyPostDetailsViewController = segue.destinationViewController as MyPostDetailsViewController
+            
+            //            var indexPath:NSIndexPath = NSIndexPath()
+            var postObject:PFObject? = nil
+            
+            let indexPath = self.tableView.indexPathForSelectedRow()!
+            postObject = self.adsNearMe[indexPath.row]
+            
+//            let numberOfPlaces = 2.0
+//            let multiplier = pow(10.0, numberOfPlaces)
+//            let distance = (adObject![GEO_POST.LOCATION] as PFGeoPoint).distanceInMilesTo(self.myLocation)
+//            let roundedDistance = round(distance * multiplier) / multiplier
+            
+//            myPostDetailsViewController.rawDistance = roundedDistance
+            postDetailsViewController.geoPostObject = postObject!
+        }
+    }
+
 
 }

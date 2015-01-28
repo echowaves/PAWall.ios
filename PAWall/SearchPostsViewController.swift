@@ -195,16 +195,12 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         println("You selected cell #\(indexPath.row)!")
-        self.performSegueWithIdentifier("ad_details", sender: self)
+        self.performSegueWithIdentifier("post_details", sender: self)
     }
-    
-//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        return 80
-//    }
 
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if (segue.identifier == "ad_details") {
+        if (segue.identifier == "post_details") {
             let postDetailsViewController:PostDetailsViewController = segue.destinationViewController as PostDetailsViewController
             
 //            var indexPath:NSIndexPath = NSIndexPath()
