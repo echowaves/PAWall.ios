@@ -1,5 +1,5 @@
 //
-//  ReplyPost.swift
+//  ChatReply.swift
 //  PAWall
 //
 //  Created by D on 1/25/15.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-let CHAT_REPLY = ChatReply()
+let CHAT_REPLY:ChatReply = ChatReply()
 
 class ChatReply : BaseDataModel {
     let CLASS_NAME = "ChatReplies"

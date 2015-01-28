@@ -94,7 +94,7 @@ class MyPostsViewController: UIViewController, UITableViewDelegate, UITableViewD
             var postObject:PFObject? = nil
             
             let indexPath = self.tableView.indexPathForSelectedRow()!
-            postObject = self.adsNearMe[indexPath.row]
+            postObject = self.myPosts[indexPath.row]
             
 //            let numberOfPlaces = 2.0
 //            let multiplier = pow(10.0, numberOfPlaces)

@@ -14,7 +14,6 @@
 		0A5610E71A7571860023E4A0 /* MyPostSummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5610E61A7571860023E4A0 /* MyPostSummaryTableViewCell.swift */; };
 		0A5610E91A757AEA0023E4A0 /* ChatReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5610E81A757AEA0023E4A0 /* ChatReply.swift */; };
 		0A5610EB1A772C450023E4A0 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5610EA1A772C450023E4A0 /* ChatTableViewCell.swift */; };
-		0A5610ED1A786ED70023E4A0 /* MyPostDetailsViewController.swift in Resources */ = {isa = PBXBuildFile; fileRef = 0A5610EC1A786ED70023E4A0 /* MyPostDetailsViewController.swift */; };
 		0A6499D01A623E7D001E013D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A6499CF1A623E7D001E013D /* SystemConfiguration.framework */; };
 		0A6499D41A623E92001E013D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A6499D31A623E92001E013D /* Security.framework */; };
 		0A6499D61A623E9A001E013D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A6499D51A623E9A001E013D /* QuartzCore.framework */; };
@@ -61,7 +60,6 @@
 		0A5610E61A7571860023E4A0 /* MyPostSummaryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPostSummaryTableViewCell.swift; sourceTree = "<group>"; };
 		0A5610E81A757AEA0023E4A0 /* ChatReply.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatReply.swift; sourceTree = "<group>"; };
 		0A5610EA1A772C450023E4A0 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
-		0A5610EC1A786ED70023E4A0 /* MyPostDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPostDetailsViewController.swift; sourceTree = "<group>"; };
 		0A6499CF1A623E7D001E013D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		0A6499D31A623E92001E013D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		0A6499D51A623E9A001E013D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -213,7 +211,6 @@
 				0A5610EA1A772C450023E4A0 /* ChatTableViewCell.swift */,
 				0A5610E41A7564BE0023E4A0 /* MyPostsViewController.swift */,
 				0A5610E61A7571860023E4A0 /* MyPostSummaryTableViewCell.swift */,
-				0A5610EC1A786ED70023E4A0 /* MyPostDetailsViewController.swift */,
 				0AE071941A623DC900E18B59 /* Supporting Files */,
 			);
 			path = PAWall;
@@ -334,7 +331,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A5610ED1A786ED70023E4A0 /* MyPostDetailsViewController.swift in Resources */,
 				0AE0719E1A623DC900E18B59 /* Images.xcassets in Resources */,
 				0A6499F61A624D03001E013D /* pawall.jpg in Resources */,
 				0A6499F11A62432C001E013D /* Main.storyboard in Resources */,

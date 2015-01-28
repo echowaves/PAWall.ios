@@ -1,5 +1,5 @@
 //
-//  ClassifiedAd.swift
+//  GeoPost.swift
 //  PAWall
 //
 //  Created by D on 1/16/15.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-let GEO_POST = GeoPost()
+let GEO_POST:GeoPost = GeoPost()
 
 class GeoPost : BaseDataModel {
     let CLASS_NAME = "GeoPosts"
