@@ -102,7 +102,7 @@ class MyPostsViewController: UIViewController, UITableViewDelegate, UITableViewD
 //            let roundedDistance = round(distance * multiplier) / multiplier
             
 //            myPostDetailsViewController.rawDistance = roundedDistance
-            postDetailsViewController.geoPostObject = postObject!
+            myPostDetailsViewController.geoPostObject = postObject!
         }
     }
 

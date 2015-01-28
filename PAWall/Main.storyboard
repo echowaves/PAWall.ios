@@ -631,8 +631,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="postBody" destination="3aT-LY-dQe" id="05n-A8-6gh"/>
-                        <outlet property="replyButton" destination="gLl-sm-bQB" id="FZz-rw-eOG"/>
+                        <outlet property="postBody" destination="3aT-LY-dQe" id="nGA-y4-w3V"/>
+                        <outlet property="replyButton" destination="gLl-sm-bQB" id="8TW-s4-cbK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Be-6x-KOh" userLabel="First Responder" sceneMemberID="firstResponder"/>
