@@ -9,7 +9,7 @@
 import Foundation
 import MapKit
 
-class SearchAdsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchDisplayDelegate {
+class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchDisplayDelegate {
     
     var adsNearMe = [PFObject]()
     var filteredAdsNearMe = [PFObject]()
@@ -25,6 +25,10 @@ class SearchAdsViewController: UIViewController, UITableViewDelegate, UITableVie
         self.tableView.delegate      =   self
         self.tableView.dataSource    =   self
         self.searchBar.delegate      =   self
+
+        self.tableView.estimatedRowHeight = 80.0
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+
         //        search("")
     }
     
@@ -156,7 +160,7 @@ class SearchAdsViewController: UIViewController, UITableViewDelegate, UITableVie
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:AdSummaryTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("ad_summary") as AdSummaryTableViewCell
+        var cell:PostSummaryTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("post_summary") as PostSummaryTableViewCell
         
         var advertizement:PFObject
         
@@ -194,14 +198,14 @@ class SearchAdsViewController: UIViewController, UITableViewDelegate, UITableVie
         self.performSegueWithIdentifier("ad_details", sender: self)
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 80
-    }
+//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        return 80
+//    }
 
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "ad_details") {
-            let adDetailsViewController:AdDetailsViewController = segue.destinationViewController as AdDetailsViewController
+            let postDetailsViewController:PostDetailsViewController = segue.destinationViewController as PostDetailsViewController
             
 //            var indexPath:NSIndexPath = NSIndexPath()
             var adObject:PFObject? = nil
@@ -222,8 +226,8 @@ class SearchAdsViewController: UIViewController, UITableViewDelegate, UITableVie
             let distance = (adObject![GEO_POST.LOCATION] as PFGeoPoint).distanceInMilesTo(self.myLocation)
             let roundedDistance = round(distance * multiplier) / multiplier
             
-            adDetailsViewController.rawDistance = roundedDistance
-            adDetailsViewController.geoPostObject = adObject!
+            postDetailsViewController.rawDistance = roundedDistance
+            postDetailsViewController.geoPostObject = adObject!
         }
     }
     

@@ -9,7 +9,7 @@
 import Foundation
 
 
-class CreateAdViewController: UIViewController {
+class CreatePostViewController: UIViewController {
     
     
     @IBOutlet weak var locationLable: UILabel!

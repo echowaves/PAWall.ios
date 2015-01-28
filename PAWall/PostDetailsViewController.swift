@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AdDetailsViewController: UIViewController {
+class PostDetailsViewController: UIViewController {
     
     var rawDistance = 0.0
     var geoPostObject:PFObject?

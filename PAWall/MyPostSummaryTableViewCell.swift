@@ -9,7 +9,7 @@
 
 import Foundation
 
-class MyAdSummaryTableViewCell: UITableViewCell {
+class MyPostSummaryTableViewCell: UITableViewCell {
 
     @IBOutlet weak var postedAt: UILabel!
     @IBOutlet weak var details: UILabel!

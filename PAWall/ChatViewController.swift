@@ -25,11 +25,11 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBAction func sendReplyAction(sender: AnyObject) {
         
-        var chatReply = PFObject(className:REPLY_POST.CLASS_NAME)
-        chatReply[REPLY_POST.BODY] = textView.text
-        chatReply[REPLY_POST.LOCATION] = currentLocation!
-        chatReply[REPLY_POST.PARENT] = geoPostObject?.objectId
-        chatReply[REPLY_POST.REPLIED_BY] = DEVICE_UUID
+        var chatReply = PFObject(className:CHAT_REPLY.CLASS_NAME)
+        chatReply[CHAT_REPLY.BODY] = textView.text
+        chatReply[CHAT_REPLY.LOCATION] = currentLocation!
+        chatReply[CHAT_REPLY.PARENT] = geoPostObject?.objectId
+        chatReply[CHAT_REPLY.REPLIED_BY] = DEVICE_UUID
         chatReply.saveInBackgroundWithBlock { (success: Bool, error: NSError!) -> Void in
             NSLog("reply saved")
             self.chatMessages.insert(chatReply, atIndex:0)
@@ -66,10 +66,10 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         // Create a query for places
-        var query = PFQuery(className:REPLY_POST.CLASS_NAME)
+        var query = PFQuery(className:CHAT_REPLY.CLASS_NAME)
         // Interested in locations near user.
         
-        query.whereKey(REPLY_POST.PARENT, equalTo: geoPostObject?.objectId)
+        query.whereKey(CHAT_REPLY.PARENT, equalTo: geoPostObject?.objectId)
         query.orderByDescending("createdAt")
         
         // Limit what could be a lot of points.
@@ -125,9 +125,9 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.body.text = chatMessage[GEO_POST.BODY] as? String
         } else {
             NSLog("Rendering ReplyPost")
-            cell.body.text = chatMessage[REPLY_POST.BODY] as? String
+            cell.body.text = chatMessage[CHAT_REPLY.BODY] as? String
             
-            if chatMessage[REPLY_POST.REPLIED_BY] as? String == DEVICE_UUID {
+            if chatMessage[CHAT_REPLY.REPLIED_BY] as? String == DEVICE_UUID {
                  cell.postedAt.text = "Replied by me: \(cell.postedAt.text!)"
             }
             

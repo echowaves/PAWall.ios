@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MyPostsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var myPosts = [PFObject]()
 
     @IBOutlet weak var tableView: UITableView!
@@ -64,7 +64,7 @@ class MyAdsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:MyAdSummaryTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("myad_summary") as MyAdSummaryTableViewCell
+        var cell:MyPostSummaryTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("mypost_summary") as MyPostSummaryTableViewCell
         
         var advertizement:PFObject
         

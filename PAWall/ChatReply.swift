@@ -8,10 +8,10 @@
 
 import Foundation
 
-let REPLY_POST = ReplyPost()
+let CHAT_REPLY = ChatReply()
 
-class ReplyPost : BaseDataModel {
-    let CLASS_NAME = "ReplyPosts"
+class ChatReply : BaseDataModel {
+    let CLASS_NAME = "ChatReplies"
     let PARENT = "parentPost"
     let REPLIED_BY = "repliedBy"
     let BODY = "body"
