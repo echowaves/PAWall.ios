@@ -173,10 +173,11 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
             advertizement = adsNearMe[indexPath.row]
         }
         
-        if let replies = advertizement[GEO_POST.REPLIES] as Int? {
-            cell.replies.text = "Replies: \(replies)"
+        if let replies = advertizement[GEO_POST.REPLIES] as Double? {
+            let roundedCost = roundMoney(1.0 / replies)
+            cell.replies.text = "$\(roundedCost) to reply"
         } else {
-            cell.replies.text = "Replies: 0"
+            cell.replies.text = "$1.00 to reply"
         }
         
         let df = NSDateFormatter()
@@ -184,11 +185,7 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
         cell.postedAt.text = NSString(format: "%@", df.stringFromDate(advertizement.createdAt))
         cell.details.text = advertizement[GEO_POST.BODY] as? String
         
-        let numberOfPlaces = 2.0
-        let multiplier = pow(10.0, numberOfPlaces)
-        let distance = (advertizement[GEO_POST.LOCATION] as PFGeoPoint).distanceInMilesTo(myLocation)
-        let roundedDistance = round(distance * multiplier) / multiplier
-        
+        let roundedDistance = roundMoney((advertizement[GEO_POST.LOCATION] as PFGeoPoint).distanceInMilesTo(myLocation))
         cell.distance.text = "\(roundedDistance) Miles"
         
         //        cell.details.sizeToFit()
