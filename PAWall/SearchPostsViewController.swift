@@ -28,7 +28,10 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
 
         self.tableView.estimatedRowHeight = 80.0
         self.tableView.rowHeight = UITableViewAutomaticDimension
-
+        
+        self.searchDisplayController!.searchResultsTableView.estimatedRowHeight = 80.0
+        self.searchDisplayController!.searchResultsTableView.rowHeight = UITableViewAutomaticDimension
+        
         //        search("")
     }
     

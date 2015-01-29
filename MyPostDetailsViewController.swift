@@ -50,5 +50,7 @@ class MyPostDetailsViewController: UIViewController {
         }
     }
     
-    
+    @IBAction func goBackAction(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 }

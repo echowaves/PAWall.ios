@@ -77,12 +77,19 @@ class MyPostsViewController: UIViewController, UITableViewDelegate, UITableViewD
         df.dateFormat = "MM-dd-yyyy"
         cell.postedAt.text = NSString(format: "%@", df.stringFromDate(advertizement.createdAt))
         cell.details.text = advertizement[GEO_POST.BODY] as? String
+        
+        if let replies = advertizement[GEO_POST.REPLIES] as Int? {
+            cell.replies.text = "Replies: \(replies)"
+        } else {
+            cell.replies.text = "Replies: 0"
+        }
+
         return cell
     }
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        println("You selected cell #\(indexPath.row)!")
+        NSLog("You selected cell #\(indexPath.row)!")
         self.performSegueWithIdentifier("mypost_details", sender: self)
     }
 

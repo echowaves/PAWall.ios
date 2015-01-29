@@ -507,11 +507,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PostedAt:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w8V-Mu-3P9">
-                                                    <rect key="frame" x="8" y="8" width="528" height="21"/>
+                                                    <rect key="frame" x="104" y="8" width="432" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="mNB-Bc-kAr"/>
+                                                        <constraint firstAttribute="height" constant="21" id="SrK-Pl-sJh"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -524,27 +524,43 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_chevron_right_black_48dp" translatesAutoresizingMaskIntoConstraints="NO" id="VoM-OQ-y1b">
                                                     <rect key="frame" x="544" y="8" width="48" height="48"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="48" id="4gg-ot-MUe"/>
-                                                        <constraint firstAttribute="height" constant="48" id="hTV-Ri-gee"/>
+                                                        <constraint firstAttribute="width" constant="48" id="8yU-tm-48F"/>
+                                                        <constraint firstAttribute="height" constant="48" id="BAZ-Yi-Ug1"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Replies:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nnz-mj-TbH">
+                                                    <rect key="frame" x="8" y="8" width="88" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="88" id="JYX-eL-xlz"/>
+                                                        <constraint firstAttribute="height" constant="21" id="ZaV-gV-L9Z"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="YBX-EP-9z1" secondAttribute="bottom" constant="1" id="0D6-kj-Ta4"/>
-                                                <constraint firstItem="VoM-OQ-y1b" firstAttribute="trailing" secondItem="JWg-pF-awa" secondAttribute="trailingMargin" id="59Y-FA-DS6"/>
-                                                <constraint firstItem="VoM-OQ-y1b" firstAttribute="top" secondItem="JWg-pF-awa" secondAttribute="topMargin" id="IRP-T8-3zT"/>
-                                                <constraint firstItem="YBX-EP-9z1" firstAttribute="top" secondItem="w8V-Mu-3P9" secondAttribute="bottom" constant="8" id="LKw-NH-gDk"/>
-                                                <constraint firstItem="w8V-Mu-3P9" firstAttribute="top" secondItem="JWg-pF-awa" secondAttribute="topMargin" id="PzA-Vl-Wow"/>
-                                                <constraint firstItem="VoM-OQ-y1b" firstAttribute="leading" secondItem="YBX-EP-9z1" secondAttribute="trailing" constant="8" id="W0B-hO-sUW"/>
-                                                <constraint firstItem="w8V-Mu-3P9" firstAttribute="leading" secondItem="JWg-pF-awa" secondAttribute="leadingMargin" id="fiC-Rz-lGm"/>
-                                                <constraint firstItem="YBX-EP-9z1" firstAttribute="leading" secondItem="JWg-pF-awa" secondAttribute="leadingMargin" id="tYn-oY-lvH"/>
-                                                <constraint firstItem="VoM-OQ-y1b" firstAttribute="leading" secondItem="w8V-Mu-3P9" secondAttribute="trailing" constant="8" id="wW3-1b-s1V"/>
+                                                <constraint firstItem="VoM-OQ-y1b" firstAttribute="trailing" secondItem="JWg-pF-awa" secondAttribute="trailingMargin" id="4Cq-aT-UzM"/>
+                                                <constraint firstItem="Nnz-mj-TbH" firstAttribute="top" secondItem="JWg-pF-awa" secondAttribute="topMargin" id="SPe-uh-ukn"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="YBX-EP-9z1" secondAttribute="bottom" constant="0.5" id="Taw-LN-Q5H"/>
+                                                <constraint firstItem="YBX-EP-9z1" firstAttribute="top" secondItem="Nnz-mj-TbH" secondAttribute="bottom" constant="8" id="Wnd-4X-UVg"/>
+                                                <constraint firstItem="YBX-EP-9z1" firstAttribute="leading" secondItem="JWg-pF-awa" secondAttribute="leadingMargin" id="Xyg-sa-gf2"/>
+                                                <constraint firstItem="w8V-Mu-3P9" firstAttribute="leading" secondItem="Nnz-mj-TbH" secondAttribute="trailing" constant="8" id="Ze5-pf-fTM"/>
+                                                <constraint firstItem="VoM-OQ-y1b" firstAttribute="leading" secondItem="w8V-Mu-3P9" secondAttribute="trailing" constant="8" id="a85-iQ-NPE"/>
+                                                <constraint firstItem="w8V-Mu-3P9" firstAttribute="top" secondItem="JWg-pF-awa" secondAttribute="topMargin" id="efo-Dx-cUG"/>
+                                                <constraint firstItem="YBX-EP-9z1" firstAttribute="top" secondItem="Nnz-mj-TbH" secondAttribute="bottom" constant="8" id="hAw-ge-by0"/>
+                                                <constraint firstItem="Nnz-mj-TbH" firstAttribute="leading" secondItem="JWg-pF-awa" secondAttribute="leadingMargin" id="jIM-0q-cvK"/>
+                                                <constraint firstItem="w8V-Mu-3P9" firstAttribute="leading" secondItem="Nnz-mj-TbH" secondAttribute="trailing" constant="8" id="p4z-Bf-mCd"/>
+                                                <constraint firstItem="VoM-OQ-y1b" firstAttribute="top" secondItem="JWg-pF-awa" secondAttribute="topMargin" id="pYU-HR-Qf4"/>
+                                                <constraint firstItem="VoM-OQ-y1b" firstAttribute="leading" secondItem="YBX-EP-9z1" secondAttribute="trailing" constant="8" id="uyg-OY-uti"/>
+                                                <constraint firstItem="YBX-EP-9z1" firstAttribute="top" secondItem="w8V-Mu-3P9" secondAttribute="bottom" constant="8" id="vZF-NN-mnY"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="details" destination="YBX-EP-9z1" id="XkK-Vm-Tb7"/>
                                             <outlet property="postedAt" destination="w8V-Mu-3P9" id="Rwq-tg-zRj"/>
-                                            <segue destination="sDi-24-6vB" kind="show" id="Ix7-ll-ZNw"/>
+                                            <outlet property="replies" destination="Nnz-mj-TbH" id="pTQ-xH-OGE"/>
+                                            <segue destination="sDi-24-6vB" kind="show" identifier="mypost_details" id="Ix7-ll-ZNw"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -571,6 +587,25 @@
             </objects>
             <point key="canvasLocation" x="2121" y="2013"/>
         </scene>
+        <!--Alerts-->
+        <scene sceneID="Ncr-qd-PHO">
+            <objects>
+                <viewController id="qbD-dC-BYF" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nh0-M6-esb"/>
+                        <viewControllerLayoutGuide type="bottom" id="djH-QD-n7A"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qAL-hb-X9j">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Alerts" image="ic_notifications_black_48dp" badgeValue="23" id="TX2-Ng-Bl4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dPB-W8-qaM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2121" y="2817"/>
+        </scene>
         <!--My Post Details View Controller-->
         <scene sceneID="9HL-fe-rYe">
             <objects>
@@ -591,7 +626,11 @@
                                 <color key="barTintColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="My Post Details" id="hJl-fW-pes">
-                                        <barButtonItem key="leftBarButtonItem" image="ic_cancel_black_48dp" id="XGq-lI-RDl"/>
+                                        <barButtonItem key="leftBarButtonItem" image="ic_cancel_black_48dp" id="XGq-lI-RDl">
+                                            <connections>
+                                                <action selector="goBackAction:" destination="sDi-24-6vB" id="PIX-p2-jzw"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -880,11 +919,12 @@
                     <connections>
                         <segue destination="MKC-ZP-avC" kind="relationship" relationship="viewControllers" id="ePp-Cp-lHM"/>
                         <segue destination="z70-SV-ybL" kind="relationship" relationship="viewControllers" id="qTa-IN-hY2"/>
+                        <segue destination="qbD-dC-BYF" kind="relationship" relationship="viewControllers" id="R0P-mZ-43w"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yVL-oe-dZk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1242" y="1627"/>
+            <point key="canvasLocation" x="1249" y="2013"/>
         </scene>
     </scenes>
     <resources>
@@ -894,6 +934,7 @@
         <image name="ic_chevron_right_black_48dp" width="48" height="48"/>
         <image name="ic_expand_less_black_48dp" width="48" height="48"/>
         <image name="ic_list_black_48dp" width="48" height="48"/>
+        <image name="ic_notifications_black_48dp" width="48" height="48"/>
         <image name="ic_reply_black_48dp" width="48" height="48"/>
         <image name="ic_search_black_48dp" width="48" height="48"/>
         <image name="ic_send_black_48dp" width="48" height="48"/>

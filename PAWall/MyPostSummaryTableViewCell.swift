@@ -10,7 +10,7 @@
 import Foundation
 
 class MyPostSummaryTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var replies: UILabel!
     @IBOutlet weak var postedAt: UILabel!
     @IBOutlet weak var details: UILabel!
 
