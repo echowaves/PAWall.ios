@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C106a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="DrG-Fe-498">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="DrG-Fe-498">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -507,9 +507,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PostedAt:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w8V-Mu-3P9">
-                                                    <rect key="frame" x="8" y="8" width="584" height="21"/>
+                                                    <rect key="frame" x="8" y="8" width="528" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="vnx-lv-zK7"/>
+                                                        <constraint firstAttribute="height" constant="21" id="mNB-Bc-kAr"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -522,23 +522,23 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_chevron_right_black_48dp" translatesAutoresizingMaskIntoConstraints="NO" id="VoM-OQ-y1b">
-                                                    <rect key="frame" x="544" y="37" width="48" height="48"/>
+                                                    <rect key="frame" x="544" y="8" width="48" height="48"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="48" id="Puf-un-G2C"/>
-                                                        <constraint firstAttribute="height" constant="48" id="t6c-U8-uNm"/>
+                                                        <constraint firstAttribute="width" constant="48" id="4gg-ot-MUe"/>
+                                                        <constraint firstAttribute="height" constant="48" id="hTV-Ri-gee"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="VoM-OQ-y1b" firstAttribute="top" secondItem="w8V-Mu-3P9" secondAttribute="bottom" constant="8" id="HSB-UF-OAq"/>
-                                                <constraint firstItem="YBX-EP-9z1" firstAttribute="top" secondItem="w8V-Mu-3P9" secondAttribute="bottom" constant="8" id="ID7-qY-x81"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="YBX-EP-9z1" secondAttribute="bottom" constant="1" id="NOo-rU-YrA"/>
-                                                <constraint firstItem="VoM-OQ-y1b" firstAttribute="leading" secondItem="YBX-EP-9z1" secondAttribute="trailing" constant="8" id="OLO-xx-2LF"/>
-                                                <constraint firstItem="YBX-EP-9z1" firstAttribute="leading" secondItem="JWg-pF-awa" secondAttribute="leadingMargin" id="ayC-Le-0u2"/>
-                                                <constraint firstItem="w8V-Mu-3P9" firstAttribute="top" secondItem="JWg-pF-awa" secondAttribute="topMargin" id="lS1-Ur-4fP"/>
-                                                <constraint firstItem="VoM-OQ-y1b" firstAttribute="trailing" secondItem="JWg-pF-awa" secondAttribute="trailingMargin" id="r98-fF-B02"/>
-                                                <constraint firstItem="w8V-Mu-3P9" firstAttribute="trailing" secondItem="JWg-pF-awa" secondAttribute="trailingMargin" id="wBo-EX-XnJ"/>
-                                                <constraint firstItem="w8V-Mu-3P9" firstAttribute="leading" secondItem="JWg-pF-awa" secondAttribute="leadingMargin" id="xqg-N2-G5B"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="YBX-EP-9z1" secondAttribute="bottom" constant="1" id="0D6-kj-Ta4"/>
+                                                <constraint firstItem="VoM-OQ-y1b" firstAttribute="trailing" secondItem="JWg-pF-awa" secondAttribute="trailingMargin" id="59Y-FA-DS6"/>
+                                                <constraint firstItem="VoM-OQ-y1b" firstAttribute="top" secondItem="JWg-pF-awa" secondAttribute="topMargin" id="IRP-T8-3zT"/>
+                                                <constraint firstItem="YBX-EP-9z1" firstAttribute="top" secondItem="w8V-Mu-3P9" secondAttribute="bottom" constant="8" id="LKw-NH-gDk"/>
+                                                <constraint firstItem="w8V-Mu-3P9" firstAttribute="top" secondItem="JWg-pF-awa" secondAttribute="topMargin" id="PzA-Vl-Wow"/>
+                                                <constraint firstItem="VoM-OQ-y1b" firstAttribute="leading" secondItem="YBX-EP-9z1" secondAttribute="trailing" constant="8" id="W0B-hO-sUW"/>
+                                                <constraint firstItem="w8V-Mu-3P9" firstAttribute="leading" secondItem="JWg-pF-awa" secondAttribute="leadingMargin" id="fiC-Rz-lGm"/>
+                                                <constraint firstItem="YBX-EP-9z1" firstAttribute="leading" secondItem="JWg-pF-awa" secondAttribute="leadingMargin" id="tYn-oY-lvH"/>
+                                                <constraint firstItem="VoM-OQ-y1b" firstAttribute="leading" secondItem="w8V-Mu-3P9" secondAttribute="trailing" constant="8" id="wW3-1b-s1V"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
