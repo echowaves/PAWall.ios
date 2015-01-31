@@ -10,8 +10,10 @@ import Foundation
 
 class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var chatMessages = [PFObject]()
-    var geoPostObject:PFObject?
+    var chatMessages:[PFObject] = [PFObject]()
+    var parentPost:PFObject?
+    // the conversation is not passed from child controller, but if unable to resolve, need to create a new conversation
+    var parentConversation:PFObject?
     
     var currentLocation:PFGeoPoint?
     
@@ -25,14 +27,13 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBAction func sendReplyAction(sender: AnyObject) {
         
-        
-        let onlyChatObjects = chatMessages.filter({$0.parseClassName! == CHAT_REPLY.CLASS_NAME})
+        let onlyChatObjects = chatMessages.filter({$0.parseClassName! == GMESSAGE.CLASS_NAME})
         NSLog("There are \(onlyChatObjects.count) onlyChatObjects")
-        let mineChatMessages = onlyChatObjects.filter({$0[CHAT_REPLY.REPLIED_BY] as String == DEVICE_UUID})
+        let mineChatMessages = onlyChatObjects.filter({$0[GMESSAGE.REPLIED_BY] as String == DEVICE_UUID})
         NSLog("there are \(mineChatMessages.count) not mine chat messages")
         
         // if there are no chat replies from me yet and the original post is not from me, apply charges and increment counter
-        if mineChatMessages.count == 0 && geoPostObject?[GEO_POST.UUID] as String != DEVICE_UUID {
+        if mineChatMessages.count == 0 && parentPost?[GPOST.POSTED_BY] as String != DEVICE_UUID {
             let alertMessage = UIAlertController(title: "Warning", message: "You are initiating a conversation. Charges may apply.", preferredStyle: UIAlertControllerStyle.Alert)
             let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
                 
@@ -52,26 +53,26 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func chatReply(increment:Bool) -> Void {
-        var chatReply = PFObject(className:CHAT_REPLY.CLASS_NAME)
-        chatReply[CHAT_REPLY.BODY] = textView.text
-        chatReply[CHAT_REPLY.LOCATION] = currentLocation!
-        chatReply[CHAT_REPLY.PARENT] = geoPostObject?
-        chatReply[CHAT_REPLY.REPLIED_BY] = DEVICE_UUID
+        var chatReply = PFObject(className:GMESSAGE.CLASS_NAME)
+        chatReply[GMESSAGE.BODY] = textView.text
+        chatReply[GMESSAGE.LOCATION] = currentLocation!
+        chatReply[GMESSAGE.PARENT] = parentPost?
+        chatReply[GMESSAGE.REPLIED_BY] = DEVICE_UUID
         chatReply.saveInBackgroundWithBlock { (success: Bool, error: NSError!) -> Void in
             NSLog("reply saved")
             self.chatMessages.insert(chatReply, atIndex:0)
             self.textView.text = ""
             self.tableView.reloadData()
             if increment == true {
-                self.geoPostObject?.incrementKey(GEO_POST.REPLIES)
-                self.geoPostObject?.saveInBackgroundWithBlock(nil)
+                self.parentPost?.incrementKey(GPOST.REPLIES)
+                self.parentPost?.saveInBackgroundWithBlock(nil)
             }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSLog("inside ChatViewController, geoPostObject: \(geoPostObject![GEO_POST.BODY])")
+        NSLog("inside ChatViewController, parentPost: \(parentPost![GPOST.BODY])")
         self.tableView.delegate      =   self
         self.tableView.dataSource    =   self
         
@@ -79,6 +80,12 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tableView.rowHeight = UITableViewAutomaticDimension
 
         
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+
+
         PFGeoPoint.geoPointForCurrentLocationInBackground {
             (geoPoint: PFGeoPoint!, error: NSError!) -> Void in
             
@@ -90,43 +97,73 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                     longitude: geoPoint.longitude
                 )
                 self.currentLocation = geoPoint
+                
+
+                // retrive conversation if possible
+                let convQuery = PFQuery(className:GCONVERSATION.CLASS_NAME)
+                convQuery.whereKey(GCONVERSATION.PARENT, equalTo: self.parentPost!)
+                convQuery.whereKey(GCONVERSATION.CREATED_BY, equalTo: DEVICE_UUID)
+                convQuery.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]!, error: NSError!) -> Void in
+                    if error == nil {
+                        // if no conversation is yet created, create one and also create a first message from the post
+                        if objects.count == 0 {
+                            let gConversation:PFObject = PFObject(className:GCONVERSATION.CLASS_NAME)
+                            gConversation[GCONVERSATION.PARENT] = self.parentPost
+                            gConversation[GCONVERSATION.CREATED_BY] = DEVICE_UUID
+                            gConversation.save()
+                            self.parentConversation = gConversation
+                            
+                            let gFirstMessage:PFObject = PFObject(className:GMESSAGE.CLASS_NAME)
+                            gFirstMessage[GMESSAGE.PARENT] = gConversation
+                            gFirstMessage[GMESSAGE.REPLIED_BY] = self.parentPost![GPOST.POSTED_BY] as String
+                            gFirstMessage[GMESSAGE.BODY] = self.parentPost![GPOST.BODY] as String
+                            gFirstMessage[GMESSAGE.LOCATION] = self.currentLocation
+                            gFirstMessage.save()
+
+                        } else {
+                            self.parentConversation = objects[0] as? PFObject
+                        }
+                        
+                        // now retrieve all messages and present on the screen
+                        let query = PFQuery(className:GMESSAGE.CLASS_NAME)
+                        // Interested in locations near user.
+                        
+                        query.whereKey(GMESSAGE.PARENT, equalTo: self.parentConversation!)
+                        query.orderByDescending("createdAt")
+                        
+                        
+                        query.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]!, error: NSError!) -> Void in
+                            if error == nil {
+                                // The find succeeded.
+                                // Do something with the found objects
+                                NSLog("Successfully retrieved \(objects.count)")
+                                self.chatMessages = objects as [PFObject]
+                                self.tableView.reloadData()
+                                
+                            } else {
+                                // Log details of the failure
+                                NSLog("Error: %@ %@", error, error.userInfo!)
+                                let alertMessage = UIAlertController(title: "Error", message: "Error retreiving chat messages, try agin.", preferredStyle: UIAlertControllerStyle.Alert)
+                                let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
+                                alertMessage.addAction(ok)
+                                self.presentViewController(alertMessage, animated: true, completion: nil)
+                            }
+                        })
+
+                        
+                    } else {
+                        // Log details of the failure
+                        NSLog("Error: %@ %@", error, error.userInfo!)
+                        let alertMessage = UIAlertController(title: "Error", message: "Error retreiving conversations, try agin.", preferredStyle: UIAlertControllerStyle.Alert)
+                        let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
+                        alertMessage.addAction(ok)
+                        self.presentViewController(alertMessage, animated: true, completion: nil)
+                    }
+                })
+                
+                
             }
         }
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        // Create a query for places
-        var query = PFQuery(className:CHAT_REPLY.CLASS_NAME)
-        // Interested in locations near user.
-        
-        query.whereKey(CHAT_REPLY.PARENT, equalTo: geoPostObject?)
-        query.orderByDescending("createdAt")
-        
-        // Limit what could be a lot of points.
-        
-        query.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]!, error: NSError!) -> Void in
-            if error == nil {
-                // The find succeeded.
-                // Do something with the found objects
-                
-                NSLog("Successfully retrieved \(objects.count)")
-                self.chatMessages = objects as [PFObject]
-                self.chatMessages.append(self.geoPostObject!)
-                //                NSLog("there are \(self.chatMessages.count) chat messages")
-                self.tableView.reloadData()
-                //                self.tableView.reloadInputViews()
-            } else {
-                // Log details of the failure
-                NSLog("Error: %@ %@", error, error.userInfo!)
-                
-                let alertMessage = UIAlertController(title: "Error", message: "Error retreiving ads, try agin.", preferredStyle: UIAlertControllerStyle.Alert)
-                let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
-                alertMessage.addAction(ok)
-                self.presentViewController(alertMessage, animated: true, completion: nil)
-                
-            }
-        })
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -150,20 +187,12 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         df.dateFormat = "MM-dd-yyyy hh:mm a"
         cell.postedAt.text = NSString(format: "%@", df.stringFromDate(chatMessage.createdAt))
         
+        NSLog("Rendering ReplyPost")
+        cell.body.text = chatMessage[GMESSAGE.BODY] as? String
         
-        if(chatMessage.parseClassName! == GEO_POST.CLASS_NAME) {
-            NSLog("rendering GeoPost")
-            cell.body.text = chatMessage[GEO_POST.BODY] as? String
-        } else {
-            NSLog("Rendering ReplyPost")
-            cell.body.text = chatMessage[CHAT_REPLY.BODY] as? String
-            
-            if chatMessage[CHAT_REPLY.REPLIED_BY] as? String == DEVICE_UUID {
-                 cell.postedAt.text = "Replied by me: \(cell.postedAt.text!)"
-            }
-            
+        if chatMessage[GMESSAGE.REPLIED_BY] as? String == DEVICE_UUID {
+            cell.postedAt.text = "Replied by me: \(cell.postedAt.text!)"
         }
-        
         
         return cell
     }

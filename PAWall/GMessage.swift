@@ -8,11 +8,11 @@
 
 import Foundation
 
-let CHAT_REPLY:ChatReply = ChatReply()
+let GMESSAGE:GMessage = GMessage()
 
-class ChatReply : BaseDataModel {
-    let CLASS_NAME = "ChatReplies"
-    let PARENT = "parentPost"
+class GMessage : BaseDataModel {
+    let CLASS_NAME = "GMessages"
+    let PARENT = "parentConversation"
     let REPLIED_BY = "repliedBy"
     let BODY = "body"
     let LOCATION = "location"

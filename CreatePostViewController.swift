@@ -18,7 +18,7 @@ class CreatePostViewController: UIViewController {
     var currentLocation:PFGeoPoint?
     
     @IBAction func unwindToCreateAd (segue : UIStoryboardSegue) {
-        NSLog("CreateAd seque from segue id: \(segue.identifier)")
+        NSLog("CreatePost seque from segue id: \(segue.identifier)")
     }
     
     
@@ -32,7 +32,7 @@ class CreatePostViewController: UIViewController {
                 // do something with the new geoPoint
                 // 1
                 var location = CLLocationCoordinate2D(
-                    latitude: geoPoint.latitude,
+                    latitude: geoPoint.latitude, 
                     longitude: geoPoint.longitude
                 )
                 self.currentLocation = geoPoint
@@ -68,15 +68,15 @@ class CreatePostViewController: UIViewController {
         } else {
             let alertMessage = UIAlertController(title: nil, message: "You Post will be saved now.", preferredStyle: UIAlertControllerStyle.Alert)
             let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
-                var classifiedAd = PFObject(className:GEO_POST.CLASS_NAME)
-//                classifiedAd[GEO_POST.DEVICE_TOKEN] = DEVICE_TOKEN
-                classifiedAd[GEO_POST.BODY] = self.adDescription!.text
-                classifiedAd[GEO_POST.LOCATION] = self.currentLocation?
-                classifiedAd[GEO_POST.ACTIVE] = true
-                classifiedAd[GEO_POST.UUID] = DEVICE_UUID
-                classifiedAd[GEO_POST.REPLIES] = 0
+                var gPost = PFObject(className:GPOST.CLASS_NAME)
+//                gPost[GPOST.DEVICE_TOKEN] = DEVICE_TOKEN
+                gPost[GPOST.BODY] = self.adDescription!.text
+                gPost[GPOST.LOCATION] = self.currentLocation?
+                gPost[GPOST.ACTIVE] = true
+                gPost[GPOST.POSTED_BY] = DEVICE_UUID
+                gPost[GPOST.REPLIES] = 0
                 var error:NSErrorPointer = nil
-                classifiedAd.saveEventually({ (success: Bool, error: NSError!) -> Void in
+                gPost.saveEventually({ (success: Bool, error: NSError!) -> Void in
                     if success {
                         self.dismissViewControllerAnimated(false, completion: nil)
                     } else {

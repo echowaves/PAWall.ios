@@ -208,7 +208,7 @@
                                 </constraints>
                                 <color key="barTintColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
-                                    <navigationItem title="My New Ad" id="0ra-dn-dje">
+                                    <navigationItem title="My New Post" id="0ra-dn-dje">
                                         <barButtonItem key="leftBarButtonItem" image="ic_cancel_black_48dp" id="Gfa-xb-fHs">
                                             <connections>
                                                 <segue destination="TZO-hv-g0F" kind="unwind" unwindAction="unwindToHome:" id="b3k-AI-uqb"/>

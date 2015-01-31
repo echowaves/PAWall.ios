@@ -9,7 +9,7 @@
 import Foundation
 
 class MyPostsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var myPosts = [PFObject]()
+    var myPosts:[PFObject] = [PFObject]()
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -29,11 +29,11 @@ class MyPostsViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidAppear(animated)
         
         // Create a query for places
-        var query = PFQuery(className:GEO_POST.CLASS_NAME)
+        var query = PFQuery(className:GPOST.CLASS_NAME)
         // Interested in locations near user.
 
-        query.whereKey(GEO_POST.ACTIVE, equalTo: true)
-        query.whereKey(GEO_POST.UUID, equalTo: DEVICE_UUID)
+        query.whereKey(GPOST.ACTIVE, equalTo: true)
+        query.whereKey(GPOST.POSTED_BY, equalTo: DEVICE_UUID)
         query.orderByDescending("createdAt")
 
         // Limit what could be a lot of points.
@@ -76,9 +76,9 @@ class MyPostsViewController: UIViewController, UITableViewDelegate, UITableViewD
         let df = NSDateFormatter()
         df.dateFormat = "MM-dd-yyyy"
         cell.postedAt.text = NSString(format: "%@", df.stringFromDate(advertizement.createdAt))
-        cell.details.text = advertizement[GEO_POST.BODY] as? String
+        cell.details.text = advertizement[GPOST.BODY] as? String
         
-        if let replies = advertizement[GEO_POST.REPLIES] as Int? {
+        if let replies = advertizement[GPOST.REPLIES] as Int? {
             cell.replies.text = "Replies: \(replies)"
         } else {
             cell.replies.text = "Replies: 0"
@@ -103,7 +103,7 @@ class MyPostsViewController: UIViewController, UITableViewDelegate, UITableViewD
             NSLog("indexpath row1: \(indexPath.row)")
             geoPostObject = self.myPosts[indexPath.row]
             
-            chatViewController.geoPostObject = geoPostObject!
+            chatViewController.parentPost = geoPostObject!
         }
     }
     

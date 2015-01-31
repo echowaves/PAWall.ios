@@ -8,15 +8,14 @@
 
 import Foundation
 
-let GEO_POST:GeoPost = GeoPost()
+let GPOST:GPost = GPost()
 
-class GeoPost : BaseDataModel {
-    let CLASS_NAME = "GeoPosts"
-    let DEVICE_TOKEN = "deviceToken"
+class GPost : BaseDataModel {
+    let CLASS_NAME = "GPosts"
+    let POSTED_BY = "postedBy"
     let WORDS = "words"
     let BODY = "body"
     let LOCATION = "location"
     let ACTIVE = "active"
     let REPLIES = "replies"
-    let UUID = "uuid"
 }

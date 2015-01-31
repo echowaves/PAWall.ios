@@ -11,8 +11,8 @@ import MapKit
 
 class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchDisplayDelegate {
     
-    var adsNearMe = [PFObject]()
-    var filteredAdsNearMe = [PFObject]()
+    var postsNearMe:[PFObject] = [PFObject]()
+    var filteredPostsNearMe:[PFObject] = [PFObject]()
     var myLocation:PFGeoPoint = PFGeoPoint()
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -25,7 +25,7 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
         self.tableView.delegate      =   self
         self.tableView.dataSource    =   self
         self.searchBar.delegate      =   self
-
+        
         self.tableView.estimatedRowHeight = 80.0
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
@@ -46,25 +46,23 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
                 self.myLocation = geoPoint
                 
                 // Create a query for places
-                var query = PFQuery(className:GEO_POST.CLASS_NAME)
+                var query = PFQuery(className:GPOST.CLASS_NAME)
                 // Interested in locations near user.
-                query.whereKey(GEO_POST.LOCATION, nearGeoPoint:self.myLocation)
-                query.whereKey(GEO_POST.ACTIVE, equalTo: true)
-                query.whereKey(GEO_POST.UUID, notEqualTo: DEVICE_UUID)
+                query.whereKey(GPOST.LOCATION, nearGeoPoint:self.myLocation)
+                query.whereKey(GPOST.ACTIVE, equalTo: true)
+                query.whereKey(GPOST.POSTED_BY, notEqualTo: DEVICE_UUID)
                 // Limit what could be a lot of points.
                 query.limit = 100
                 // Final list of objects
-                //                self.adsNearMe =
+                //                self.postsNearMe =
                 
                 query.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]!, error: NSError!) -> Void in
                     if error == nil {
                         // The find succeeded.
                         // Do something with the found objects
-                        
-                        
                         NSLog("Successfully retrieved \(objects.count)")
                         if objects.count > 0 {
-                            self.adsNearMe = objects as [PFObject]
+                            self.postsNearMe = objects as [PFObject]
                             self.tableView.reloadData()
                         }
                         
@@ -72,7 +70,7 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
                         // Log details of the failure
                         NSLog("Error: %@ %@", error, error.userInfo!)
                         
-                        let alertMessage = UIAlertController(title: "Error", message: "Error retreiving ads, try agin.", preferredStyle: UIAlertControllerStyle.Alert)
+                        let alertMessage = UIAlertController(title: "Error", message: "Error retreiving posts, try agin.", preferredStyle: UIAlertControllerStyle.Alert)
                         let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
                         alertMessage.addAction(ok)
                         self.presentViewController(alertMessage, animated: true, completion: nil)
@@ -87,7 +85,7 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
     
     func filterContentForSearchText(searchText:String) {
         
-        //        self.adsNearMe = []
+        //        self.postsNearMe = []
         //        self.tableView.reloadData()
         
         PFGeoPoint.geoPointForCurrentLocationInBackground {
@@ -98,20 +96,20 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
                 self.myLocation = geoPoint
                 
                 // Create a query for places
-                var query = PFQuery(className:GEO_POST.CLASS_NAME)
+                var query = PFQuery(className:GPOST.CLASS_NAME)
                 // Interested in locations near user.
-                query.whereKey(GEO_POST.LOCATION, nearGeoPoint:self.myLocation)
-                query.whereKey(GEO_POST.ACTIVE, equalTo: true)
-                query.whereKey(GEO_POST.UUID, notEqualTo: DEVICE_UUID)
+                query.whereKey(GPOST.LOCATION, nearGeoPoint:self.myLocation)
+                query.whereKey(GPOST.ACTIVE, equalTo: true)
+                query.whereKey(GPOST.POSTED_BY, notEqualTo: DEVICE_UUID)
                 NSLog("Searching for string \(searchText)")
                 if !searchText.isEmpty {
                     let textArr = split(searchText.lowercaseString) {$0 == " "}
-                    query.whereKey(GEO_POST.WORDS, containsAllObjectsInArray: textArr)
+                    query.whereKey(GPOST.WORDS, containsAllObjectsInArray: textArr)
                 }
                 // Limit what could be a lot of points.
                 query.limit = 100
                 // Final list of objects
-                //                self.adsNearMe =
+                //                self.postsNearMe =
                 
                 query.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]!, error: NSError!) -> Void in
                     if error == nil {
@@ -121,7 +119,7 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
                         
                         NSLog("Successfully retrieved \(objects.count)")
                         if objects.count > 0 {
-                            self.filteredAdsNearMe = objects as [PFObject]
+                            self.filteredPostsNearMe = objects as [PFObject]
                             self.searchDisplayController?.searchResultsTableView.reloadData()
                             //                                self.searchDisplayController?.searchResultsTableView.reloadInputViews()
                         }
@@ -155,9 +153,9 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == self.searchDisplayController!.searchResultsTableView {
-            return self.filteredAdsNearMe.count
+            return self.filteredPostsNearMe.count
         } else {
-            return self.adsNearMe.count
+            return self.postsNearMe.count
         }
     }
     
@@ -168,12 +166,12 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
         var advertizement:PFObject
         
         if tableView == self.searchDisplayController!.searchResultsTableView {
-            advertizement = filteredAdsNearMe[indexPath.row]
+            advertizement = filteredPostsNearMe[indexPath.row]
         } else {
-            advertizement = adsNearMe[indexPath.row]
+            advertizement = postsNearMe[indexPath.row]
         }
         
-        if let replies = advertizement[GEO_POST.REPLIES] as Double? {
+        if let replies = advertizement[GPOST.REPLIES] as Double? {
             let roundedCost = roundMoney(1.0 / (replies + 1))
             cell.replies.text = "$\(roundedCost) to reply"
         } else {
@@ -183,9 +181,9 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
         let df = NSDateFormatter()
         df.dateFormat = "MM-dd-yyyy"
         cell.postedAt.text = NSString(format: "%@", df.stringFromDate(advertizement.createdAt))
-        cell.details.text = advertizement[GEO_POST.BODY] as? String
+        cell.details.text = advertizement[GPOST.BODY] as? String
         
-        let roundedDistance = roundMoney((advertizement[GEO_POST.LOCATION] as PFGeoPoint).distanceInMilesTo(myLocation))
+        let roundedDistance = roundMoney((advertizement[GPOST.LOCATION] as PFGeoPoint).distanceInMilesTo(myLocation))
         cell.distance.text = "\(roundedDistance) Miles"
         
         //        cell.details.sizeToFit()
@@ -197,25 +195,25 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
         NSLog("You selected cell #\(indexPath.row)!")
         self.performSegueWithIdentifier("show_chat", sender: self)
     }
-
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-//        NSLog("prepareForSegue \(segue.identifier!)")
+        //        NSLog("prepareForSegue \(segue.identifier!)")
         if segue.identifier == "show_chat" {
             let chatViewController:ChatViewController = segue.destinationViewController as ChatViewController
-            var geoPostObject:PFObject? = nil
+            var geoPostObject:PFObject?
             
             if self.searchDisplayController!.active  {
                 let indexPath = self.searchDisplayController!.searchResultsTableView.indexPathForSelectedRow()!
                 NSLog("indexpath row1: \(indexPath.row)")
-                geoPostObject = self.filteredAdsNearMe[indexPath.row]
+                geoPostObject = self.filteredPostsNearMe[indexPath.row]
             } else {
                 let indexPath = self.tableView.indexPathForSelectedRow()!
                 NSLog("indexpath row2: \(indexPath.row)")
-                geoPostObject = self.adsNearMe[indexPath.row]
+                geoPostObject = self.postsNearMe[indexPath.row]
             }
             
-            chatViewController.geoPostObject = geoPostObject!
+            chatViewController.parentPost = geoPostObject!
             
         }
     }
