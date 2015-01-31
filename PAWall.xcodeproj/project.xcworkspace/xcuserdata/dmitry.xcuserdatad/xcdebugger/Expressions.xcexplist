@@ -3,6 +3,22 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "PAWall.ChatViewController.(sendReplyAction (PAWall.ChatViewController) -&gt; (Swift.AnyObject) -&gt; ()).(closure #1):ChatViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "chatMessages.filter({$0[CHAT_REPLY.REPLIED_BY] as String != DEVICE_UUID}).count &gt; 0">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PAWall.SearchAdsViewController.prepareForSegue (PAWall.SearchAdsViewController)(ObjectiveC.UIStoryboardSegue, sender : Swift.Optional&lt;Swift.AnyObject&gt;) -&gt; ():SearchAdsViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.searchDisplayController!.searchResultsTableView.indexPathForSelectedRow()!">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "PAWall.SearchAdsViewController.prepareForSegue (PAWall.SearchAdsViewController)(ObjectiveC.UIStoryboardSegue, sender : Swift.ImplicitlyUnwrappedOptional&lt;Swift.AnyObject&gt;) -&gt; ():SearchAdsViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -15,14 +31,6 @@
          <PersistentStrings>
             <PersistentString
                value = "DEVICE_UUID">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PAWall.SearchAdsViewController.prepareForSegue (PAWall.SearchAdsViewController)(ObjectiveC.UIStoryboardSegue, sender : Swift.Optional&lt;Swift.AnyObject&gt;) -&gt; ():SearchAdsViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.searchDisplayController!.searchResultsTableView.indexPathForSelectedRow()!">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

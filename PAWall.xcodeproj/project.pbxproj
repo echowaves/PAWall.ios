@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A0C3D701A78929C000C3DDD /* MyPostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0C3D6F1A78929C000C3DDD /* MyPostDetailsViewController.swift */; };
 		0A2AB8BB1A64411900DF08DF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2AB8BA1A64411900DF08DF /* HomeViewController.swift */; };
 		0A2AB8BD1A64418F00DF08DF /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2AB8BC1A64418F00DF08DF /* CreatePostViewController.swift */; };
 		0A5610E31A755F830023E4A0 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5610E21A755F830023E4A0 /* ChatViewController.swift */; };
@@ -53,7 +52,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0A0C3D6F1A78929C000C3DDD /* MyPostDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyPostDetailsViewController.swift; path = ../MyPostDetailsViewController.swift; sourceTree = "<group>"; };
 		0A2AB8BA1A64411900DF08DF /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = ../HomeViewController.swift; sourceTree = "<group>"; };
 		0A2AB8BC1A64418F00DF08DF /* CreatePostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreatePostViewController.swift; path = ../CreatePostViewController.swift; sourceTree = "<group>"; };
 		0A5610E21A755F830023E4A0 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -206,11 +204,10 @@
 				0A2AB8BC1A64418F00DF08DF /* CreatePostViewController.swift */,
 				0A9A18961A69856E00B31406 /* SearchPostsViewController.swift */,
 				0A9A18981A6B513C00B31406 /* PostSummaryTableViewCell.swift */,
-				0A5610E21A755F830023E4A0 /* ChatViewController.swift */,
-				0A5610EA1A772C450023E4A0 /* ChatTableViewCell.swift */,
 				0A5610E41A7564BE0023E4A0 /* MyPostsViewController.swift */,
 				0A5610E61A7571860023E4A0 /* MyPostSummaryTableViewCell.swift */,
-				0A0C3D6F1A78929C000C3DDD /* MyPostDetailsViewController.swift */,
+				0A5610E21A755F830023E4A0 /* ChatViewController.swift */,
+				0A5610EA1A772C450023E4A0 /* ChatTableViewCell.swift */,
 				0AE071941A623DC900E18B59 /* Supporting Files */,
 			);
 			path = PAWall;
@@ -361,7 +358,6 @@
 				0A5610E91A757AEA0023E4A0 /* ChatReply.swift in Sources */,
 				0A5610E51A7564BE0023E4A0 /* MyPostsViewController.swift in Sources */,
 				0A9A18991A6B513C00B31406 /* PostSummaryTableViewCell.swift in Sources */,
-				0A0C3D701A78929C000C3DDD /* MyPostDetailsViewController.swift in Sources */,
 				0A5610EB1A772C450023E4A0 /* ChatTableViewCell.swift in Sources */,
 				0AE071971A623DC900E18B59 /* AppDelegate.swift in Sources */,
 			);

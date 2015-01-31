@@ -174,7 +174,7 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
         }
         
         if let replies = advertizement[GEO_POST.REPLIES] as Double? {
-            let roundedCost = roundMoney(1.0 / replies)
+            let roundedCost = roundMoney(1.0 / (replies + 1))
             cell.replies.text = "$\(roundedCost) to reply"
         } else {
             cell.replies.text = "$1.00 to reply"
@@ -194,14 +194,13 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        println("You selected cell #\(indexPath.row)!")
+        NSLog("You selected cell #\(indexPath.row)!")
         self.performSegueWithIdentifier("show_chat", sender: self)
     }
 
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        NSLog("prepareForSegue \(segue.identifier!)")
-
+//        NSLog("prepareForSegue \(segue.identifier!)")
         if segue.identifier == "show_chat" {
             let chatViewController:ChatViewController = segue.destinationViewController as ChatViewController
             var geoPostObject:PFObject? = nil
@@ -216,15 +215,8 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
                 geoPostObject = self.adsNearMe[indexPath.row]
             }
             
-
-            
             chatViewController.geoPostObject = geoPostObject!
             
-            geoPostObject?.incrementKey(GEO_POST.REPLIES)
-            geoPostObject?.saveInBackgroundWithBlock(nil)
-            
-            //TODO: insert payment processing here
-
         }
     }
     

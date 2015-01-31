@@ -25,6 +25,28 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBAction func sendReplyAction(sender: AnyObject) {
         
+        //        if there are no chat replies yet by devices other then mine, apply charges and increment counter
+        if chatMessages.filter({$0.parseClassName! == CHAT_REPLY.CLASS_NAME}).filter({$0[CHAT_REPLY.REPLIED_BY] as String != DEVICE_UUID}).count > 0 && geoPostObject?[GEO_POST.UUID] as String != DEVICE_UUID {
+            let alertMessage = UIAlertController(title: "Warning", message: "You are initiating a conversation. Charges may apply.", preferredStyle: UIAlertControllerStyle.Alert)
+            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+
+                
+                //TODO: insert payment processing here
+
+                self.chatReply(true)
+                
+            })
+            let cancel = UIAlertAction(title: "Cancel", style: .Default, handler: { (action) -> Void in
+            })
+            alertMessage.addAction(cancel)
+            alertMessage.addAction(ok)
+            presentViewController(alertMessage, animated: true, completion: nil)
+        } else {
+            chatReply(false)
+        }
+    }
+    
+    func chatReply(increment:Bool) -> Void {
         var chatReply = PFObject(className:CHAT_REPLY.CLASS_NAME)
         chatReply[CHAT_REPLY.BODY] = textView.text
         chatReply[CHAT_REPLY.LOCATION] = currentLocation!
@@ -35,6 +57,10 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.chatMessages.insert(chatReply, atIndex:0)
             self.textView.text = ""
             self.tableView.reloadData()
+            if increment == true {
+                self.geoPostObject?.incrementKey(GEO_POST.REPLIES)
+                self.geoPostObject?.saveInBackgroundWithBlock(nil)
+            }
         }
     }
     
@@ -120,7 +146,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.postedAt.text = NSString(format: "%@", df.stringFromDate(chatMessage.createdAt))
         
         
-        if(chatMessage.parseClassName! == "GeoPosts") {
+        if(chatMessage.parseClassName! == GEO_POST.CLASS_NAME) {
             NSLog("rendering GeoPost")
             cell.body.text = chatMessage[GEO_POST.BODY] as? String
         } else {

@@ -68,14 +68,13 @@ class CreatePostViewController: UIViewController {
         } else {
             let alertMessage = UIAlertController(title: nil, message: "You Post will be saved now.", preferredStyle: UIAlertControllerStyle.Alert)
             let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
-                
-                
                 var classifiedAd = PFObject(className:GEO_POST.CLASS_NAME)
 //                classifiedAd[GEO_POST.DEVICE_TOKEN] = DEVICE_TOKEN
                 classifiedAd[GEO_POST.BODY] = self.adDescription!.text
                 classifiedAd[GEO_POST.LOCATION] = self.currentLocation?
                 classifiedAd[GEO_POST.ACTIVE] = true
                 classifiedAd[GEO_POST.UUID] = DEVICE_UUID
+                classifiedAd[GEO_POST.REPLIES] = 0
                 var error:NSErrorPointer = nil
                 classifiedAd.saveEventually({ (success: Bool, error: NSError!) -> Void in
                     if success {

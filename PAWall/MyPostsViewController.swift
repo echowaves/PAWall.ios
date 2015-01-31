@@ -90,28 +90,22 @@ class MyPostsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         NSLog("You selected cell #\(indexPath.row)!")
-        self.performSegueWithIdentifier("mypost_details", sender: self)
+        self.performSegueWithIdentifier("show_chat", sender: self)
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if (segue.identifier == "mypost_details") {
-            let myPostDetailsViewController:MyPostDetailsViewController = segue.destinationViewController as MyPostDetailsViewController
-            
-            //            var indexPath:NSIndexPath = NSIndexPath()
-            var postObject:PFObject? = nil
+//        NSLog("prepareForSegue \(segue.identifier!)")
+        if segue.identifier == "show_chat" {
+            let chatViewController:ChatViewController = segue.destinationViewController as ChatViewController
+            var geoPostObject:PFObject? = nil
             
             let indexPath = self.tableView.indexPathForSelectedRow()!
-            postObject = self.myPosts[indexPath.row]
+            NSLog("indexpath row1: \(indexPath.row)")
+            geoPostObject = self.myPosts[indexPath.row]
             
-//            let numberOfPlaces = 2.0
-//            let multiplier = pow(10.0, numberOfPlaces)
-//            let distance = (adObject![GEO_POST.LOCATION] as PFGeoPoint).distanceInMilesTo(self.myLocation)
-//            let roundedDistance = round(distance * multiplier) / multiplier
-            
-//            myPostDetailsViewController.rawDistance = roundedDistance
-            myPostDetailsViewController.geoPostObject = postObject!
+            chatViewController.geoPostObject = geoPostObject!
         }
     }
-
-
+    
+    
 }
