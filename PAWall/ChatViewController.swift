@@ -25,11 +25,16 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBAction func sendReplyAction(sender: AnyObject) {
         
-        //        if there are no chat replies yet by devices other then mine, apply charges and increment counter
-        if chatMessages.filter({$0.parseClassName! == CHAT_REPLY.CLASS_NAME}).filter({$0[CHAT_REPLY.REPLIED_BY] as String != DEVICE_UUID}).count > 0 && geoPostObject?[GEO_POST.UUID] as String != DEVICE_UUID {
+        
+        let onlyChatObjects = chatMessages.filter({$0.parseClassName! == CHAT_REPLY.CLASS_NAME})
+        NSLog("There are \(onlyChatObjects.count) onlyChatObjects")
+        let mineChatMessages = onlyChatObjects.filter({$0[CHAT_REPLY.REPLIED_BY] as String == DEVICE_UUID})
+        NSLog("there are \(mineChatMessages.count) not mine chat messages")
+        
+        // if there are no chat replies from me yet and the original post is not from me, apply charges and increment counter
+        if mineChatMessages.count == 0 && geoPostObject?[GEO_POST.UUID] as String != DEVICE_UUID {
             let alertMessage = UIAlertController(title: "Warning", message: "You are initiating a conversation. Charges may apply.", preferredStyle: UIAlertControllerStyle.Alert)
             let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
-
                 
                 //TODO: insert payment processing here
 
