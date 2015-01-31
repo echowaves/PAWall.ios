@@ -401,7 +401,6 @@
                                             <outlet property="distance" destination="ovg-9E-yhP" id="S9q-1B-F50"/>
                                             <outlet property="postedAt" destination="yYP-6N-3k5" id="ut6-Af-yWR"/>
                                             <outlet property="replies" destination="qkV-W5-xK7" id="oMw-N6-BC0"/>
-                                            <segue destination="7ki-V4-4t4" kind="show" identifier="post_details" id="oJD-Ec-lJq"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -452,6 +451,7 @@
                         <outlet property="searchBar" destination="Oio-QX-hcc" id="3Xx-l5-S1G"/>
                         <outlet property="searchDisplayController" destination="JHS-aN-Cv1" id="9Id-0k-tJi"/>
                         <outlet property="tableView" destination="9BH-me-9pN" id="Us0-d5-mT5"/>
+                        <segue destination="2nD-sd-aN4" kind="show" identifier="show_chat" id="1Lo-Mm-yKf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gCj-7v-tsd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -678,105 +678,6 @@
             </objects>
             <point key="canvasLocation" x="2931" y="2013"/>
         </scene>
-        <!--Ads near you-->
-        <scene sceneID="tha-bD-ybm">
-            <objects>
-                <viewController id="7ki-V4-4t4" customClass="PostDetailsViewController" customModule="PAWall" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="OFM-dd-BD4"/>
-                        <viewControllerLayoutGuide type="bottom" id="xot-UA-x4T"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="hvT-bL-vQs">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pjg-iv-FEP">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="gfQ-ju-41K"/>
-                                </constraints>
-                                <color key="barTintColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <items>
-                                    <navigationItem title="Post detail" id="Tfr-YZ-fwa">
-                                        <barButtonItem key="leftBarButtonItem" image="ic_cancel_black_48dp" id="Jk4-1q-QOh">
-                                            <connections>
-                                                <segue destination="FJb-6F-Kvi" kind="unwind" unwindAction="unwindToAdsNearYou:" id="2cp-JC-K44"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Mc-49-ar9">
-                                <rect key="frame" x="0.0" y="503" width="600" height="48"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="zKB-V6-ntF"/>
-                                </constraints>
-                                <state key="normal" title="Reply (charges may apply)">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="replyToAd:" destination="7ki-V4-4t4" eventType="touchUpInside" id="o5c-JT-m1q"/>
-                                    <segue destination="2nD-sd-aN4" kind="show" identifier="show_chat" id="BPZ-tu-OpE"/>
-                                </connections>
-                            </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eqw-Tr-Xkj">
-                                <rect key="frame" x="16" y="105" width="568" height="390"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="distance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQo-mI-Cer">
-                                <rect key="frame" x="16" y="76" width="568" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="cS6-5n-DJT"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_reply_black_48dp" translatesAutoresizingMaskIntoConstraints="NO" id="lCW-ql-AdL">
-                                <rect key="frame" x="0.0" y="503" width="48" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="ELj-vc-2Sd"/>
-                                    <constraint firstAttribute="width" constant="48" id="G71-eC-TOZ"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="2Mc-49-ar9" firstAttribute="leading" secondItem="hvT-bL-vQs" secondAttribute="leadingMargin" constant="-16" id="0yu-sc-dkX"/>
-                            <constraint firstItem="eqw-Tr-Xkj" firstAttribute="trailing" secondItem="hvT-bL-vQs" secondAttribute="trailingMargin" id="2Wi-kd-2IJ"/>
-                            <constraint firstItem="Pjg-iv-FEP" firstAttribute="top" secondItem="OFM-dd-BD4" secondAttribute="bottom" id="429-gh-uXf"/>
-                            <constraint firstItem="eqw-Tr-Xkj" firstAttribute="leading" secondItem="hvT-bL-vQs" secondAttribute="leadingMargin" id="5oR-DT-jtI"/>
-                            <constraint firstItem="xQo-mI-Cer" firstAttribute="trailing" secondItem="hvT-bL-vQs" secondAttribute="trailingMargin" id="70o-tG-uax"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Pjg-iv-FEP" secondAttribute="trailing" constant="-16" id="9qR-l0-4HA"/>
-                            <constraint firstItem="2Mc-49-ar9" firstAttribute="top" secondItem="eqw-Tr-Xkj" secondAttribute="bottom" constant="8" id="E8g-pX-op7"/>
-                            <constraint firstItem="xQo-mI-Cer" firstAttribute="top" secondItem="Pjg-iv-FEP" secondAttribute="bottom" constant="12" id="KiX-5X-8VZ"/>
-                            <constraint firstItem="Pjg-iv-FEP" firstAttribute="leading" secondItem="hvT-bL-vQs" secondAttribute="leadingMargin" constant="-16" id="bzC-72-OFu"/>
-                            <constraint firstItem="lCW-ql-AdL" firstAttribute="leading" secondItem="hvT-bL-vQs" secondAttribute="leadingMargin" constant="-16" id="cA9-L2-qhu"/>
-                            <constraint firstItem="xQo-mI-Cer" firstAttribute="leading" secondItem="hvT-bL-vQs" secondAttribute="leadingMargin" id="mrk-Yu-tdG"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="2Mc-49-ar9" secondAttribute="trailing" constant="-16" id="uJd-Ue-OVz"/>
-                            <constraint firstItem="xot-UA-x4T" firstAttribute="top" secondItem="lCW-ql-AdL" secondAttribute="bottom" id="vYN-Sl-V9v"/>
-                            <constraint firstItem="eqw-Tr-Xkj" firstAttribute="top" secondItem="xQo-mI-Cer" secondAttribute="bottom" constant="8" id="wBb-gp-rnV"/>
-                            <constraint firstItem="xot-UA-x4T" firstAttribute="top" secondItem="2Mc-49-ar9" secondAttribute="bottom" id="wHe-ap-3TS"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Ads near you" id="tqm-Ff-yYn">
-                        <barButtonItem key="leftBarButtonItem" image="ic_backspace_black_48dp" id="lQ4-ak-cLt"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="adDescription" destination="eqw-Tr-Xkj" id="jxZ-JV-HBR"/>
-                        <outlet property="adDistance" destination="xQo-mI-Cer" id="INf-qm-2xV"/>
-                        <outlet property="replyButton" destination="2Mc-49-ar9" id="zR0-SA-f0R"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Rnm-03-vLn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="FJb-6F-Kvi" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="2931" y="1196"/>
-        </scene>
         <!--Chat View Controller-->
         <scene sceneID="qdA-ft-WEm">
             <objects>
@@ -904,7 +805,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GbT-Gh-bJJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3853" y="1193"/>
+            <point key="canvasLocation" x="3381" y="1196"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="cXV-5v-qYC">
@@ -929,13 +830,11 @@
     </scenes>
     <resources>
         <image name="ic_add_circle_outline_black_48dp" width="48" height="48"/>
-        <image name="ic_backspace_black_48dp" width="48" height="48"/>
         <image name="ic_cancel_black_48dp" width="48" height="48"/>
         <image name="ic_chevron_right_black_48dp" width="48" height="48"/>
         <image name="ic_expand_less_black_48dp" width="48" height="48"/>
         <image name="ic_list_black_48dp" width="48" height="48"/>
         <image name="ic_notifications_black_48dp" width="48" height="48"/>
-        <image name="ic_reply_black_48dp" width="48" height="48"/>
         <image name="ic_search_black_48dp" width="48" height="48"/>
         <image name="ic_send_black_48dp" width="48" height="48"/>
     </resources>

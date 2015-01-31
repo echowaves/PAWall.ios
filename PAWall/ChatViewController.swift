@@ -16,7 +16,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     var currentLocation:PFGeoPoint?
     
     @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var sendImage: UIImageView!
+//    @IBOutlet weak var sendImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction func goBackAction(sender: AnyObject) {
@@ -28,7 +28,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         var chatReply = PFObject(className:CHAT_REPLY.CLASS_NAME)
         chatReply[CHAT_REPLY.BODY] = textView.text
         chatReply[CHAT_REPLY.LOCATION] = currentLocation!
-        chatReply[CHAT_REPLY.PARENT] = geoPostObject?.objectId
+        chatReply[CHAT_REPLY.PARENT] = geoPostObject?
         chatReply[CHAT_REPLY.REPLIED_BY] = DEVICE_UUID
         chatReply.saveInBackgroundWithBlock { (success: Bool, error: NSError!) -> Void in
             NSLog("reply saved")
@@ -69,7 +69,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         var query = PFQuery(className:CHAT_REPLY.CLASS_NAME)
         // Interested in locations near user.
         
-        query.whereKey(CHAT_REPLY.PARENT, equalTo: geoPostObject?.objectId)
+        query.whereKey(CHAT_REPLY.PARENT, equalTo: geoPostObject?)
         query.orderByDescending("createdAt")
         
         // Limit what could be a lot of points.

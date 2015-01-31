@@ -195,38 +195,38 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         println("You selected cell #\(indexPath.row)!")
-        self.performSegueWithIdentifier("post_details", sender: self)
+        self.performSegueWithIdentifier("show_chat", sender: self)
     }
 
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if (segue.identifier == "post_details") {
-            let postDetailsViewController:PostDetailsViewController = segue.destinationViewController as PostDetailsViewController
-            
-//            var indexPath:NSIndexPath = NSIndexPath()
-            var adObject:PFObject? = nil
-            
+        NSLog("prepareForSegue \(segue.identifier!)")
+
+        if segue.identifier == "show_chat" {
+            let chatViewController:ChatViewController = segue.destinationViewController as ChatViewController
+            var geoPostObject:PFObject? = nil
             
             if self.searchDisplayController!.active  {
                 let indexPath = self.searchDisplayController!.searchResultsTableView.indexPathForSelectedRow()!
                 NSLog("indexpath row1: \(indexPath.row)")
-                adObject = self.filteredAdsNearMe[indexPath.row]
+                geoPostObject = self.filteredAdsNearMe[indexPath.row]
             } else {
                 let indexPath = self.tableView.indexPathForSelectedRow()!
                 NSLog("indexpath row2: \(indexPath.row)")
-                adObject = self.adsNearMe[indexPath.row]
+                geoPostObject = self.adsNearMe[indexPath.row]
             }
             
-            let numberOfPlaces = 2.0
-            let multiplier = pow(10.0, numberOfPlaces)
-            let distance = (adObject![GEO_POST.LOCATION] as PFGeoPoint).distanceInMilesTo(self.myLocation)
-            let roundedDistance = round(distance * multiplier) / multiplier
+
             
-            postDetailsViewController.rawDistance = roundedDistance
-            postDetailsViewController.geoPostObject = adObject!
+            chatViewController.geoPostObject = geoPostObject!
+            
+            geoPostObject?.incrementKey(GEO_POST.REPLIES)
+            geoPostObject?.saveInBackgroundWithBlock(nil)
+            
+            //TODO: insert payment processing here
+
         }
     }
-    
     
     func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchString searchString: String!) -> Bool {
         self.filterContentForSearchText(searchString)
