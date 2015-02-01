@@ -82,6 +82,7 @@ class CreatePostViewController: UIViewController {
                     } else {
                         let alertMessage = UIAlertController(title: "Error", message: "Unable to post. Try again.", preferredStyle: UIAlertControllerStyle.Alert)
                         let ok = UIAlertAction(title: "OK", style: .Default, handler:nil)
+                        alertMessage.addAction(ok)
                         self.presentViewController(alertMessage, animated: true, completion: nil)
                     }
                 })
