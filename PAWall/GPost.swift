@@ -13,8 +13,9 @@ let GPOST:GPost = GPost()
 class GPost : BaseDataModel {
     let CLASS_NAME = "GPosts"
     let POSTED_BY = "postedBy"
-    let WORDS = "words"
     let BODY = "body"
+    let WORDS = "words"
+    let HASH_TAGS = "hashtags"
     let LOCATION = "location"
     let ACTIVE = "active"
     let REPLIES = "replies"

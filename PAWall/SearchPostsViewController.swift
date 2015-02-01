@@ -104,7 +104,7 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
                 NSLog("Searching for string \(searchText)")
                 if !searchText.isEmpty {
                     let textArr = split(searchText.lowercaseString) {$0 == " "}
-                    query.whereKey(GPOST.WORDS, containsAllObjectsInArray: textArr)
+                    query.whereKey(GPOST.HASH_TAGS, containsAllObjectsInArray: textArr)
                 }
                 // Limit what could be a lot of points.
                 query.limit = 100

@@ -327,7 +327,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" text="" placeholder="Search posts near you" translatesAutoresizingMaskIntoConstraints="NO" id="Oio-QX-hcc">
+                            <searchBar contentMode="redraw" text="" placeholder="Search for #hash_tags in posts near you" translatesAutoresizingMaskIntoConstraints="NO" id="Oio-QX-hcc">
                                 <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="V5a-Vl-r9g"/>
@@ -925,6 +925,6 @@
         <image name="ic_send_black_48dp" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vFu-pE-me3"/>
+        <segue reference="1Lo-Mm-yKf"/>
     </inferredMetricsTieBreakers>
 </document>
