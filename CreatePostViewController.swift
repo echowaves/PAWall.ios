@@ -61,7 +61,7 @@ class CreatePostViewController: UIViewController {
     
     @IBAction func savePost(sender: AnyObject) {
         if adDescription.text == "" || adDescription.text.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) < 10 {
-            let alertMessage = UIAlertController(title: "Warning", message: "You can not post empty Ad. Provide Ad description ad try again.", preferredStyle: UIAlertControllerStyle.Alert)
+            let alertMessage = UIAlertController(title: "Warning", message: "Your post can't be empty. Try again.", preferredStyle: UIAlertControllerStyle.Alert)
             let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
             alertMessage.addAction(ok)
             presentViewController(alertMessage, animated: true, completion: nil)

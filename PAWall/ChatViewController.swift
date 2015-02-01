@@ -50,24 +50,31 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func chatReply(increment:Bool) -> Void {
-        var chatReply = PFObject(className:GMESSAGE.CLASS_NAME)
-        chatReply[GMESSAGE.BODY] = textView.text
-        chatReply[GMESSAGE.LOCATION] = currentLocation!
-        chatReply[GMESSAGE.PARENT] = parentConversation?
-        chatReply[GMESSAGE.REPLIED_BY] = DEVICE_UUID
-        chatReply.saveInBackgroundWithBlock { (success: Bool, error: NSError!) -> Void in
-            NSLog("reply saved")
-            self.chatMessages.insert(chatReply, atIndex:0)
-            self.textView.text = ""
-            self.tableView.reloadData()
-            if increment == true {
-                self.parentConversation?[GCONVERSATION.CHARGES_APPLIED] = (1.0 / (self.parentPost?[GPOST.REPLIES] as Double + 1.0) as Double)
-                self.parentConversation?.saveInBackgroundWithBlock(nil)
+        if textView.text == "" || textView.text.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) < 1 {
+            let alertMessage = UIAlertController(title: "Warning", message: "You reply can't be empty. Try again.", preferredStyle: UIAlertControllerStyle.Alert)
+            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
+            alertMessage.addAction(ok)
+            presentViewController(alertMessage, animated: true, completion: nil)
+        } else {
+            
+            var chatReply = PFObject(className:GMESSAGE.CLASS_NAME)
+            chatReply[GMESSAGE.BODY] = textView.text
+            chatReply[GMESSAGE.LOCATION] = currentLocation!
+            chatReply[GMESSAGE.PARENT] = parentConversation?
+            chatReply[GMESSAGE.REPLIED_BY] = DEVICE_UUID
+            chatReply.saveInBackgroundWithBlock { (success: Bool, error: NSError!) -> Void in
+                NSLog("reply saved")
+                self.chatMessages.insert(chatReply, atIndex:0)
+                self.textView.text = ""
+                self.tableView.reloadData()
+                if increment == true {
+                    self.parentConversation?[GCONVERSATION.CHARGES_APPLIED] = (1.0 / (self.parentPost?[GPOST.REPLIES] as Double + 1.0) as Double)
+                    self.parentConversation?.saveInBackgroundWithBlock(nil)
                     
-                self.parentPost?.incrementKey(GPOST.REPLIES)
-                self.parentPost?.saveInBackgroundWithBlock(nil)
-                
-
+                    self.parentPost?.incrementKey(GPOST.REPLIES)
+                    self.parentPost?.saveInBackgroundWithBlock(nil)
+                    
+                }
             }
         }
     }
@@ -80,6 +87,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         self.tableView.estimatedRowHeight = 100.0
         self.tableView.rowHeight = UITableViewAutomaticDimension
+        
+//        var timer = NSTimer.scheduledTimerWithTimeInterval(15, target: self, selector: Selector("retrieveAllMessages"), userInfo: nil, repeats: true)
         
     }
     
@@ -99,33 +108,39 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                 )
                 self.currentLocation = geoPoint
                 
-                // now retrieve all messages and present on the screen
-                let query = PFQuery(className:GMESSAGE.CLASS_NAME)
-                // Interested in locations near user.
-                
-                query.whereKey(GMESSAGE.PARENT, equalTo: self.parentConversation!)
-                query.orderByDescending("createdAt")
-                
-                query.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]!, error: NSError!) -> Void in
-                    if error == nil {
-                        // The find succeeded.
-                        // Do something with the found objects
-                        NSLog("Successfully retrieved \(objects.count)")
-                        self.chatMessages = objects as [PFObject]
-                        self.tableView.reloadData()
-                        
-                    } else {
-                        // Log details of the failure
-                        NSLog("Error: %@ %@", error, error.userInfo!)
-                        let alertMessage = UIAlertController(title: "Error", message: "Error retreiving chat messages, try agin.", preferredStyle: UIAlertControllerStyle.Alert)
-                        let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
-                        alertMessage.addAction(ok)
-                        self.presentViewController(alertMessage, animated: true, completion: nil)
-                    }
-                })
+                self.retrieveAllMessages()
                 
             }
         }
+    }
+    
+    func retrieveAllMessages() -> Void {
+        // now retrieve all messages and present on the screen
+        let query = PFQuery(className:GMESSAGE.CLASS_NAME)
+        // Interested in locations near user.
+        
+        query.whereKey(GMESSAGE.PARENT, equalTo: self.parentConversation!)
+        query.orderByDescending("createdAt")
+        
+        query.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]!, error: NSError!) -> Void in
+            if error == nil {
+                // The find succeeded.
+                // Do something with the found objects
+                NSLog("Successfully retrieved \(objects.count)")
+                if self.chatMessages.count != objects.count {
+                    self.chatMessages = objects as [PFObject]
+                    self.tableView.reloadData()
+                }
+                
+            } else {
+                // Log details of the failure
+                NSLog("Error: %@ %@", error, error.userInfo!)
+                let alertMessage = UIAlertController(title: "Error", message: "Error retreiving chat messages, try agin.", preferredStyle: UIAlertControllerStyle.Alert)
+                let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
+                alertMessage.addAction(ok)
+                self.presentViewController(alertMessage, animated: true, completion: nil)
+            }
+        })
     }
     
     override func viewWillDisappear(animated: Bool) {

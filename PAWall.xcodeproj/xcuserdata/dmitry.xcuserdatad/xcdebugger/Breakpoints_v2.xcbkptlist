@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PAWall/ChatViewController.swift"
-            timestampString = "444449539.400831"
+            timestampString = "444505250.08514"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
             landmarkName = "ChatViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PAWall/ChatViewController.swift"
-            timestampString = "444449539.400831"
+            timestampString = "444505250.08514"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
             landmarkName = "ChatViewController"
             landmarkType = "3">
          </BreakpointContent>

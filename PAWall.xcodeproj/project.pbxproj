@@ -33,6 +33,7 @@
 		0A6499F31A6246B1001E013D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A6499F21A6246B1001E013D /* libsqlite3.dylib */; };
 		0A6499F61A624D03001E013D /* pawall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0A6499F51A624D03001E013D /* pawall.jpg */; };
 		0A6499FB1A625122001E013D /* libFlurry_6.0.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A6499FA1A625122001E013D /* libFlurry_6.0.0.a */; };
+		0A6D478F1A7E89F500BD9A0A /* GAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D478E1A7E89F500BD9A0A /* GAlert.swift */; };
 		0A9A18951A697A6F00B31406 /* GPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A18941A697A6F00B31406 /* GPost.swift */; };
 		0A9A18971A69856E00B31406 /* SearchPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A18961A69856E00B31406 /* SearchPostsViewController.swift */; };
 		0A9A18991A6B513C00B31406 /* PostSummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A18981A6B513C00B31406 /* PostSummaryTableViewCell.swift */; };
@@ -83,6 +84,7 @@
 		0A6499F51A624D03001E013D /* pawall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pawall.jpg; sourceTree = "<group>"; };
 		0A6499F91A625122001E013D /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
 		0A6499FA1A625122001E013D /* libFlurry_6.0.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_6.0.0.a; sourceTree = "<group>"; };
+		0A6D478E1A7E89F500BD9A0A /* GAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GAlert.swift; sourceTree = "<group>"; };
 		0A9A18941A697A6F00B31406 /* GPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPost.swift; sourceTree = "<group>"; };
 		0A9A18961A69856E00B31406 /* SearchPostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPostsViewController.swift; sourceTree = "<group>"; };
 		0A9A18981A6B513C00B31406 /* PostSummaryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostSummaryTableViewCell.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				0A9A18941A697A6F00B31406 /* GPost.swift */,
 				0A4B618F1A7C9DD2000E3D33 /* GConversation.swift */,
 				0A5610E81A757AEA0023E4A0 /* GMessage.swift */,
+				0A6D478E1A7E89F500BD9A0A /* GAlert.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				0A2AB8BB1A64411900DF08DF /* HomeViewController.swift in Sources */,
 				0A9A18971A69856E00B31406 /* SearchPostsViewController.swift in Sources */,
 				0A5610E71A7571860023E4A0 /* MyPostSummaryTableViewCell.swift in Sources */,
+				0A6D478F1A7E89F500BD9A0A /* GAlert.swift in Sources */,
 				0A2AB8BD1A64418F00DF08DF /* CreatePostViewController.swift in Sources */,
 				0A5610E91A757AEA0023E4A0 /* GMessage.swift in Sources */,
 				0AA8E3F41A7DCD7B00F3806D /* ReplyTableViewCell.swift in Sources */,
