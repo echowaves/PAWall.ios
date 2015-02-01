@@ -69,16 +69,14 @@ class MyPostsViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell:MyPostSummaryTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("mypost_summary") as MyPostSummaryTableViewCell
         
-        var advertizement:PFObject
-        
-        advertizement = myPosts[indexPath.row]
+        var post:PFObject = myPosts[indexPath.row]
         
         let df = NSDateFormatter()
         df.dateFormat = "MM-dd-yyyy"
-        cell.postedAt.text = NSString(format: "%@", df.stringFromDate(advertizement.createdAt))
-        cell.details.text = advertizement[GPOST.BODY] as? String
+        cell.postedAt.text = NSString(format: "%@", df.stringFromDate(post.createdAt))
+        cell.details.text = post[GPOST.BODY] as? String
         
-        if let replies = advertizement[GPOST.REPLIES] as Int? {
+        if let replies = post[GPOST.REPLIES] as Int? {
             cell.replies.text = "Replies: \(replies)"
         } else {
             cell.replies.text = "Replies: 0"
@@ -102,7 +100,6 @@ class MyPostsViewController: UIViewController, UITableViewDelegate, UITableViewD
             let indexPath = self.tableView.indexPathForSelectedRow()!
             NSLog("indexpath row1: \(indexPath.row)")
             geoPostObject = self.myPosts[indexPath.row]
-            
             repliesToMyPostViewController.myPost = geoPostObject!
         }
     }

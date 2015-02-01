@@ -30,6 +30,8 @@ class RepliesToMyPostViewController: UIViewController, UITableViewDelegate, UITa
         self.tableView.estimatedRowHeight = 100.0
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
+        self.originalPostText.text = myPost![GPOST.BODY] as? String
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -78,7 +80,7 @@ class RepliesToMyPostViewController: UIViewController, UITableViewDelegate, UITa
         var conversation:PFObject = myConversations[indexPath.row]
         
         let df = NSDateFormatter()
-        df.dateFormat = "MM-dd-yyyy"
+        df.dateFormat = "MM-dd-yyyy hh:mm a"
         cell.createdAt.text = NSString(format: "%@", df.stringFromDate(conversation.createdAt))
         
         let roundedDistance = roundMoney((conversation[GCONVERSATION.LOCATION] as PFGeoPoint).distanceInMilesTo(myPost![GPOST.LOCATION] as PFGeoPoint))
@@ -106,5 +108,5 @@ class RepliesToMyPostViewController: UIViewController, UITableViewDelegate, UITa
             chatViewController.parentConversation = conversationObject!
         }
     }
-        
+    
 }
