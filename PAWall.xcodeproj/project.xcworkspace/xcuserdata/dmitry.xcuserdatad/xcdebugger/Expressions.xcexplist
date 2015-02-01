@@ -3,10 +3,10 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "PAWall.ChatViewController.(sendReplyAction (PAWall.ChatViewController) -&gt; (Swift.AnyObject) -&gt; ()).(closure #1):ChatViewController.swift">
+         contextName = "PAWall.AppDelegate.application (PAWall.AppDelegate)(ObjectiveC.UIApplication, didFinishLaunchingWithOptions : Swift.Optional&lt;Swift.Dictionary&lt;ObjectiveC.NSObject, Swift.AnyObject&gt;&gt;) -&gt; Swift.Bool:AppDelegate.swift">
          <PersistentStrings>
             <PersistentString
-               value = "chatMessages.filter({$0[CHAT_REPLY.REPLIED_BY] as String != DEVICE_UUID}).count &gt; 0">
+               value = "DEVICE_UUID">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -27,10 +27,21 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "PAWall.AppDelegate.application (PAWall.AppDelegate)(ObjectiveC.UIApplication, didFinishLaunchingWithOptions : Swift.Optional&lt;Swift.Dictionary&lt;ObjectiveC.NSObject, Swift.AnyObject&gt;&gt;) -&gt; Swift.Bool:AppDelegate.swift">
+         contextName = "PAWall.ChatViewController.(viewDidAppear (PAWall.ChatViewController) -&gt; (Swift.Bool) -&gt; ()).(closure #1).(closure #1):ChatViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "PAWall.ChatViewController.tableView (PAWall.ChatViewController)(ObjectiveC.UITableView, cellForRowAtIndexPath : ObjectiveC.NSIndexPath) -&gt; ObjectiveC.UITableViewCell:ChatViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "DEVICE_UUID">
+               value = "chatMessage[&quot;createdAt&quot;]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PAWall.ChatViewController.(sendReplyAction (PAWall.ChatViewController) -&gt; (Swift.AnyObject) -&gt; ()).(closure #1):ChatViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "chatMessages.filter({$0[CHAT_REPLY.REPLIED_BY] as String != DEVICE_UUID}).count &gt; 0">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

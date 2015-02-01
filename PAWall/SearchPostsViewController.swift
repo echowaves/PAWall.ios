@@ -215,6 +215,41 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
             
             chatViewController.parentPost = geoPostObject!
             
+
+            let convQuery = PFQuery(className:GCONVERSATION.CLASS_NAME)
+            convQuery.whereKey(GCONVERSATION.PARENT, equalTo: geoPostObject!)
+            convQuery.whereKey(GCONVERSATION.CREATED_BY, equalTo: DEVICE_UUID)
+            convQuery.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]!, error: NSError!) -> Void in
+                if error == nil {
+                    // if no conversation is yet created, create one and also create a first message from the post
+                    if objects.count == 0 {
+                        let gConversation:PFObject = PFObject(className:GCONVERSATION.CLASS_NAME)
+                        gConversation[GCONVERSATION.PARENT] = geoPostObject!
+                        gConversation[GCONVERSATION.CREATED_BY] = DEVICE_UUID
+                        gConversation.save()
+                        chatViewController.parentConversation = gConversation
+                        
+                        let gFirstMessage:PFObject = PFObject(className:GMESSAGE.CLASS_NAME)
+                        gFirstMessage[GMESSAGE.PARENT] = gConversation
+                        gFirstMessage[GMESSAGE.REPLIED_BY] = geoPostObject![GPOST.POSTED_BY] as String
+                        gFirstMessage[GMESSAGE.BODY] = geoPostObject![GPOST.BODY] as String
+                        gFirstMessage[GMESSAGE.LOCATION] = self.myLocation
+                        gFirstMessage.save()
+                        
+                    } else {
+                        chatViewController.parentConversation = objects[0] as? PFObject
+                    }
+                    
+                } else {
+                    // Log details of the failure
+                    NSLog("Error: %@ %@", error, error.userInfo!)
+                    let alertMessage = UIAlertController(title: "Error", message: "Error retreiving conversations, try agin.", preferredStyle: UIAlertControllerStyle.Alert)
+                    let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
+                    alertMessage.addAction(ok)
+                    self.presentViewController(alertMessage, animated: true, completion: nil)
+                }
+            })
+            
         }
     }
     
