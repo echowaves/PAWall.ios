@@ -65,6 +65,11 @@ class CreatePostViewController: UIViewController {
             let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
             alertMessage.addAction(ok)
             presentViewController(alertMessage, animated: true, completion: nil)
+        } else if adDescription.text.rangeOfString("#") == nil {
+            let alertMessage = UIAlertController(title: "Warning", message: "You post can not be saved because it does not include any #hash_tags. You post will not be searchable. Add some #has_tags and try again.", preferredStyle: UIAlertControllerStyle.Alert)
+            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
+            alertMessage.addAction(ok)
+            presentViewController(alertMessage, animated: true, completion: nil)
         } else {
             let alertMessage = UIAlertController(title: nil, message: "You Post will be saved now.", preferredStyle: UIAlertControllerStyle.Alert)
             let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
