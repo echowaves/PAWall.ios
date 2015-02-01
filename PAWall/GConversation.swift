@@ -15,4 +15,5 @@ class GConversation : BaseDataModel {
     let PARENT = "parentPost"
     let CREATED_BY = "createdBy"
     let CHARGES_APPLIED = "chargesApplied"
+    let LOCATION = "location"
 }

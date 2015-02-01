@@ -61,8 +61,13 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.textView.text = ""
             self.tableView.reloadData()
             if increment == true {
+                self.parentConversation?[GCONVERSATION.CHARGES_APPLIED] = (1.0 / (self.parentPost?[GPOST.REPLIES] as Double + 1.0) as Double)
+                self.parentConversation?.saveInBackgroundWithBlock(nil)
+                    
                 self.parentPost?.incrementKey(GPOST.REPLIES)
                 self.parentPost?.saveInBackgroundWithBlock(nil)
+                
+
             }
         }
     }
@@ -75,7 +80,6 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         self.tableView.estimatedRowHeight = 100.0
         self.tableView.rowHeight = UITableViewAutomaticDimension
-
         
     }
     

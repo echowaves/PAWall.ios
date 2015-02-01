@@ -226,6 +226,7 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
                         let gConversation:PFObject = PFObject(className:GCONVERSATION.CLASS_NAME)
                         gConversation[GCONVERSATION.PARENT] = geoPostObject!
                         gConversation[GCONVERSATION.CREATED_BY] = DEVICE_UUID
+                        gConversation[GCONVERSATION.LOCATION] = self.myLocation
                         gConversation.save()
                         chatViewController.parentConversation = gConversation
                         
