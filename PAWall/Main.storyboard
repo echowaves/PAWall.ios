@@ -214,20 +214,18 @@
                                                 <segue destination="TZO-hv-g0F" kind="unwind" unwindAction="unwindToHome:" id="b3k-AI-uqb"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" image="ic_send_black_48dp" id="BOo-ki-efO">
-                                            <connections>
-                                                <action selector="saveAd:" destination="rga-hB-ssV" id="mPh-fx-3N4"/>
-                                            </connections>
-                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c1k-au-acX">
-                                <rect key="frame" x="16" y="113" width="568" height="225"/>
+                                <rect key="frame" x="16" y="113" width="512" height="225"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" hint="" label="">
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="225" id="Tdg-3p-Qai"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <userDefinedRuntimeAttributes>
@@ -250,16 +248,14 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="saveAd:" destination="rga-hB-ssV" eventType="touchUpInside" id="UTD-eX-nmb"/>
+                                    <action selector="savePost:" destination="rga-hB-ssV" eventType="touchUpInside" id="Qr0-xc-Tjp"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_send_black_48dp" translatesAutoresizingMaskIntoConstraints="NO" id="Zpz-48-tyC">
                                 <rect key="frame" x="16" y="348" width="48" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="48" id="4RD-ky-ZlX"/>
-                                    <constraint firstAttribute="width" constant="48" id="A4h-qX-PHM"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="48" id="KNa-H0-ryb"/>
-                                    <constraint firstAttribute="height" constant="48" id="Rj5-eT-NUH"/>
+                                    <constraint firstAttribute="width" constant="48" id="jjG-De-oHl"/>
+                                    <constraint firstAttribute="height" constant="48" id="nC5-fK-rp2"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="...detecting current location..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="t2e-xF-BBV">
@@ -271,28 +267,44 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9If-no-wfW">
+                                <rect key="frame" x="536" y="113" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="48" id="WoD-ve-0wG"/>
+                                    <constraint firstAttribute="height" constant="48" id="i5A-BW-r70"/>
+                                </constraints>
+                                <state key="normal" image="ic_send_black_48dp">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="savePost:" destination="rga-hB-ssV" eventType="touchUpInside" id="MfL-Zm-JDc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Zpz-48-tyC" firstAttribute="leading" secondItem="zp4-sA-5bq" secondAttribute="leadingMargin" id="4NE-Tc-f3n"/>
                             <constraint firstItem="t2e-xF-BBV" firstAttribute="top" secondItem="5dw-Sn-AFY" secondAttribute="bottom" id="4m9-Zp-aqH"/>
-                            <constraint firstItem="DC7-zc-1ID" firstAttribute="top" secondItem="c1k-au-acX" secondAttribute="bottom" constant="8" id="4mt-2y-iwS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5dw-Sn-AFY" secondAttribute="trailing" constant="-16" id="6rV-nx-KGk"/>
+                            <constraint firstItem="9If-no-wfW" firstAttribute="leading" secondItem="c1k-au-acX" secondAttribute="trailing" constant="8" id="7WH-Ui-QAf"/>
                             <constraint firstItem="DC7-zc-1ID" firstAttribute="leading" secondItem="zp4-sA-5bq" secondAttribute="leadingMargin" id="8eT-jc-k56"/>
+                            <constraint firstItem="Zpz-48-tyC" firstAttribute="top" secondItem="c1k-au-acX" secondAttribute="bottom" constant="10" id="ABP-qu-vw5"/>
                             <constraint firstItem="t2e-xF-BBV" firstAttribute="leading" secondItem="zp4-sA-5bq" secondAttribute="leadingMargin" constant="-16" id="AJ1-9F-K9J"/>
                             <constraint firstItem="5dw-Sn-AFY" firstAttribute="top" secondItem="JCN-cD-8RI" secondAttribute="bottom" id="N1S-tW-nmE"/>
-                            <constraint firstItem="Zpz-48-tyC" firstAttribute="leading" secondItem="zp4-sA-5bq" secondAttribute="leadingMargin" id="Rc9-M9-L3f"/>
+                            <constraint firstItem="9If-no-wfW" firstAttribute="trailing" secondItem="zp4-sA-5bq" secondAttribute="trailingMargin" id="UB0-7I-NQ1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="t2e-xF-BBV" secondAttribute="trailing" constant="-16" id="Vhb-Vm-gus"/>
                             <constraint firstItem="5dw-Sn-AFY" firstAttribute="leading" secondItem="zp4-sA-5bq" secondAttribute="leadingMargin" constant="-16" id="W0o-fE-sfr"/>
-                            <constraint firstItem="Zpz-48-tyC" firstAttribute="leading" secondItem="zp4-sA-5bq" secondAttribute="leadingMargin" id="cYv-Wj-odi"/>
-                            <constraint firstItem="Zpz-48-tyC" firstAttribute="top" secondItem="c1k-au-acX" secondAttribute="bottom" constant="10" id="e40-OQ-z4Q"/>
-                            <constraint firstItem="c1k-au-acX" firstAttribute="top" secondItem="t2e-xF-BBV" secondAttribute="bottom" constant="8" id="fQf-O1-OpY"/>
+                            <constraint firstItem="9If-no-wfW" firstAttribute="top" secondItem="t2e-xF-BBV" secondAttribute="bottom" constant="8" id="g2G-lc-2mI"/>
+                            <constraint firstItem="DC7-zc-1ID" firstAttribute="top" secondItem="c1k-au-acX" secondAttribute="bottom" constant="8" id="h8P-h3-jlj"/>
                             <constraint firstItem="DC7-zc-1ID" firstAttribute="trailing" secondItem="zp4-sA-5bq" secondAttribute="trailingMargin" id="k6q-KC-XCr"/>
-                            <constraint firstItem="c1k-au-acX" firstAttribute="trailing" secondItem="zp4-sA-5bq" secondAttribute="trailingMargin" id="ocw-Jd-1Tx"/>
-                            <constraint firstItem="c1k-au-acX" firstAttribute="leading" secondItem="zp4-sA-5bq" secondAttribute="leadingMargin" id="vvC-dL-smJ"/>
-                            <constraint firstItem="o9O-7y-M0P" firstAttribute="top" secondItem="c1k-au-acX" secondAttribute="bottom" constant="262" id="zWV-bo-Rid"/>
+                            <constraint firstItem="9If-no-wfW" firstAttribute="leading" secondItem="c1k-au-acX" secondAttribute="trailing" constant="8" id="ow4-fi-A1B"/>
+                            <constraint firstItem="c1k-au-acX" firstAttribute="leading" secondItem="zp4-sA-5bq" secondAttribute="leadingMargin" id="xCt-Iq-IJL"/>
+                            <constraint firstItem="c1k-au-acX" firstAttribute="top" secondItem="t2e-xF-BBV" secondAttribute="bottom" constant="8" id="yzl-ko-9fT"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Title" id="065-6L-ibX"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="adDescription" destination="c1k-au-acX" id="gHR-CA-2l5"/>
                         <outlet property="locationLable" destination="t2e-xF-BBV" id="35v-fq-8Cm"/>
