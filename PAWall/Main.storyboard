@@ -79,7 +79,7 @@
                                     <constraint firstAttribute="height" constant="101.5" id="pLx-RF-I7c"/>
                                 </constraints>
                                 <attributedString key="attributedText">
-                                    <fragment content="Search for Ads near you Typical search may look like: &quot;snow blower used&quot; or &quot;laundry&quot;">
+                                    <fragment content="Search for Posts near you Typical search may look like: &quot;snow blower used&quot; or &quot;laundry&quot;">
                                         <attributes>
                                             <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <font key="NSFont" size="17" name="HelveticaNeue"/>
@@ -109,7 +109,7 @@
                                     <constraint firstAttribute="height" constant="100" id="U9p-tQ-yhG"/>
                                 </constraints>
                                 <attributedString key="attributedText">
-                                    <fragment content="Create new Ads Typical Ad may say things like: &quot;Will sell a used snow blower for $150 &quot; Or &quot;Need my Laundry done&quot;">
+                                    <fragment content="Create new Posts Typical Post may say things like: &quot;Will sell a used snow blower for $150 &quot; Or &quot;Need my Laundry done&quot;">
                                         <attributes>
                                             <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <font key="NSFont" size="17" name="HelveticaNeue"/>
