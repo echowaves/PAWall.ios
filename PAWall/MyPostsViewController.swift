@@ -28,7 +28,6 @@ class MyPostsViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        // Create a query for places
         var query = PFQuery(className:GPOST.CLASS_NAME)
         // Interested in locations near user.
 
