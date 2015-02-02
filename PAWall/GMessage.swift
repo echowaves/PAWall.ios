@@ -13,7 +13,7 @@ let GMESSAGE:GMessage = GMessage()
 class GMessage : BaseDataModel {
     let CLASS_NAME = "GMessages"
     let PARENT = "parentConversation"
-    let REPLIED_BY = "repliedBy"
+    let REPLIED_BY = "repliedBy"//uuid
     let BODY = "body"
     let LOCATION = "location"
 }

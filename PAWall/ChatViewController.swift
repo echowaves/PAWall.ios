@@ -56,8 +56,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
             alertMessage.addAction(ok)
             presentViewController(alertMessage, animated: true, completion: nil)
         } else {
-            
-            var chatReply = PFObject(className:GMESSAGE.CLASS_NAME)
+            let chatReply:PFObject = PFObject(className:GMESSAGE.CLASS_NAME)
             chatReply[GMESSAGE.BODY] = textView.text
             chatReply[GMESSAGE.LOCATION] = currentLocation!
             chatReply[GMESSAGE.PARENT] = parentConversation?
@@ -73,8 +72,27 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                     
                     self.parentPost?.incrementKey(GPOST.REPLIES)
                     self.parentPost?.saveInBackgroundWithBlock(nil)
-                    
                 }
+                // create alert for post owner
+                let alertPostOwner:PFObject = PFObject(className:GALERT.CLASS_NAME)
+                alertPostOwner[GALERT.PARENT_POST] = self.parentPost!
+                alertPostOwner[GALERT.TARGET] = self.parentPost![GPOST.POSTED_BY]
+                alertPostOwner[GALERT.ALERT_BODY] = "Someone replied to my post:"
+                alertPostOwner[GALERT.POST_BODY] = self.parentPost![GPOST.BODY] as String
+                alertPostOwner[GALERT.MESSAGE_BODY] = chatReply[GMESSAGE.BODY]
+
+                alertPostOwner.saveEventually()
+                
+                
+                // create alert for replyer
+                let alertPostReplier:PFObject = PFObject(className:GALERT.CLASS_NAME)
+                alertPostReplier[GALERT.PARENT_POST] = self.parentPost!
+                alertPostReplier[GALERT.TARGET] = DEVICE_UUID
+                alertPostReplier[GALERT.ALERT_BODY] = "I replied to a post:\n"
+                alertPostReplier[GALERT.POST_BODY] = self.parentPost![GPOST.BODY] as String
+                alertPostReplier[GALERT.MESSAGE_BODY] = chatReply[GMESSAGE.BODY]
+                alertPostReplier.saveEventually()
+                
             }
         }
     }

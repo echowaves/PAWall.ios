@@ -13,7 +13,7 @@ let GCONVERSATION:GConversation = GConversation()
 class GConversation : BaseDataModel {
     let CLASS_NAME = "GConversations"
     let PARENT = "parentPost"
-    let CREATED_BY = "createdBy"
+    let CREATED_BY = "createdBy" //uuid
     let CHARGES_APPLIED = "chargesApplied"
     let LOCATION = "location"
 }

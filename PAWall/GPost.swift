@@ -12,7 +12,7 @@ let GPOST:GPost = GPost()
 
 class GPost : BaseDataModel {
     let CLASS_NAME = "GPosts"
-    let POSTED_BY = "postedBy"
+    let POSTED_BY = "postedBy"//uuid
     let BODY = "body"
     let WORDS = "words"
     let HASH_TAGS = "hashtags"
