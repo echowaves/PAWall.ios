@@ -87,7 +87,7 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
         
         //        self.postsNearMe = []
         //        self.tableView.reloadData()
-        
+
         PFGeoPoint.geoPointForCurrentLocationInBackground {
             (geoPoint: PFGeoPoint!, error: NSError!) -> Void in
             
@@ -103,7 +103,8 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
                 query.whereKey(GPOST.POSTED_BY, notEqualTo: DEVICE_UUID)
                 NSLog("Searching for string \(searchText)")
                 if !searchText.isEmpty {
-                    let textArr = split(searchText.lowercaseString) {$0 == " "}
+                    let textArr = split(searchText.lowercaseString.stringByReplacingOccurrencesOfString("#", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)) {$0 == " "}
+
                     query.whereKey(GPOST.HASH_TAGS, containsAllObjectsInArray: textArr)
                 }
                 // Limit what could be a lot of points.
