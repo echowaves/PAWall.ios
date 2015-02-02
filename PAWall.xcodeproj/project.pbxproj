@@ -34,6 +34,8 @@
 		0A6499F61A624D03001E013D /* pawall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0A6499F51A624D03001E013D /* pawall.jpg */; };
 		0A6499FB1A625122001E013D /* libFlurry_6.0.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A6499FA1A625122001E013D /* libFlurry_6.0.0.a */; };
 		0A6D478F1A7E89F500BD9A0A /* GAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D478E1A7E89F500BD9A0A /* GAlert.swift */; };
+		0A6D47911A8030A900BD9A0A /* AlertsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D47901A8030A900BD9A0A /* AlertsViewController.swift */; };
+		0A6D47931A8030E800BD9A0A /* AlertTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D47921A8030E800BD9A0A /* AlertTableViewCell.swift */; };
 		0A9A18951A697A6F00B31406 /* GPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A18941A697A6F00B31406 /* GPost.swift */; };
 		0A9A18971A69856E00B31406 /* SearchPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A18961A69856E00B31406 /* SearchPostsViewController.swift */; };
 		0A9A18991A6B513C00B31406 /* PostSummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A18981A6B513C00B31406 /* PostSummaryTableViewCell.swift */; };
@@ -85,6 +87,8 @@
 		0A6499F91A625122001E013D /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
 		0A6499FA1A625122001E013D /* libFlurry_6.0.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_6.0.0.a; sourceTree = "<group>"; };
 		0A6D478E1A7E89F500BD9A0A /* GAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GAlert.swift; sourceTree = "<group>"; };
+		0A6D47901A8030A900BD9A0A /* AlertsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertsViewController.swift; sourceTree = "<group>"; };
+		0A6D47921A8030E800BD9A0A /* AlertTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertTableViewCell.swift; sourceTree = "<group>"; };
 		0A9A18941A697A6F00B31406 /* GPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPost.swift; sourceTree = "<group>"; };
 		0A9A18961A69856E00B31406 /* SearchPostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPostsViewController.swift; sourceTree = "<group>"; };
 		0A9A18981A6B513C00B31406 /* PostSummaryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostSummaryTableViewCell.swift; sourceTree = "<group>"; };
@@ -216,6 +220,8 @@
 				0A9A18981A6B513C00B31406 /* PostSummaryTableViewCell.swift */,
 				0A5610E41A7564BE0023E4A0 /* MyPostsViewController.swift */,
 				0A5610E61A7571860023E4A0 /* MyPostSummaryTableViewCell.swift */,
+				0A6D47901A8030A900BD9A0A /* AlertsViewController.swift */,
+				0A6D47921A8030E800BD9A0A /* AlertTableViewCell.swift */,
 				0AA8E3F11A7DC50600F3806D /* RepliesToMyPostViewController.swift */,
 				0AA8E3F31A7DCD7B00F3806D /* ReplyTableViewCell.swift */,
 				0A5610E21A755F830023E4A0 /* ChatViewController.swift */,
@@ -360,6 +366,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A6D47931A8030E800BD9A0A /* AlertTableViewCell.swift in Sources */,
+				0A6D47911A8030A900BD9A0A /* AlertsViewController.swift in Sources */,
 				0A5610E31A755F830023E4A0 /* ChatViewController.swift in Sources */,
 				0AF790B41A671B35001B87F0 /* BaseDataModel.swift in Sources */,
 				0A9A18951A697A6F00B31406 /* GPost.swift in Sources */,
