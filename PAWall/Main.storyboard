@@ -361,7 +361,7 @@
                                     <constraint firstAttribute="width" constant="48" id="KBB-u0-QTu"/>
                                     <constraint firstAttribute="height" constant="48" id="qlb-qN-Xfe"/>
                                 </constraints>
-                                <state key="normal" image="ic_bookmark_black_48dp">
+                                <state key="normal" image="ic_notifications_black_48dp">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -840,7 +840,6 @@
     </scenes>
     <resources>
         <image name="ic_add_circle_outline_black_48dp" width="48" height="48"/>
-        <image name="ic_bookmark_black_48dp" width="48" height="48"/>
         <image name="ic_cancel_black_48dp" width="48" height="48"/>
         <image name="ic_chevron_right_black_48dp" width="48" height="48"/>
         <image name="ic_expand_less_black_48dp" width="48" height="48"/>

@@ -27,7 +27,7 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
         }
         
         
-        let alertMessage = UIAlertController(title: nil, message: "Your Bookmark will be saved. You will be Alerted about new posts matching your bookmark creteria.", preferredStyle: UIAlertControllerStyle.Alert)
+        let alertMessage = UIAlertController(title: nil, message: "Your search will be saved. You will be Alerted about new posts matching your creteria.", preferredStyle: UIAlertControllerStyle.Alert)
         let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
             var gBookmark = PFObject(className:GBOOKMARK.CLASS_NAME)
             gBookmark[GBOOKMARK.SEARCH_TEXT] = self.searchBar.text
@@ -36,9 +36,9 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
 
             var error:NSErrorPointer = nil
             gBookmark.saveEventually({ (success: Bool, error: NSError!) -> Void in
-                if success {
-                    self.dismissViewControllerAnimated(false, completion: nil)
-                } else {
+                if !success {
+//                    self.dismissViewControllerAnimated(false, completion: nil)
+//                } else {
                     let alertMessage = UIAlertController(title: "Error", message: "Unable to bookmark. Try again.", preferredStyle: UIAlertControllerStyle.Alert)
                     let ok = UIAlertAction(title: "OK", style: .Default, handler:nil)
                     alertMessage.addAction(ok)
@@ -51,7 +51,6 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
         alertMessage.addAction(cancel)
         alertMessage.addAction(ok)
         presentViewController(alertMessage, animated: true, completion: nil)
-        
     }
     
     override func viewDidLoad() {
