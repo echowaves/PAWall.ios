@@ -724,6 +724,7 @@
                     <tabBarItem key="tabBarItem" title="Alerts" image="ic_notifications_black_48dp" badgeValue="23" id="TX2-Ng-Bl4"/>
                     <connections>
                         <outlet property="tableView" destination="3hS-VQ-MQA" id="fRa-8W-Mrc"/>
+                        <segue destination="2nD-sd-aN4" kind="show" identifier="show_chat" id="X7K-bY-qJa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dPB-W8-qaM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1013,6 +1014,6 @@
         <image name="ic_send_black_48dp" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1Lo-Mm-yKf"/>
+        <segue reference="X7K-bY-qJa"/>
     </inferredMetricsTieBreakers>
 </document>

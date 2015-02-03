@@ -14,6 +14,8 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBOutlet weak var tableView: UITableView!
     
+    var myLocation:PFGeoPoint = PFGeoPoint()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +30,16 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        
+        PFGeoPoint.geoPointForCurrentLocationInBackground {
+            //TODO: handle error properly
+            (geoPoint: PFGeoPoint!, error: NSError!) -> Void in
+            
+            if error == nil {
+                // do something with the new geoPoint
+                self.myLocation = geoPoint
+            }
+        }
         
         var query = PFQuery(className:GALERT.CLASS_NAME)
         
@@ -82,19 +94,61 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         NSLog("You selected cell #\(indexPath.row)!")
-        self.performSegueWithIdentifier("", sender: self)
+        self.performSegueWithIdentifier("show_chat", sender: self)
     }
     
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         //        NSLog("prepareForSegue \(segue.identifier!)")
-        if segue.identifier == "" {
+        if segue.identifier == "show_chat" {
             let chatViewController:ChatViewController = segue.destinationViewController as ChatViewController
-            var alert:PFObject? = nil
+            var alertObject:PFObject? = nil
             
             let indexPath = self.tableView.indexPathForSelectedRow()!
             NSLog("indexpath row1: \(indexPath.row)")
-            alert = self.myAlerts[indexPath.row]
-//chatViewController.description = 
+            alertObject = self.myAlerts[indexPath.row]
+            let parentPost:PFObject = alertObject![GALERT.PARENT_POST] as PFObject
+            let alertTarget:String = alertObject![GALERT.TARGET] as String
+            parentPost.fetchIfNeeded()
+            chatViewController.parentPost = parentPost
+//            chatViewController.parentConversation = conversationObject!
+            
+            let convQuery = PFQuery(className:GCONVERSATION.CLASS_NAME)
+            convQuery.whereKey(GCONVERSATION.PARENT, equalTo: parentPost)
+            convQuery.whereKey(GCONVERSATION.CREATED_BY, equalTo: alertTarget)
+            convQuery.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]!, error: NSError!) -> Void in
+                if error == nil {
+                    // if no conversation is yet created, create one and also create a first message from the post
+                    if objects.count == 0 {
+                        let gConversation:PFObject = PFObject(className:GCONVERSATION.CLASS_NAME)
+                        gConversation[GCONVERSATION.PARENT] = parentPost
+                        gConversation[GCONVERSATION.CREATED_BY] = alertTarget
+                        gConversation[GCONVERSATION.LOCATION] = self.myLocation
+                        gConversation.save()
+                        chatViewController.parentConversation = gConversation
+                        
+                        let gFirstMessage:PFObject = PFObject(className:GMESSAGE.CLASS_NAME)
+                        gFirstMessage[GMESSAGE.PARENT] = gConversation
+                        gFirstMessage[GMESSAGE.REPLIED_BY] = parentPost[GPOST.POSTED_BY] as String
+                        gFirstMessage[GMESSAGE.BODY] = parentPost[GPOST.BODY] as String
+                        gFirstMessage[GMESSAGE.LOCATION] = self.myLocation
+                        gFirstMessage.save()
+                        
+                    } else {
+                        chatViewController.parentConversation = objects[0] as? PFObject
+                    }
+                    
+                } else {
+                    // Log details of the failure
+                    NSLog("Error: %@ %@", error, error.userInfo!)
+                    let alertMessage = UIAlertController(title: "Error", message: "Error retreiving conversations, try agin.", preferredStyle: UIAlertControllerStyle.Alert)
+                    let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
+                    alertMessage.addAction(ok)
+                    self.presentViewController(alertMessage, animated: true, completion: nil)
+                }
+            })
+
+            
         }
     }
 }
