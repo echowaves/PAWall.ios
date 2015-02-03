@@ -52,7 +52,7 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
                 query.whereKey(GPOST.ACTIVE, equalTo: true)
                 query.whereKey(GPOST.POSTED_BY, notEqualTo: DEVICE_UUID)
                 // Limit what could be a lot of points.
-                query.limit = 100
+                query.limit = 1000
                 // Final list of objects
                 //                self.postsNearMe =
                 

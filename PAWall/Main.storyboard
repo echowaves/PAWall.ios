@@ -313,7 +313,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lvh-fX-qMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="TZO-hv-g0F" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1214" y="664"/>
+            <point key="canvasLocation" x="1214" y="768"/>
         </scene>
         <!--Search-->
         <scene sceneID="JYr-Yb-1VF">
@@ -478,7 +478,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2357" y="900"/>
+            <point key="canvasLocation" x="2381" y="1344"/>
         </scene>
         <!--my Posts-->
         <scene sceneID="1xe-ab-p04">
@@ -597,7 +597,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5c4-gN-mql" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="zGq-LL-euB" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2357" y="1697"/>
+            <point key="canvasLocation" x="3773" y="2605"/>
         </scene>
         <!--Alerts-->
         <scene sceneID="Ncr-qd-PHO">
@@ -730,7 +730,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dPB-W8-qaM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="p80-4B-LGX" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2357" y="2501"/>
+            <point key="canvasLocation" x="2393" y="2181"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="qdA-ft-WEm">
@@ -859,7 +859,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GbT-Gh-bJJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4041" y="1171"/>
+            <point key="canvasLocation" x="3549" y="1701"/>
         </scene>
         <!--Replies To My Post View Controller-->
         <scene sceneID="fbS-G2-KKY">
@@ -980,7 +980,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kK6-96-Y38" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3204" y="1697"/>
+            <point key="canvasLocation" x="4713" y="2614"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="cXV-5v-qYC">
@@ -994,13 +994,12 @@
                     </tabBar>
                     <connections>
                         <segue destination="MKC-ZP-avC" kind="relationship" relationship="viewControllers" id="ePp-Cp-lHM"/>
-                        <segue destination="z70-SV-ybL" kind="relationship" relationship="viewControllers" id="qTa-IN-hY2"/>
                         <segue destination="qbD-dC-BYF" kind="relationship" relationship="viewControllers" id="R0P-mZ-43w"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yVL-oe-dZk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1204" y="2001"/>
+            <point key="canvasLocation" x="1232" y="1701"/>
         </scene>
     </scenes>
     <resources>
