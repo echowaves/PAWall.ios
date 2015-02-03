@@ -77,16 +77,32 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:AlertTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("alert_cell") as AlertTableViewCell
-        
+        //
         var alert:PFObject = myAlerts[indexPath.row]
         
-        let df = NSDateFormatter()
-        df.dateFormat = "MM-dd-yyyy hh:mm a"
-        cell.updatedAt.text = NSString(format: "%@", df.stringFromDate(alert.updatedAt))
-        cell.alertBody.text = alert[GALERT.ALERT_BODY] as? String
-        cell.chatMessageBody.text  = alert[GALERT.MESSAGE_BODY] as? String
-        cell.originalPostBody.text = alert[GALERT.POST_BODY] as? String
+        var cell:UITableViewCell = UITableViewCell()
+        let alertBody:String = alert[GALERT.ALERT_BODY] as String
+        
+        if alertBody != "Post created by me:" {
+            cell  = self.tableView.dequeueReusableCellWithIdentifier("alert_cell") as AlertTableViewCell
+            let df = NSDateFormatter()
+            df.dateFormat = "MM-dd-yyyy hh:mm a"
+            (cell as AlertTableViewCell).updatedAt.text = NSString(format: "%@", df.stringFromDate(alert.updatedAt))
+            (cell as AlertTableViewCell).alertBody.text = alertBody
+            (cell as AlertTableViewCell).chatMessageBody.text  = alert[GALERT.MESSAGE_BODY] as? String
+            (cell as AlertTableViewCell).originalPostBody.text = alert[GALERT.POST_BODY] as? String
+        } else
+        if alertBody == "Post created by me:" {
+            cell  = self.tableView.dequeueReusableCellWithIdentifier("post_created_alert_cell") as AlertPostCreatedByMeTableViewCell
+            let df = NSDateFormatter()
+            df.dateFormat = "MM-dd-yyyy"
+            (cell as AlertPostCreatedByMeTableViewCell).createdAt.text = NSString(format: "%@", df.stringFromDate(alert.createdAt))
+            (cell as AlertPostCreatedByMeTableViewCell).body.text = alert[GALERT.POST_BODY] as? String
+            
+            let post:PFObject? = alert[GALERT.PARENT_POST] as? PFObject
+            post?.fetchIfNeeded()
+            (cell as AlertPostCreatedByMeTableViewCell).active.on = post![GPOST.ACTIVE] as Bool
+        }
         
         return cell
     }
@@ -94,7 +110,12 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         NSLog("You selected cell #\(indexPath.row)!")
-        self.performSegueWithIdentifier("show_chat", sender: self)
+        
+        var alertObject:PFObject = self.myAlerts[indexPath.row]
+        let alertBody:String = alertObject[GALERT.ALERT_BODY] as String
+        if alertBody != "Post created by me:" {
+            self.performSegueWithIdentifier("show_chat", sender: self)
+        }
     }
     
 
@@ -147,8 +168,6 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     self.presentViewController(alertMessage, animated: true, completion: nil)
                 }
             })
-
-            
         }
     }
 }

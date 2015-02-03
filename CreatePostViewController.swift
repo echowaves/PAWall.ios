@@ -91,6 +91,14 @@ class CreatePostViewController: UIViewController {
                         self.presentViewController(alertMessage, animated: true, completion: nil)
                     }
                 })
+                // create alert
+                var alert:PFObject = PFObject(className:GALERT.CLASS_NAME)
+                alert[GALERT.PARENT_POST] = gPost
+                alert[GALERT.TARGET] = DEVICE_UUID
+                alert[GALERT.ALERT_BODY] = "Post created by me:"
+                alert[GALERT.POST_BODY] = gPost[GPOST.BODY] as String
+                alert[GALERT.MESSAGE_BODY] = ""
+                alert.saveEventually()
             })
             let cancel = UIAlertAction(title: "Cancel", style: .Default, handler: { (action) -> Void in
             })

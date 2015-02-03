@@ -122,6 +122,12 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
                 self.retrieveAllMessages()
                 
+            } else {
+                let alertMessage = UIAlertController(title: "Error", message: "Enable GPS and try again.", preferredStyle: UIAlertControllerStyle.Alert)
+                let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+                })
+                alertMessage.addAction(ok)
+                self.presentViewController(alertMessage, animated: true, completion: nil)
             }
         }
     }

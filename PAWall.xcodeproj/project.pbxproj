@@ -37,6 +37,7 @@
 		0A9A18951A697A6F00B31406 /* GPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A18941A697A6F00B31406 /* GPost.swift */; };
 		0A9A18971A69856E00B31406 /* SearchPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A18961A69856E00B31406 /* SearchPostsViewController.swift */; };
 		0A9A18991A6B513C00B31406 /* PostSummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A18981A6B513C00B31406 /* PostSummaryTableViewCell.swift */; };
+		0AB7CA1B1A81330B00226934 /* AlertPostCreatedByMeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB7CA1A1A81330B00226934 /* AlertPostCreatedByMeTableViewCell.swift */; };
 		0AE071971A623DC900E18B59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE071961A623DC900E18B59 /* AppDelegate.swift */; };
 		0AE0719E1A623DC900E18B59 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AE0719D1A623DC900E18B59 /* Images.xcassets */; };
 		0AE071AD1A623DC900E18B59 /* PAWallTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE071AC1A623DC900E18B59 /* PAWallTests.swift */; };
@@ -86,6 +87,7 @@
 		0A9A18941A697A6F00B31406 /* GPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPost.swift; sourceTree = "<group>"; };
 		0A9A18961A69856E00B31406 /* SearchPostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPostsViewController.swift; sourceTree = "<group>"; };
 		0A9A18981A6B513C00B31406 /* PostSummaryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostSummaryTableViewCell.swift; sourceTree = "<group>"; };
+		0AB7CA1A1A81330B00226934 /* AlertPostCreatedByMeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertPostCreatedByMeTableViewCell.swift; sourceTree = "<group>"; };
 		0AE071911A623DC900E18B59 /* PAWall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PAWall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AE071951A623DC900E18B59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AE071961A623DC900E18B59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				0A9A18981A6B513C00B31406 /* PostSummaryTableViewCell.swift */,
 				0A6D47901A8030A900BD9A0A /* AlertsViewController.swift */,
 				0A6D47921A8030E800BD9A0A /* AlertTableViewCell.swift */,
+				0AB7CA1A1A81330B00226934 /* AlertPostCreatedByMeTableViewCell.swift */,
 				0A5610E21A755F830023E4A0 /* ChatViewController.swift */,
 				0A5610EA1A772C450023E4A0 /* ChatTableViewCell.swift */,
 				0AE071941A623DC900E18B59 /* Supporting Files */,
@@ -359,6 +362,7 @@
 				0A5610E31A755F830023E4A0 /* ChatViewController.swift in Sources */,
 				0AF790B41A671B35001B87F0 /* BaseDataModel.swift in Sources */,
 				0A9A18951A697A6F00B31406 /* GPost.swift in Sources */,
+				0AB7CA1B1A81330B00226934 /* AlertPostCreatedByMeTableViewCell.swift in Sources */,
 				0A2AB8BB1A64411900DF08DF /* HomeViewController.swift in Sources */,
 				0A9A18971A69856E00B31406 /* SearchPostsViewController.swift in Sources */,
 				0A6D478F1A7E89F500BD9A0A /* GAlert.swift in Sources */,
