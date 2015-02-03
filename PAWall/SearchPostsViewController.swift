@@ -18,6 +18,42 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
+    @IBAction func createBookmarkAction(sender: AnyObject) {
+        if searchBar.text == "" || searchBar.text.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) < 1 {
+            let alertMessage = UIAlertController(title: "Warning", message: "Can't save empty bookmark. Try again.", preferredStyle: UIAlertControllerStyle.Alert)
+            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
+            alertMessage.addAction(ok)
+            presentViewController(alertMessage, animated: true, completion: nil)
+        }
+        
+        
+        let alertMessage = UIAlertController(title: nil, message: "Your Bookmark will be saved. You will be Alerted about new posts matching your bookmark creteria.", preferredStyle: UIAlertControllerStyle.Alert)
+        let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+            var gBookmark = PFObject(className:GBOOKMARK.CLASS_NAME)
+            gBookmark[GBOOKMARK.SEARCH_TEXT] = self.searchBar.text
+            gBookmark[GBOOKMARK.LOCATION] = self.myLocation
+            gBookmark[GBOOKMARK.CREATED_BY] = DEVICE_UUID
+
+            var error:NSErrorPointer = nil
+            gBookmark.saveEventually({ (success: Bool, error: NSError!) -> Void in
+                if success {
+                    self.dismissViewControllerAnimated(false, completion: nil)
+                } else {
+                    let alertMessage = UIAlertController(title: "Error", message: "Unable to bookmark. Try again.", preferredStyle: UIAlertControllerStyle.Alert)
+                    let ok = UIAlertAction(title: "OK", style: .Default, handler:nil)
+                    alertMessage.addAction(ok)
+                    self.presentViewController(alertMessage, animated: true, completion: nil)
+                }
+            })
+        })
+        let cancel = UIAlertAction(title: "Cancel", style: .Default, handler: { (action) -> Void in
+        })
+        alertMessage.addAction(cancel)
+        alertMessage.addAction(ok)
+        presentViewController(alertMessage, animated: true, completion: nil)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -108,7 +144,7 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
                     query.whereKey(GPOST.HASH_TAGS, containsAllObjectsInArray: textArr)
                 }
                 // Limit what could be a lot of points.
-                query.limit = 100
+                query.limit = 300
                 // Final list of objects
                 //                self.postsNearMe =
                 

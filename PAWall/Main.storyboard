@@ -328,9 +328,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" text="" placeholder="Search for #hash_tags in posts near you" translatesAutoresizingMaskIntoConstraints="NO" id="Oio-QX-hcc">
-                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="64" width="552" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="V5a-Vl-r9g"/>
+                                    <constraint firstAttribute="height" constant="44" id="yEy-qE-aDQ"/>
                                 </constraints>
                                 <color key="barTintColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -338,6 +338,36 @@
                                     <outlet property="delegate" destination="MKC-ZP-avC" id="NrR-17-7P6"/>
                                 </connections>
                             </searchBar>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H9R-6F-7K1">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="VnN-t4-U0n"/>
+                                </constraints>
+                                <color key="barTintColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem title="Posts near you" id="ajb-lq-A9g">
+                                        <barButtonItem key="leftBarButtonItem" image="ic_cancel_black_48dp" id="WFg-RD-GMx">
+                                            <connections>
+                                                <segue destination="7Xx-T8-nfr" kind="unwind" unwindAction="unwindToHome:" id="TKq-M9-Vej"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o9m-qq-YfH">
+                                <rect key="frame" x="552" y="60" width="48" height="48"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="48" id="KBB-u0-QTu"/>
+                                    <constraint firstAttribute="height" constant="48" id="qlb-qN-Xfe"/>
+                                </constraints>
+                                <state key="normal" image="ic_bookmark_black_48dp">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="createBookmarkAction:" destination="MKC-ZP-avC" eventType="touchUpInside" id="17N-3s-NtZ"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="9BH-me-9pN">
                                 <rect key="frame" x="0.0" y="108" width="600" height="443"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -421,36 +451,25 @@
                                     <outlet property="delegate" destination="MKC-ZP-avC" id="6G9-Kf-bjg"/>
                                 </connections>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H9R-6F-7K1">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="VnN-t4-U0n"/>
-                                </constraints>
-                                <color key="barTintColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <items>
-                                    <navigationItem title="Posts near you" id="ajb-lq-A9g">
-                                        <barButtonItem key="leftBarButtonItem" image="ic_cancel_black_48dp" id="WFg-RD-GMx">
-                                            <connections>
-                                                <segue destination="7Xx-T8-nfr" kind="unwind" unwindAction="unwindToHome:" id="TKq-M9-Vej"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="H9R-6F-7K1" firstAttribute="top" secondItem="uAa-36-rhC" secondAttribute="bottom" id="0kV-EN-dXb"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="9BH-me-9pN" secondAttribute="trailing" constant="-16" id="2th-2s-zkK"/>
+                            <constraint firstItem="Oio-QX-hcc" firstAttribute="top" secondItem="H9R-6F-7K1" secondAttribute="bottom" id="1NR-9Z-oeK"/>
                             <constraint firstItem="hI7-aR-vML" firstAttribute="top" secondItem="9BH-me-9pN" secondAttribute="bottom" id="7cF-2x-bQR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="H9R-6F-7K1" secondAttribute="trailing" constant="-16" id="Bjx-Br-QOK"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Oio-QX-hcc" secondAttribute="trailing" constant="-16" id="Bvo-OZ-9a9"/>
-                            <constraint firstItem="9BH-me-9pN" firstAttribute="top" secondItem="Oio-QX-hcc" secondAttribute="bottom" id="QSP-Mk-WmQ"/>
-                            <constraint firstItem="Oio-QX-hcc" firstAttribute="top" secondItem="H9R-6F-7K1" secondAttribute="bottom" id="UrT-St-hjN"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="9BH-me-9pN" secondAttribute="bottom" constant="49" id="ZwM-TP-bP2"/>
-                            <constraint firstItem="9BH-me-9pN" firstAttribute="leading" secondItem="vET-ie-0Nd" secondAttribute="leadingMargin" constant="-16" id="lty-GV-XQL"/>
+                            <constraint firstItem="o9m-qq-YfH" firstAttribute="top" secondItem="uAa-36-rhC" secondAttribute="bottom" constant="40" id="G47-si-0Vw"/>
+                            <constraint firstItem="o9m-qq-YfH" firstAttribute="leading" secondItem="Oio-QX-hcc" secondAttribute="trailing" id="Gh3-US-x3s"/>
+                            <constraint firstItem="9BH-me-9pN" firstAttribute="top" secondItem="o9m-qq-YfH" secondAttribute="bottom" id="K7o-39-d9n"/>
+                            <constraint firstItem="hI7-aR-vML" firstAttribute="top" secondItem="9BH-me-9pN" secondAttribute="bottom" id="LHP-JQ-gxW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9BH-me-9pN" secondAttribute="trailing" constant="-16" id="cWZ-SW-Ee0"/>
+                            <constraint firstItem="9BH-me-9pN" firstAttribute="leading" secondItem="vET-ie-0Nd" secondAttribute="leadingMargin" constant="-16" id="iGg-qk-UhO"/>
+                            <constraint firstItem="Oio-QX-hcc" firstAttribute="leading" secondItem="vET-ie-0Nd" secondAttribute="leadingMargin" constant="-16" id="jhE-a1-zxz"/>
+                            <constraint firstItem="9BH-me-9pN" firstAttribute="leading" secondItem="vET-ie-0Nd" secondAttribute="leadingMargin" constant="-16" id="pMa-kS-kYc"/>
+                            <constraint firstItem="hI7-aR-vML" firstAttribute="top" secondItem="9BH-me-9pN" secondAttribute="bottom" id="pt2-AO-Ccx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="o9m-qq-YfH" secondAttribute="trailing" constant="-16" id="sGo-q2-wjT"/>
                             <constraint firstItem="H9R-6F-7K1" firstAttribute="leading" secondItem="vET-ie-0Nd" secondAttribute="leadingMargin" constant="-16" id="snz-8s-PLr"/>
-                            <constraint firstItem="Oio-QX-hcc" firstAttribute="leading" secondItem="vET-ie-0Nd" secondAttribute="leadingMargin" constant="-16" id="yMx-37-VVD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9BH-me-9pN" secondAttribute="trailing" constant="-16" id="tS2-ST-BXh"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -478,7 +497,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2381" y="1344"/>
+            <point key="canvasLocation" x="2381" y="1356"/>
         </scene>
         <!--Alerts-->
         <scene sceneID="Ncr-qd-PHO">
@@ -821,6 +840,7 @@
     </scenes>
     <resources>
         <image name="ic_add_circle_outline_black_48dp" width="48" height="48"/>
+        <image name="ic_bookmark_black_48dp" width="48" height="48"/>
         <image name="ic_cancel_black_48dp" width="48" height="48"/>
         <image name="ic_chevron_right_black_48dp" width="48" height="48"/>
         <image name="ic_expand_less_black_48dp" width="48" height="48"/>
@@ -829,6 +849,6 @@
         <image name="ic_send_black_48dp" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="X7K-bY-qJa"/>
+        <segue reference="1Lo-Mm-yKf"/>
     </inferredMetricsTieBreakers>
 </document>
