@@ -11,8 +11,6 @@
 		0A2AB8BD1A64418F00DF08DF /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2AB8BC1A64418F00DF08DF /* CreatePostViewController.swift */; };
 		0A4B61901A7C9DD2000E3D33 /* GConversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4B618F1A7C9DD2000E3D33 /* GConversation.swift */; };
 		0A5610E31A755F830023E4A0 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5610E21A755F830023E4A0 /* ChatViewController.swift */; };
-		0A5610E51A7564BE0023E4A0 /* MyPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5610E41A7564BE0023E4A0 /* MyPostsViewController.swift */; };
-		0A5610E71A7571860023E4A0 /* MyPostSummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5610E61A7571860023E4A0 /* MyPostSummaryTableViewCell.swift */; };
 		0A5610E91A757AEA0023E4A0 /* GMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5610E81A757AEA0023E4A0 /* GMessage.swift */; };
 		0A5610EB1A772C450023E4A0 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5610EA1A772C450023E4A0 /* ChatTableViewCell.swift */; };
 		0A6499D01A623E7D001E013D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A6499CF1A623E7D001E013D /* SystemConfiguration.framework */; };
@@ -39,8 +37,6 @@
 		0A9A18951A697A6F00B31406 /* GPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A18941A697A6F00B31406 /* GPost.swift */; };
 		0A9A18971A69856E00B31406 /* SearchPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A18961A69856E00B31406 /* SearchPostsViewController.swift */; };
 		0A9A18991A6B513C00B31406 /* PostSummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A18981A6B513C00B31406 /* PostSummaryTableViewCell.swift */; };
-		0AA8E3F21A7DC50600F3806D /* RepliesToMyPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA8E3F11A7DC50600F3806D /* RepliesToMyPostViewController.swift */; };
-		0AA8E3F41A7DCD7B00F3806D /* ReplyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA8E3F31A7DCD7B00F3806D /* ReplyTableViewCell.swift */; };
 		0AE071971A623DC900E18B59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE071961A623DC900E18B59 /* AppDelegate.swift */; };
 		0AE0719E1A623DC900E18B59 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AE0719D1A623DC900E18B59 /* Images.xcassets */; };
 		0AE071AD1A623DC900E18B59 /* PAWallTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE071AC1A623DC900E18B59 /* PAWallTests.swift */; };
@@ -62,8 +58,6 @@
 		0A2AB8BC1A64418F00DF08DF /* CreatePostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreatePostViewController.swift; path = ../CreatePostViewController.swift; sourceTree = "<group>"; };
 		0A4B618F1A7C9DD2000E3D33 /* GConversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GConversation.swift; sourceTree = "<group>"; };
 		0A5610E21A755F830023E4A0 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
-		0A5610E41A7564BE0023E4A0 /* MyPostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPostsViewController.swift; sourceTree = "<group>"; };
-		0A5610E61A7571860023E4A0 /* MyPostSummaryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPostSummaryTableViewCell.swift; sourceTree = "<group>"; };
 		0A5610E81A757AEA0023E4A0 /* GMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GMessage.swift; sourceTree = "<group>"; };
 		0A5610EA1A772C450023E4A0 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		0A6499CF1A623E7D001E013D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -92,8 +86,6 @@
 		0A9A18941A697A6F00B31406 /* GPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPost.swift; sourceTree = "<group>"; };
 		0A9A18961A69856E00B31406 /* SearchPostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPostsViewController.swift; sourceTree = "<group>"; };
 		0A9A18981A6B513C00B31406 /* PostSummaryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostSummaryTableViewCell.swift; sourceTree = "<group>"; };
-		0AA8E3F11A7DC50600F3806D /* RepliesToMyPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepliesToMyPostViewController.swift; sourceTree = "<group>"; };
-		0AA8E3F31A7DCD7B00F3806D /* ReplyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplyTableViewCell.swift; sourceTree = "<group>"; };
 		0AE071911A623DC900E18B59 /* PAWall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PAWall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AE071951A623DC900E18B59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AE071961A623DC900E18B59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -218,12 +210,8 @@
 				0A2AB8BC1A64418F00DF08DF /* CreatePostViewController.swift */,
 				0A9A18961A69856E00B31406 /* SearchPostsViewController.swift */,
 				0A9A18981A6B513C00B31406 /* PostSummaryTableViewCell.swift */,
-				0A5610E41A7564BE0023E4A0 /* MyPostsViewController.swift */,
-				0A5610E61A7571860023E4A0 /* MyPostSummaryTableViewCell.swift */,
 				0A6D47901A8030A900BD9A0A /* AlertsViewController.swift */,
 				0A6D47921A8030E800BD9A0A /* AlertTableViewCell.swift */,
-				0AA8E3F11A7DC50600F3806D /* RepliesToMyPostViewController.swift */,
-				0AA8E3F31A7DCD7B00F3806D /* ReplyTableViewCell.swift */,
 				0A5610E21A755F830023E4A0 /* ChatViewController.swift */,
 				0A5610EA1A772C450023E4A0 /* ChatTableViewCell.swift */,
 				0AE071941A623DC900E18B59 /* Supporting Files */,
@@ -373,16 +361,12 @@
 				0A9A18951A697A6F00B31406 /* GPost.swift in Sources */,
 				0A2AB8BB1A64411900DF08DF /* HomeViewController.swift in Sources */,
 				0A9A18971A69856E00B31406 /* SearchPostsViewController.swift in Sources */,
-				0A5610E71A7571860023E4A0 /* MyPostSummaryTableViewCell.swift in Sources */,
 				0A6D478F1A7E89F500BD9A0A /* GAlert.swift in Sources */,
 				0A2AB8BD1A64418F00DF08DF /* CreatePostViewController.swift in Sources */,
 				0A5610E91A757AEA0023E4A0 /* GMessage.swift in Sources */,
-				0AA8E3F41A7DCD7B00F3806D /* ReplyTableViewCell.swift in Sources */,
-				0A5610E51A7564BE0023E4A0 /* MyPostsViewController.swift in Sources */,
 				0A9A18991A6B513C00B31406 /* PostSummaryTableViewCell.swift in Sources */,
 				0A5610EB1A772C450023E4A0 /* ChatTableViewCell.swift in Sources */,
 				0A4B61901A7C9DD2000E3D33 /* GConversation.swift in Sources */,
-				0AA8E3F21A7DC50600F3806D /* RepliesToMyPostViewController.swift in Sources */,
 				0AE071971A623DC900E18B59 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
