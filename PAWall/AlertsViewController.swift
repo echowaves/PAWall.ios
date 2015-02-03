@@ -94,7 +94,7 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if alertBody == "Post created by me:" {
             cell  = self.tableView.dequeueReusableCellWithIdentifier("post_created_alert_cell") as AlertPostCreatedByMeTableViewCell
             let df = NSDateFormatter()
-            df.dateFormat = "MM-dd-yyyy"
+            df.dateFormat = "MM-dd-yyyy hh:mm a"
             (cell as AlertPostCreatedByMeTableViewCell).createdAt.text = NSString(format: "%@", df.stringFromDate(alert.createdAt))
             (cell as AlertPostCreatedByMeTableViewCell).body.text = alert[GALERT.POST_BODY] as? String
             
