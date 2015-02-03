@@ -65,7 +65,6 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
                 alertMessage.addAction(ok)
                 self.presentViewController(alertMessage, animated: true, completion: nil)
-                
             }
         })
     }
@@ -101,12 +100,37 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             let post:PFObject? = alert[GALERT.PARENT_POST] as? PFObject
             post?.fetchIfNeeded()
-            (cell as AlertPostCreatedByMeTableViewCell).active.on = post![GPOST.ACTIVE] as Bool
+            
+            let activeSwitch:UISwitch = (cell as AlertPostCreatedByMeTableViewCell).active
+            activeSwitch.on = post![GPOST.ACTIVE] as Bool
+            
+            activeSwitch.tag = indexPath.row
+            activeSwitch.addTarget(self, action: "switchFliped:", forControlEvents: UIControlEvents.TouchUpInside)
         }
         
         return cell
     }
     
+    func switchFliped(sender:UISwitch) {
+        let uiSwitch:UISwitch = sender as UISwitch
+        let switchRow:Int = sender.tag
+        NSLog("flipped switch: \(switchRow)")
+        
+        let postObject = myAlerts[switchRow][GALERT.PARENT_POST] as PFObject
+        postObject.fetchIfNeeded()
+        
+        postObject[GPOST.ACTIVE] = uiSwitch.on
+        postObject.saveEventually()
+        
+        // if switch is off
+        if !uiSwitch.on {
+            let alertMessage = UIAlertController(title: "Info", message: "Making post inactive will prevent it from been searchable", preferredStyle: UIAlertControllerStyle.Alert)
+            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
+            alertMessage.addAction(ok)
+            self.presentViewController(alertMessage, animated: true, completion: nil)
+        }
+
+    }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         NSLog("You selected cell #\(indexPath.row)!")
