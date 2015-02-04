@@ -22,7 +22,7 @@ class GAlert : BaseDataModel {
     class func createOrUpdateAlert(parentPost: PFObject,
         target: String,
         alertBody: String,
-        chatReply: PFObject) -> Void {
+        chatReply: String) -> Void {
             var alert:PFObject = PFObject(className:GALERT.CLASS_NAME)
             var query = PFQuery(className:GALERT.CLASS_NAME)
             query.whereKey(GALERT.PARENT_POST, equalTo: parentPost)
@@ -37,7 +37,7 @@ class GAlert : BaseDataModel {
                         // update the found alert here
                         alert = objects[0] as PFObject
                         alert[GALERT.ALERT_BODY] = alertBody
-                        alert[GALERT.MESSAGE_BODY] = chatReply[GMESSAGE.BODY]
+                        alert[GALERT.MESSAGE_BODY] = chatReply
                         alert.saveEventually()
                     } else {
                         // create new alert here
@@ -45,7 +45,7 @@ class GAlert : BaseDataModel {
                         alert[GALERT.TARGET] = target
                         alert[GALERT.ALERT_BODY] = alertBody
                         alert[GALERT.POST_BODY] = parentPost[GPOST.BODY] as String
-                        alert[GALERT.MESSAGE_BODY] = chatReply[GMESSAGE.BODY]
+                        alert[GALERT.MESSAGE_BODY] = chatReply
                         alert.saveEventually()
                     }
                 } else {
