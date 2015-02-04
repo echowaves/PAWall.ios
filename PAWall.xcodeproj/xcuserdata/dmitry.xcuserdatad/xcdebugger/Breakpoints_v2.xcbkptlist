@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PAWall/SearchPostsViewController.swift"
-            timestampString = "444699886.356718"
+            timestampString = "444704018.749557"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
             landmarkName = "filterContentForSearchText(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -225,6 +225,52 @@
             endingLineNumber = "183"
             landmarkName = "prepareForSegue(_:sender:)"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PAWall/SearchPostsViewController.swift"
+            timestampString = "444704018.749557"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "createBookmarkAction(_:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PAWall.SearchPostsViewController.(createBookmarkAction (PAWall.SearchPostsViewController) -&gt; (Swift.AnyObject) -&gt; ()).(closure #2).(closure #1)"
+                  moduleName = "PAWall"
+                  urlString = "file:///Users/dmitry/hacks/ios/PAWall.ios/PAWall/SearchPostsViewController.swift"
+                  timestampString = "444703725.356354"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "2173">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PAWall.SearchPostsViewController.(createBookmarkAction (PAWall.SearchPostsViewController) -&gt; (Swift.AnyObject) -&gt; ()).(closure #2).(closure #1).(closure #1)"
+                  moduleName = "PAWall"
+                  urlString = "file:///Users/dmitry/hacks/ios/PAWall.ios/PAWall/SearchPostsViewController.swift"
+                  timestampString = "444703725.357441"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "30">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
