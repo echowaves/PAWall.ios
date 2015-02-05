@@ -117,4 +117,23 @@ class BookmarksViewController: UIViewController, UITableViewDelegate, UITableVie
         presentViewController(alertMessage, animated: true, completion: nil)
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        NSLog("You selected cell #\(indexPath.row)!")
+        
+        if self.parentViewController as? UITabBarController != nil {
+            var tababarController = self.parentViewController as UITabBarController
+            let searchPostsViewController:SearchPostsViewController = tababarController.viewControllers![0] as SearchPostsViewController
+            let searchForText:String = myBookmarks[indexPath.row][GBOOKMARK.SEARCH_TEXT] as String
+
+            tababarController.selectedIndex = 0
+
+            searchPostsViewController.searchBar.becomeFirstResponder()
+            searchPostsViewController.searchBar.text = searchForText
+            searchPostsViewController.filterContentForSearchText(searchForText)
+
+        }
+
+    }
+    
+
 }

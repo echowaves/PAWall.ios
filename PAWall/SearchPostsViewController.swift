@@ -9,7 +9,7 @@
 import Foundation
 import MapKit
 
-class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchDisplayDelegate {
+class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate,  UISearchControllerDelegate {
     
     var postsNearMe:[PFObject] = [PFObject]()
     var filteredPostsNearMe:[PFObject] = [PFObject]()
@@ -337,7 +337,7 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
     @IBAction func unwindToAdsNearYou (segue : UIStoryboardSegue) {
         NSLog("CreateAd seque from segue id: \(segue.identifier)")
     }
-    
+        
 }
 
 //http://www.raywenderlich.com/76519/add-table-view-search-swift
