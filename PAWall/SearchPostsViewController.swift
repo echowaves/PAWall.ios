@@ -186,11 +186,11 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
                         
                         
                         NSLog("Successfully retrieved \(objects.count)")
-                        if objects.count > 0 {
+//                        if objects.count > 0 {
                             self.filteredPostsNearMe = objects as [PFObject]
                             self.searchDisplayController?.searchResultsTableView.reloadData()
                             //                                self.searchDisplayController?.searchResultsTableView.reloadInputViews()
-                        }
+//                        }
                         
                     } else {
                         // Log details of the failure
@@ -207,15 +207,15 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        filterContentForSearchText(searchBar.text)
-        println("editing")
-    }
+//    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+//        filterContentForSearchText(searchBar.text)
+//        println("editing")
+//    }
     
     
     func searchBarTextDidEndEditing(searchBar: UISearchBar) {
         filterContentForSearchText(searchBar.text)
-        println("searching")
+        NSLog("searchBarTextDidEndEditing")
     }
     
     
@@ -322,13 +322,15 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
-    func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchString searchString: String!) -> Bool {
-        self.filterContentForSearchText(searchString)
-        return true
-    }
+//    func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchString searchString: String!) -> Bool {
+//        self.filterContentForSearchText(searchString)
+//        NSLog("shouldReloadTableForSearchString")
+//        return true
+//    }
     
     func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchScope searchOption: Int) -> Bool {
         self.filterContentForSearchText(self.searchDisplayController!.searchBar.text)
+        NSLog("shouldReloadTableForSearchScope")
         return true
     }
     
