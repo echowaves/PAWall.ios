@@ -87,7 +87,7 @@ class BookmarksViewController: UIViewController, UITableViewDelegate, UITableVie
         cell.createdAt.text = NSString(format: "%@", df.stringFromDate(bookmark.createdAt))
         cell.bookmarkText.text = bookmark[GBOOKMARK.SEARCH_TEXT] as? String
         let roundedDistance = roundMoney((bookmark[GBOOKMARK.LOCATION] as PFGeoPoint).distanceInMilesTo(myLocation))
-        cell.distance.text = "\(roundedDistance) Miles"
+//        cell.distance.text = "\(roundedDistance) Miles"
         
         let deleteButton:UIButton = cell.deleteButton
         

@@ -187,7 +187,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o3Y-U5-wWA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="254" y="1701"/>
+            <point key="canvasLocation" x="294" y="1465"/>
         </scene>
         <!--Title-->
         <scene sceneID="cYg-NG-fzk">
@@ -497,7 +497,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2381" y="1356"/>
+            <point key="canvasLocation" x="2393" y="1116"/>
         </scene>
         <!--Alerts-->
         <scene sceneID="Ncr-qd-PHO">
@@ -684,7 +684,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dPB-W8-qaM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="p80-4B-LGX" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2381" y="2065"/>
+            <point key="canvasLocation" x="2393" y="2577"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="qdA-ft-WEm">
@@ -813,7 +813,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GbT-Gh-bJJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3549" y="1701"/>
+            <point key="canvasLocation" x="3665" y="1697"/>
         </scene>
         <!--Bookmarks-->
         <scene sceneID="x57-72-O09">
@@ -835,7 +835,11 @@
                                 <color key="barTintColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="My Bookmarks" id="M5q-He-mcL">
-                                        <barButtonItem key="leftBarButtonItem" image="ic_cancel_black_48dp" id="NeS-Qi-LZn"/>
+                                        <barButtonItem key="leftBarButtonItem" image="ic_cancel_black_48dp" id="NeS-Qi-LZn">
+                                            <connections>
+                                                <segue destination="oyc-2R-V09" kind="unwind" unwindAction="unwindToHome:" id="Uuu-mw-9du"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -859,16 +863,6 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="distance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pVg-jm-1e6">
-                                                    <rect key="frame" x="8" y="8" width="100" height="15"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="4RK-lJ-YsI"/>
-                                                        <constraint firstAttribute="height" constant="15" id="Nmv-Hm-gmS"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="createdAt" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S9R-1T-lxt">
                                                     <rect key="frame" x="447" y="8" width="145" height="15"/>
                                                     <constraints>
@@ -893,11 +887,9 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="dpf-fx-Mq9" secondAttribute="trailing" constant="-8" id="1bX-BI-Ehb"/>
                                                 <constraint firstItem="S9R-1T-lxt" firstAttribute="top" secondItem="wQy-Rs-OUa" secondAttribute="topMargin" id="BnF-KT-Ydn"/>
                                                 <constraint firstItem="S9R-1T-lxt" firstAttribute="trailing" secondItem="wQy-Rs-OUa" secondAttribute="trailingMargin" id="EKc-it-QTM"/>
-                                                <constraint firstItem="pVg-jm-1e6" firstAttribute="top" secondItem="wQy-Rs-OUa" secondAttribute="topMargin" id="Ir6-Uc-Uk7"/>
                                                 <constraint firstItem="K9h-Gp-Yuy" firstAttribute="leading" secondItem="wQy-Rs-OUa" secondAttribute="leadingMargin" id="R5S-bY-cMi"/>
                                                 <constraint firstItem="K9h-Gp-Yuy" firstAttribute="top" secondItem="S9R-1T-lxt" secondAttribute="bottom" constant="16" id="Wco-JJ-Ox2"/>
                                                 <constraint firstItem="dpf-fx-Mq9" firstAttribute="top" secondItem="S9R-1T-lxt" secondAttribute="bottom" constant="3" id="YSi-FO-oMp"/>
-                                                <constraint firstItem="pVg-jm-1e6" firstAttribute="leading" secondItem="wQy-Rs-OUa" secondAttribute="leadingMargin" id="bFr-kL-MrL"/>
                                                 <constraint firstItem="dpf-fx-Mq9" firstAttribute="leading" secondItem="K9h-Gp-Yuy" secondAttribute="trailing" constant="8" id="feM-lm-exc"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -905,7 +897,6 @@
                                             <outlet property="bookmarkText" destination="K9h-Gp-Yuy" id="jmU-Bi-8Xw"/>
                                             <outlet property="createdAt" destination="S9R-1T-lxt" id="shu-dz-GRz"/>
                                             <outlet property="deleteButton" destination="dpf-fx-Mq9" id="2hs-DX-rkP"/>
-                                            <outlet property="distance" destination="pVg-jm-1e6" id="gye-DG-UpG"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -928,8 +919,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZFp-bi-ECo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="oyc-2R-V09" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2381" y="2782"/>
+            <point key="canvasLocation" x="2393" y="1853"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="cXV-5v-qYC">
@@ -949,7 +941,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yVL-oe-dZk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1272" y="2309"/>
+            <point key="canvasLocation" x="1264" y="1977"/>
         </scene>
     </scenes>
     <resources>
@@ -965,6 +957,6 @@
         <image name="ic_send_black_48dp" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="X7K-bY-qJa"/>
+        <segue reference="1Lo-Mm-yKf"/>
     </inferredMetricsTieBreakers>
 </document>
