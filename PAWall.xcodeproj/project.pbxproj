@@ -42,6 +42,8 @@
 		0AE071971A623DC900E18B59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE071961A623DC900E18B59 /* AppDelegate.swift */; };
 		0AE0719E1A623DC900E18B59 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AE0719D1A623DC900E18B59 /* Images.xcassets */; };
 		0AE071AD1A623DC900E18B59 /* PAWallTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE071AC1A623DC900E18B59 /* PAWallTests.swift */; };
+		0AF785581A8295FB0010FA96 /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF785571A8295FB0010FA96 /* BookmarksViewController.swift */; };
+		0AF7855C1A82962B0010FA96 /* BookmarkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF7855B1A82962B0010FA96 /* BookmarkTableViewCell.swift */; };
 		0AF790B41A671B35001B87F0 /* BaseDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF790B31A671B35001B87F0 /* BaseDataModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +99,8 @@
 		0AE071A61A623DC900E18B59 /* PAWallTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PAWallTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AE071AB1A623DC900E18B59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AE071AC1A623DC900E18B59 /* PAWallTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAWallTests.swift; sourceTree = "<group>"; };
+		0AF785571A8295FB0010FA96 /* BookmarksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
+		0AF7855B1A82962B0010FA96 /* BookmarkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookmarkTableViewCell.swift; path = ../BookmarkTableViewCell.swift; sourceTree = "<group>"; };
 		0AF790B31A671B35001B87F0 /* BaseDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -218,6 +222,8 @@
 				0A6D47901A8030A900BD9A0A /* AlertsViewController.swift */,
 				0A6D47921A8030E800BD9A0A /* AlertTableViewCell.swift */,
 				0AB7CA1A1A81330B00226934 /* AlertPostCreatedByMeTableViewCell.swift */,
+				0AF785571A8295FB0010FA96 /* BookmarksViewController.swift */,
+				0AF7855B1A82962B0010FA96 /* BookmarkTableViewCell.swift */,
 				0A5610E21A755F830023E4A0 /* ChatViewController.swift */,
 				0A5610EA1A772C450023E4A0 /* ChatTableViewCell.swift */,
 				0AE071941A623DC900E18B59 /* Supporting Files */,
@@ -371,10 +377,12 @@
 				0A9A18971A69856E00B31406 /* SearchPostsViewController.swift in Sources */,
 				0A6D478F1A7E89F500BD9A0A /* GAlert.swift in Sources */,
 				0A2AB8BD1A64418F00DF08DF /* CreatePostViewController.swift in Sources */,
+				0AF7855C1A82962B0010FA96 /* BookmarkTableViewCell.swift in Sources */,
 				0A5610E91A757AEA0023E4A0 /* GMessage.swift in Sources */,
 				0A9A18991A6B513C00B31406 /* PostSummaryTableViewCell.swift in Sources */,
 				0A5610EB1A772C450023E4A0 /* ChatTableViewCell.swift in Sources */,
 				0A4B61901A7C9DD2000E3D33 /* GConversation.swift in Sources */,
+				0AF785581A8295FB0010FA96 /* BookmarksViewController.swift in Sources */,
 				0AE071971A623DC900E18B59 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
