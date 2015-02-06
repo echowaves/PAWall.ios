@@ -87,6 +87,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                     target: self.parentConversation![GCONVERSATION.CREATED_BY] as String,
                     alertBody: "I replied to a post:",
                     chatReply: chatReply[GMESSAGE.BODY] as String)
+                
             }
         }
     }

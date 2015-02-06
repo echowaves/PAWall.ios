@@ -91,6 +91,7 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
         //        self.tableView.registerClass(AdSummaryTableViewCell.self, forCellReuseIdentifier: "ad_summary")
         self.tableView.delegate      =   self
         self.tableView.dataSource    =   self
+        
         self.searchBar.delegate      =   self
         
         self.tableView.estimatedRowHeight = 80.0

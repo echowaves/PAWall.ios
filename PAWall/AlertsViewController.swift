@@ -26,6 +26,7 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 //        self.tableView.estimatedRowHeight = 100.0
 //        self.tableView.rowHeight = UITableViewAutomaticDimension
         
+    
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -108,6 +109,9 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             activeSwitch.addTarget(self, action: "switchFliped:", forControlEvents: UIControlEvents.TouchUpInside)
         }
         
+        if(APP_DELEGATE.alertUnread(alert)) {
+            cell.backgroundColor = UIColor.lightGrayColor()
+        }
         return cell
     }
     
@@ -138,6 +142,8 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         var alertObject:PFObject = self.myAlerts[indexPath.row]
         let alertBody:String = alertObject[GALERT.ALERT_BODY] as String
         if alertBody != "Post created by me:" {
+            //mart alert read
+            APP_DELEGATE.markAlertRead(alertObject)
             self.performSegueWithIdentifier("show_chat", sender: self)
         }
     }

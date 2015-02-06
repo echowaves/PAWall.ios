@@ -226,7 +226,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="225" id="Tdg-3p-Qai"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
@@ -390,7 +390,7 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="details" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iKg-1U-nRG">
                                                     <rect key="frame" x="8" y="29" width="544" height="51"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -559,13 +559,13 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="7eO-9C-dVC"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="post body" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5G-ih-LBo">
                                                     <rect key="frame" x="8" y="70" width="584" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -622,7 +622,7 @@
                                                         <constraint firstAttribute="width" constant="527" id="3Oj-Ta-zGC"/>
                                                         <constraint firstAttribute="height" constant="103" id="czl-kb-yRX"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -675,7 +675,7 @@
                             <constraint firstItem="3hS-VQ-MQA" firstAttribute="top" secondItem="bNo-3s-ptl" secondAttribute="bottom" id="qwJ-jk-C0Z"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Alerts" image="ic_notifications_black_48dp" badgeValue="23" id="TX2-Ng-Bl4"/>
+                    <tabBarItem key="tabBarItem" title="Alerts" image="ic_notifications_black_48dp" id="TX2-Ng-Bl4"/>
                     <connections>
                         <outlet property="tableView" destination="3hS-VQ-MQA" id="fRa-8W-Mrc"/>
                         <segue destination="2nD-sd-aN4" kind="show" identifier="show_chat" id="X7K-bY-qJa"/>
@@ -735,7 +735,7 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="body" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLt-yG-gc7">
                                                     <rect key="frame" x="8" y="37" width="584" height="92"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -878,7 +878,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="K6T-lT-gRt"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -923,10 +923,10 @@
             </objects>
             <point key="canvasLocation" x="2393" y="1853"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Wall Tab Bar Controller-->
         <scene sceneID="cXV-5v-qYC">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="asf-VK-lAo" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="asf-VK-lAo" customClass="PAWallTabBarController" customModule="PAWall" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Nbc-Gl-les">
@@ -957,6 +957,6 @@
         <image name="ic_send_black_48dp" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1Lo-Mm-yKf"/>
+        <segue reference="X7K-bY-qJa"/>
     </inferredMetricsTieBreakers>
 </document>
