@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A0B886C1A85CFF500D5BBC9 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A0B886B1A85CFF500D5BBC9 /* Launch Screen.xib */; };
 		0A2698281A84605F00D9B1CB /* PAWallTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2698271A84605F00D9B1CB /* PAWallTabBarController.swift */; };
 		0A2AB8BB1A64411900DF08DF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2AB8BA1A64411900DF08DF /* HomeViewController.swift */; };
 		0A2AB8BD1A64418F00DF08DF /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2AB8BC1A64418F00DF08DF /* CreatePostViewController.swift */; };
@@ -59,6 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A0B886B1A85CFF500D5BBC9 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Launch Screen.xib"; path = "../Launch Screen.xib"; sourceTree = "<group>"; };
 		0A2698271A84605F00D9B1CB /* PAWallTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PAWallTabBarController.swift; sourceTree = "<group>"; };
 		0A2AB8BA1A64411900DF08DF /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = ../HomeViewController.swift; sourceTree = "<group>"; };
 		0A2AB8BC1A64418F00DF08DF /* CreatePostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreatePostViewController.swift; path = ../CreatePostViewController.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				0A6499F71A6250F8001E013D /* Resources */,
 				0A6499F41A624801001E013D /* Model */,
 				0A6499F01A62432C001E013D /* Main.storyboard */,
+				0A0B886B1A85CFF500D5BBC9 /* Launch Screen.xib */,
 				0A2AB8BA1A64411900DF08DF /* HomeViewController.swift */,
 				0A2698271A84605F00D9B1CB /* PAWallTabBarController.swift */,
 				0A2AB8BC1A64418F00DF08DF /* CreatePostViewController.swift */,
@@ -353,6 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AE0719E1A623DC900E18B59 /* Images.xcassets in Resources */,
+				0A0B886C1A85CFF500D5BBC9 /* Launch Screen.xib in Resources */,
 				0A6499F61A624D03001E013D /* pawall.jpg in Resources */,
 				0A6499F11A62432C001E013D /* Main.storyboard in Resources */,
 			);
