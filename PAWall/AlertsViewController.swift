@@ -25,13 +25,16 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
 //        self.tableView.estimatedRowHeight = 100.0
 //        self.tableView.rowHeight = UITableViewAutomaticDimension
-        
-    
     }
+    
+    
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
+//        APP_DELEGATE.getAlerts()
+//        self.tableView.setNeedsDisplay()
+//        self.tableView.setNeedsLayout()
+
         PFGeoPoint.geoPointForCurrentLocationInBackground {
             //TODO: handle error properly
             (geoPoint: PFGeoPoint!, error: NSError!) -> Void in
@@ -57,6 +60,9 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 NSLog("Successfully retrieved \(objects.count) alerts")
                 self.myAlerts = objects as [PFObject]
                 self.tableView.reloadData()
+//                self.tableView.reloadInputViews()
+//                self.tableView.setNeedsDisplay()
+//                self.tableView.setNeedsLayout()
                 
             } else {
                 // Log details of the failure
