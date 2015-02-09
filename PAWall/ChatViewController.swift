@@ -11,8 +11,10 @@ import Foundation
 class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var chatMessages:[PFObject] = [PFObject]()
+    
+    // parent post should always be passed from chid controller
     var parentPost:PFObject?
-    // the conversation is not passed from child controller, but if unable to resolve, need to create a new conversation
+    // parent conversation should always be passed from child controller
     var parentConversation:PFObject?
     
     var currentLocation:PFGeoPoint?
@@ -68,7 +70,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.tableView.reloadData()
                 if increment == true {
                     self.parentConversation?[GCONVERSATION.CHARGES_APPLIED] = (1.0 / (self.parentPost?[GPOST.REPLIES] as Double + 1.0) as Double)
-                    self.parentConversation?.saveInBackgroundWithBlock(nil)
+                    self.parentConversation?.save()
                     
                     self.parentPost?.incrementKey(GPOST.REPLIES)
                     self.parentPost?.saveInBackgroundWithBlock(nil)
@@ -76,6 +78,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                 // create or update alert for post owner
                 GAlert.createOrUpdateAlert(
                     self.parentPost!,
+                    parentConversation: self.parentConversation! as PFObject,
                     target: self.parentPost![GPOST.POSTED_BY] as String,
                     alertBody: "Someone replied to my post:",
                     chatReply: chatReply[GMESSAGE.BODY] as String)
@@ -84,6 +87,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                 // create or update alert for replyer
                 GAlert.createOrUpdateAlert(
                     self.parentPost!,
+                    parentConversation: self.parentConversation! as PFObject,
                     target: self.parentConversation![GCONVERSATION.CREATED_BY] as String,
                     alertBody: "I replied to a post:",
                     chatReply: chatReply[GMESSAGE.BODY] as String)
@@ -104,6 +108,13 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
 //        var timer = NSTimer.scheduledTimerWithTimeInterval(15, target: self, selector: Selector("retrieveAllMessages"), userInfo: nil, repeats: true)
         
     }
+
+//    override func viewWillAppear(animated: Bool) {
+//        super.viewWillAppear(animated)
+//        //        self.parentConversation!.fetch()
+//        self.parentPost = self.parentConversation![GCONVERSATION.PARENT] as? PFObject
+//
+//    }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)

@@ -88,8 +88,9 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         var cell:UITableViewCell = UITableViewCell()
         let alertBody:String = alert[GALERT.ALERT_BODY] as String
-        
-        if alertBody != "Post created by me:" {
+        let parentConversation:PFObject? = alert[GALERT.PARENT_CONVERSATION] as? PFObject
+
+        if parentConversation != nil { // only the alerts that have paren conversation can be replied to
             cell  = self.tableView.dequeueReusableCellWithIdentifier("alert_cell") as AlertTableViewCell
             let df = NSDateFormatter()
             df.dateFormat = "MM-dd-yyyy hh:mm a"
@@ -98,7 +99,7 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             (cell as AlertTableViewCell).chatMessageBody.text  = alert[GALERT.MESSAGE_BODY] as? String
             (cell as AlertTableViewCell).originalPostBody.text = alert[GALERT.POST_BODY] as? String
         } else
-        if alertBody == "Post created by me:" {
+            if parentConversation == nil { // this alert is created by me, so there is no conversation involved and it can't replied to
             cell  = self.tableView.dequeueReusableCellWithIdentifier("post_created_alert_cell") as AlertPostCreatedByMeTableViewCell
             let df = NSDateFormatter()
             df.dateFormat = "MM-dd-yyyy hh:mm a"
@@ -146,8 +147,8 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         NSLog("You selected cell #\(indexPath.row)!")
         
         var alertObject:PFObject = self.myAlerts[indexPath.row]
-        let alertBody:String = alertObject[GALERT.ALERT_BODY] as String
-        if alertBody != "Post created by me:" {
+        let parentConversation:PFObject? = alertObject[GALERT.PARENT_CONVERSATION] as? PFObject
+        if parentConversation != nil { // only the alerts that have paren conversation can be replied to
             //mart alert read
             APP_DELEGATE.markAlertRead(alertObject)
             self.performSegueWithIdentifier("show_chat", sender: self)
@@ -166,44 +167,23 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             alertObject = self.myAlerts[indexPath.row]
             let parentPost:PFObject = alertObject![GALERT.PARENT_POST] as PFObject
             let alertTarget:String = alertObject![GALERT.TARGET] as String
-            parentPost.fetchIfNeeded()
+            parentPost.fetch()
             chatViewController.parentPost = parentPost
 //            chatViewController.parentConversation = conversationObject!
+            let conversation:PFObject? = GConversation.findOrCreateMyConversation(
+                parentPost,
+                myLocation: myLocation)
             
-            let convQuery = PFQuery(className:GCONVERSATION.CLASS_NAME)
-            convQuery.whereKey(GCONVERSATION.PARENT, equalTo: parentPost)
-            convQuery.whereKey(GCONVERSATION.CREATED_BY, equalTo: alertTarget)
-            convQuery.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]!, error: NSError!) -> Void in
-                if error == nil {
-                    // if no conversation is yet created, create one and also create a first message from the post
-                    if objects.count == 0 {
-                        let gConversation:PFObject = PFObject(className:GCONVERSATION.CLASS_NAME)
-                        gConversation[GCONVERSATION.PARENT] = parentPost
-                        gConversation[GCONVERSATION.CREATED_BY] = alertTarget
-                        gConversation[GCONVERSATION.LOCATION] = self.myLocation
-                        gConversation.save()
-                        chatViewController.parentConversation = gConversation
-                        
-                        let gFirstMessage:PFObject = PFObject(className:GMESSAGE.CLASS_NAME)
-                        gFirstMessage[GMESSAGE.PARENT] = gConversation
-                        gFirstMessage[GMESSAGE.REPLIED_BY] = parentPost[GPOST.POSTED_BY] as String
-                        gFirstMessage[GMESSAGE.BODY] = parentPost[GPOST.BODY] as String
-                        gFirstMessage[GMESSAGE.LOCATION] = self.myLocation
-                        gFirstMessage.save()
-                        
-                    } else {
-                        chatViewController.parentConversation = objects[0] as? PFObject
-                    }
-                    
-                } else {
-                    // Log details of the failure
-                    NSLog("Error: %@ %@", error, error.userInfo!)
-                    let alertMessage = UIAlertController(title: "Error", message: "Error retreiving conversations, try agin.", preferredStyle: UIAlertControllerStyle.Alert)
-                    let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
-                    alertMessage.addAction(ok)
-                    self.presentViewController(alertMessage, animated: true, completion: nil)
-                }
-            })
+            if conversation != nil {
+                chatViewController.parentConversation = conversation!
+            } else {
+                let alertMessage = UIAlertController(title: "Error", message: "Unable to find or create Conversation.", preferredStyle: UIAlertControllerStyle.Alert)
+                let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
+                alertMessage.addAction(ok)
+                self.presentViewController(alertMessage, animated: true, completion: nil)
+            }
+
+            
         }
     }
 }
