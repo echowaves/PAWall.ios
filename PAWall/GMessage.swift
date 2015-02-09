@@ -12,7 +12,7 @@ let GMESSAGE:GMessage = GMessage()
 
 class GMessage : BaseDataModel {
     let CLASS_NAME = "GMessages"
-    let PARENT = "parentConversation"
+    let PARENT_CONVERSATION = "parentConversation"
     let REPLIED_BY = "repliedBy"//uuid
     let BODY = "body"
     let LOCATION = "location"
@@ -24,7 +24,7 @@ class GMessage : BaseDataModel {
         location: PFGeoPoint
         ) -> Void {
             let gMessage:PFObject = PFObject(className:GMESSAGE.CLASS_NAME)
-            gMessage[GMESSAGE.PARENT] = parentConversation
+            gMessage[GMESSAGE.PARENT_CONVERSATION] = parentConversation
             gMessage[GMESSAGE.REPLIED_BY] = repliedBy
             gMessage[GMESSAGE.BODY] = body
             gMessage[GMESSAGE.LOCATION] = location

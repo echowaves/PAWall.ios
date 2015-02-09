@@ -283,18 +283,18 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
             }
             
             chatViewController.parentPost = geoPostObject!
-            let conversation:PFObject? = GConversation.findOrCreateMyConversation(
-            geoPostObject!,
-            myLocation: myLocation)
-
-            if conversation != nil {
-                chatViewController.parentConversation = conversation!
-            } else {
-                let alertMessage = UIAlertController(title: "Error", message: "Unable to find or create Conversation.", preferredStyle: UIAlertControllerStyle.Alert)
-                let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
-                alertMessage.addAction(ok)
-                self.presentViewController(alertMessage, animated: true, completion: nil)
-            }
+//            let conversation:PFObject? = GConversation.findOrCreateMyConversation(
+//            geoPostObject!,
+//            myLocation: myLocation)
+//
+//            if conversation != nil {
+//                chatViewController.parentConversation = conversation!
+//            } else {
+//                let alertMessage = UIAlertController(title: "Error", message: "Unable to find or create Conversation.", preferredStyle: UIAlertControllerStyle.Alert)
+//                let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
+//                alertMessage.addAction(ok)
+//                self.presentViewController(alertMessage, animated: true, completion: nil)
+//            }
         }
     }
     

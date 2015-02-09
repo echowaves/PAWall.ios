@@ -100,7 +100,7 @@ class GAlert : BaseDataModel {
                         let newConversation:PFObject =
                         GConversation.createConversation(myPost,
                             myLocation: location,
-                            target: bookmark[GBOOKMARK.CREATED_BY] as String)
+                            replier: bookmark[GBOOKMARK.CREATED_BY] as String)
                         
                         // create alert for post owner
                         var alert:PFObject = PFObject(className:GALERT.CLASS_NAME)

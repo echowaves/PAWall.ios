@@ -11,11 +11,11 @@ import Foundation
 class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var chatMessages:[PFObject] = [PFObject]()
+    // parent conversation is the only parameter that needs to be passed from child controller
+//    var parentConversation:PFObject?
     
     // parent post should always be passed from chid controller
     var parentPost:PFObject?
-    // parent conversation should always be passed from child controller
-    var parentConversation:PFObject?
     
     var currentLocation:PFGeoPoint?
     
@@ -32,7 +32,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         NSLog("there are \(mineChatMessages.count) not mine chat messages")
         
         // if there are no chat replies from me yet and the original post is not from me, apply charges and increment counter
-        if mineChatMessages.count == 0 && parentPost?[GPOST.POSTED_BY] as String != DEVICE_UUID {
+        if mineChatMessages.count == 0 {
             let alertMessage = UIAlertController(title: "Warning", message: "You are initiating a conversation. Charges may apply.", preferredStyle: UIAlertControllerStyle.Alert)
             let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
                 
@@ -52,6 +52,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func chatReply(increment:Bool) -> Void {
+        let parentConversation:PFObject? = GConversation.findOrCreateMyConversation(parentPost!, myLocation: currentLocation!)
+        
         if textView.text == "" || textView.text.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) < 1 {
             let alertMessage = UIAlertController(title: "Warning", message: "You reply can't be empty. Try again.", preferredStyle: UIAlertControllerStyle.Alert)
             let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
@@ -61,7 +63,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
             let chatReply:PFObject = PFObject(className:GMESSAGE.CLASS_NAME)
             chatReply[GMESSAGE.BODY] = textView.text
             chatReply[GMESSAGE.LOCATION] = currentLocation!
-            chatReply[GMESSAGE.PARENT] = parentConversation?
+            chatReply[GMESSAGE.PARENT_CONVERSATION] = parentConversation
             chatReply[GMESSAGE.REPLIED_BY] = DEVICE_UUID
             chatReply.saveInBackgroundWithBlock { (success: Bool, error: NSError!) -> Void in
                 NSLog("reply saved")
@@ -69,8 +71,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.textView.text = ""
                 self.tableView.reloadData()
                 if increment == true {
-                    self.parentConversation?[GCONVERSATION.CHARGES_APPLIED] = (1.0 / (self.parentPost?[GPOST.REPLIES] as Double + 1.0) as Double)
-                    self.parentConversation?.save()
+                    parentConversation?[GCONVERSATION.CHARGES_APPLIED] = (1.0 / (self.parentPost?[GPOST.REPLIES] as Double + 1.0) as Double)
+                    parentConversation?.save()
                     
                     self.parentPost?.incrementKey(GPOST.REPLIES)
                     self.parentPost?.saveInBackgroundWithBlock(nil)
@@ -78,8 +80,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                 // create or update alert for post owner
                 GAlert.createOrUpdateAlert(
                     self.parentPost!,
-                    parentConversation: self.parentConversation! as PFObject,
-                    target: self.parentPost![GPOST.POSTED_BY] as String,
+                    parentConversation: parentConversation! as PFObject,
+                    target: (parentConversation?[GCONVERSATION.PARTICIPANTS] as [String])[0],
                     alertBody: "Someone replied to my post:",
                     chatReply: chatReply[GMESSAGE.BODY] as String)
                 
@@ -87,8 +89,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                 // create or update alert for replyer
                 GAlert.createOrUpdateAlert(
                     self.parentPost!,
-                    parentConversation: self.parentConversation! as PFObject,
-                    target: self.parentConversation![GCONVERSATION.CREATED_BY] as String,
+                    parentConversation: parentConversation! as PFObject,
+                    target: (parentConversation?[GCONVERSATION.PARTICIPANTS] as [String])[1],
                     alertBody: "I replied to a post:",
                     chatReply: chatReply[GMESSAGE.BODY] as String)
                 
@@ -98,6 +100,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        parentPost?.fetchIfNeeded()
         NSLog("inside ChatViewController, parentPost: \(parentPost![GPOST.BODY])")
         self.tableView.delegate      =   self
         self.tableView.dataSource    =   self
@@ -105,6 +108,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tableView.estimatedRowHeight = 100.0
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
+        
+//        self.parentPost = self.parentConversation![GCONVERSATION.PARENT] as? PFObject
 //        var timer = NSTimer.scheduledTimerWithTimeInterval(15, target: self, selector: Selector("retrieveAllMessages"), userInfo: nil, repeats: true)
         
     }
@@ -145,18 +150,19 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func retrieveAllMessages() -> Void {
+        let parentConversation:PFObject? = GConversation.findOrCreateMyConversation(parentPost!, myLocation: currentLocation!)
+
         // now retrieve all messages and present on the screen
         let query = PFQuery(className:GMESSAGE.CLASS_NAME)
         // Interested in locations near user.
         
-        query.whereKey(GMESSAGE.PARENT, equalTo: self.parentConversation!)
+        query.whereKey(GMESSAGE.PARENT_CONVERSATION, equalTo: parentConversation!)
         query.orderByDescending("createdAt")
-        
         query.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]!, error: NSError!) -> Void in
             if error == nil {
                 // The find succeeded.
                 // Do something with the found objects
-                NSLog("Successfully retrieved \(objects.count)")
+                NSLog("Successfully retrieved \(objects.count) messages")
                 if self.chatMessages.count != objects.count {
                     self.chatMessages = objects as [PFObject]
                     self.tableView.reloadData()
@@ -188,6 +194,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         var chatMessage:PFObject
         
         chatMessage = chatMessages[indexPath.row]
+        chatMessage.fetchIfNeeded()
         
         let df = NSDateFormatter()
         df.dateFormat = "MM-dd-yyyy hh:mm a"

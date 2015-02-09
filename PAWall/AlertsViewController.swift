@@ -85,6 +85,7 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         //
         var alert:PFObject = myAlerts[indexPath.row]
+        alert.fetchIfNeeded()
         
         var cell:UITableViewCell = UITableViewCell()
         let alertBody:String = alert[GALERT.ALERT_BODY] as String
@@ -147,6 +148,7 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         NSLog("You selected cell #\(indexPath.row)!")
         
         var alertObject:PFObject = self.myAlerts[indexPath.row]
+        alertObject.fetchIfNeeded()
         let parentConversation:PFObject? = alertObject[GALERT.PARENT_CONVERSATION] as? PFObject
         if parentConversation != nil { // only the alerts that have paren conversation can be replied to
             //mart alert read
@@ -166,22 +168,23 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             NSLog("indexpath row1: \(indexPath.row)")
             alertObject = self.myAlerts[indexPath.row]
             let parentPost:PFObject = alertObject![GALERT.PARENT_POST] as PFObject
-            let alertTarget:String = alertObject![GALERT.TARGET] as String
-            parentPost.fetch()
+//            let alertTarget:String = alertObject![GALERT.TARGET] as String
+//            parentPost.fetch()
             chatViewController.parentPost = parentPost
-//            chatViewController.parentConversation = conversationObject!
-            let conversation:PFObject? = GConversation.findOrCreateMyConversation(
-                parentPost,
-                myLocation: myLocation)
+//            chatViewController.parentConversation = alertObject![GALERT.PARENT_CONVERSATION] as? PFObject
             
-            if conversation != nil {
-                chatViewController.parentConversation = conversation!
-            } else {
-                let alertMessage = UIAlertController(title: "Error", message: "Unable to find or create Conversation.", preferredStyle: UIAlertControllerStyle.Alert)
-                let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
-                alertMessage.addAction(ok)
-                self.presentViewController(alertMessage, animated: true, completion: nil)
-            }
+//            let conversation:PFObject? = GConversation.findOrCreateMyConversation(
+//                parentPost,
+//                myLocation: myLocation)
+//            
+//            if conversation != nil {
+//                chatViewController.parentConversation = conversation!
+//            } else {
+//                let alertMessage = UIAlertController(title: "Error", message: "Unable to find or create Conversation.", preferredStyle: UIAlertControllerStyle.Alert)
+//                let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
+//                alertMessage.addAction(ok)
+//                self.presentViewController(alertMessage, animated: true, completion: nil)
+//            }
 
             
         }
