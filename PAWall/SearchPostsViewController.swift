@@ -27,7 +27,7 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
         }
         
         
-        let alertMessage = UIAlertController(title: nil, message: "Your search will be saved. You will be Alerted about new posts matching your creteria.", preferredStyle: UIAlertControllerStyle.Alert)
+        let alertMessage = UIAlertController(title: nil, message: "Your search will be bookmarked. You will be Alerted about new posts matching your bookmark.", preferredStyle: UIAlertControllerStyle.Alert)
         let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
             
             var gBookmark:PFObject = PFObject(className:GBOOKMARK.CLASS_NAME)
