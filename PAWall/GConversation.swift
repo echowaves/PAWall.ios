@@ -63,4 +63,6 @@ class GConversation : BaseDataModel {
             return (conversation[GCONVERSATION.PARTICIPANTS] as [String])[0]
         }
     }
+    
+    
 }

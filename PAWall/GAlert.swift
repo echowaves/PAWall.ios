@@ -46,8 +46,9 @@ class GAlert : BaseDataModel {
                     } else {
                         
                         let parentPost:PFObject = parentConversation[GCONVERSATION.PARENT_POST] as PFObject
+                        parentPost.fetchIfNeeded()
                         // create new alert here
-//                        alert[GALERT.PARENT_POST] = parentPost
+                        alert[GALERT.PARENT_POST] = parentPost
                         alert[GALERT.PARENT_CONVERSATION] = parentConversation
                         alert[GALERT.TARGET] = target
                         alert[GALERT.ALERT_BODY] = alertBody
