@@ -54,4 +54,13 @@ class GConversation : BaseDataModel {
                 return conversation
             }
     }
+
+
+    class func otherParticipantInMyConversation(conversation: PFObject) -> String {
+        if (conversation[GCONVERSATION.PARTICIPANTS] as [String])[0] == DEVICE_UUID {
+            return (conversation[GCONVERSATION.PARTICIPANTS] as [String])[1] 
+        } else {
+            return (conversation[GCONVERSATION.PARTICIPANTS] as [String])[0]
+        }
+    }
 }

@@ -20,14 +20,15 @@ class GAlert : BaseDataModel {
     let MESSAGE_BODY = "messageBody"
     
     
-    class func createOrUpdateAlert(parentPost: PFObject,
+    class func createOrUpdateAlert(
+//        parentPost: PFObject,
         parentConversation: PFObject,
         target: String,
         alertBody: String,
         chatReply: String) -> Void {
             var alert:PFObject = PFObject(className:GALERT.CLASS_NAME)
             var query = PFQuery(className:GALERT.CLASS_NAME)
-            query.whereKey(GALERT.PARENT_POST, equalTo: parentPost)
+//            query.whereKey(GALERT.PARENT_POST, equalTo: parentPost)
             query.whereKey(GALERT.PARENT_CONVERSATION, equalTo: parentConversation)
             query.whereKey(GALERT.TARGET, equalTo: target)
             query.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]!, error: NSError!) -> Void in
@@ -43,8 +44,10 @@ class GAlert : BaseDataModel {
                         alert[GALERT.MESSAGE_BODY] = chatReply
                         alert.saveEventually()
                     } else {
+                        
+                        let parentPost:PFObject = parentConversation[GCONVERSATION.PARENT_POST] as PFObject
                         // create new alert here
-                        alert[GALERT.PARENT_POST] = parentPost
+//                        alert[GALERT.PARENT_POST] = parentPost
                         alert[GALERT.PARENT_CONVERSATION] = parentConversation
                         alert[GALERT.TARGET] = target
                         alert[GALERT.ALERT_BODY] = alertBody

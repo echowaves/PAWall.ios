@@ -79,18 +79,18 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
                 // create or update alert for post owner
                 GAlert.createOrUpdateAlert(
-                    self.parentPost!,
-                    parentConversation: parentConversation! as PFObject,
-                    target: (parentConversation?[GCONVERSATION.PARTICIPANTS] as [String])[0],
+//                    self.parentPost!,
+                    parentConversation! as PFObject,
+                    target: GConversation.otherParticipantInMyConversation(parentConversation!),
                     alertBody: "Someone replied to my post:",
                     chatReply: chatReply[GMESSAGE.BODY] as String)
                 
                 
                 // create or update alert for replyer
                 GAlert.createOrUpdateAlert(
-                    self.parentPost!,
-                    parentConversation: parentConversation! as PFObject,
-                    target: (parentConversation?[GCONVERSATION.PARTICIPANTS] as [String])[1],
+//                    self.parentPost!,
+                    parentConversation! as PFObject,
+                    target: DEVICE_UUID,
                     alertBody: "I replied to a post:",
                     chatReply: chatReply[GMESSAGE.BODY] as String)
                 
