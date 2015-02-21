@@ -232,15 +232,15 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell:PostSummaryTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("post_summary") as PostSummaryTableViewCell
         
-        var advertizement:PFObject
+        var post:PFObject
         
         if tableView == self.searchDisplayController!.searchResultsTableView {
-            advertizement = filteredPostsNearMe[indexPath.row]
+            post = filteredPostsNearMe[indexPath.row]
         } else {
-            advertizement = postsNearMe[indexPath.row]
+            post = postsNearMe[indexPath.row]
         }
         
-        if let replies = advertizement[GPOST.REPLIES] as Double? {
+        if let replies = post[GPOST.REPLIES] as Double? {
             let roundedCost = roundMoney(1.0 / (replies + 1))
             cell.replies.text = "$\(roundedCost) to reply"
         } else {
@@ -249,10 +249,10 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
         
         let df = NSDateFormatter()
         df.dateFormat = "MM-dd-yyyy"
-        cell.postedAt.text = NSString(format: "%@", df.stringFromDate(advertizement.createdAt))
-        cell.details.text = advertizement[GPOST.BODY] as? String
+        cell.postedAt.text = NSString(format: "%@", df.stringFromDate(post.createdAt))
+        cell.details.text = post[GPOST.BODY] as? String
         
-        let roundedDistance = roundMoney((advertizement[GPOST.LOCATION] as PFGeoPoint).distanceInMilesTo(myLocation))
+        let roundedDistance = roundMoney((post[GPOST.LOCATION] as PFGeoPoint).distanceInMilesTo(myLocation))
         cell.distance.text = "\(roundedDistance) Miles"
         
         //        cell.details.sizeToFit()

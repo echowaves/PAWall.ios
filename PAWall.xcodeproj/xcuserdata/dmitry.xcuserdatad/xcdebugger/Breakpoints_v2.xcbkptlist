@@ -232,11 +232,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PAWall/AppDelegate.swift"
-            timestampString = "445228766.677151"
+            timestampString = "446245990.307052"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203"
+            startingLineNumber = "204"
+            endingLineNumber = "204"
             landmarkName = "alertUnread(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -360,12 +360,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PAWall/GConversation.swift"
-            timestampString = "445202600.007462"
+            timestampString = "446246666.17656"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "findOrCreateMyConversation(_:myLocation:)"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "findOrCreateMyConversation(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -376,12 +376,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PAWall/GConversation.swift"
-            timestampString = "445142404.117949"
+            timestampString = "446246666.17656"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "findOrCreateMyConversation(_:myLocation:)"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "findOrCreateMyConversation(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -494,6 +494,22 @@
             startingLineNumber = "35"
             endingLineNumber = "35"
             landmarkName = "createOrUpdateAlert(_:target:alertBody:chatReply:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PAWall/AppDelegate.swift"
+            timestampString = "446244785.884914"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
+            landmarkName = "getAlerts()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

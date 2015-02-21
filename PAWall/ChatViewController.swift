@@ -52,7 +52,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func chatReply(increment:Bool) -> Void {
-        let parentConversation:PFObject? = GConversation.findOrCreateMyConversation(parentPost!, myLocation: currentLocation!)
+        let parentConversation:PFObject? = GConversation.findOrCreateMyConversation(parentPost!)
         
         if textView.text == "" || textView.text.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) < 1 {
             let alertMessage = UIAlertController(title: "Warning", message: "You reply can't be empty. Try again.", preferredStyle: UIAlertControllerStyle.Alert)
@@ -150,7 +150,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func retrieveAllMessages() -> Void {
-        let parentConversation:PFObject? = GConversation.findOrCreateMyConversation(parentPost!, myLocation: currentLocation!)
+        let parentConversation:PFObject? = GConversation.findOrCreateMyConversation(parentPost!)
 
         // now retrieve all messages and present on the screen
         let query = PFQuery(className:GMESSAGE.CLASS_NAME)
@@ -204,8 +204,13 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.body.text = chatMessage[GMESSAGE.BODY] as? String
         
         if chatMessage[GMESSAGE.REPLIED_BY] as? String == DEVICE_UUID {
-            cell.postedAt.text = "Replied by me: \(cell.postedAt.text!)"
+            cell.postedAt.text = "Replied by me - \(cell.postedAt.text!)"
+        } else {
+            let roundedDistance = roundMoney((chatMessage[GMESSAGE.LOCATION] as PFGeoPoint).distanceInMilesTo(currentLocation))
+            cell.postedAt.text = "\(roundedDistance) Miles - \(cell.postedAt.text!)"
         }
+        
+
         
         return cell
     }

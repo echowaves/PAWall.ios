@@ -30,8 +30,7 @@ class GConversation : BaseDataModel {
     }
     
     class func findOrCreateMyConversation(
-        postObject: PFObject,
-        myLocation: PFGeoPoint
+        postObject: PFObject
         ) -> PFObject? {
             let convQuery = PFQuery(className:GCONVERSATION.CLASS_NAME)
             convQuery.whereKey(GCONVERSATION.PARENT_POST, equalTo: postObject)
@@ -42,14 +41,14 @@ class GConversation : BaseDataModel {
             if objects.count == 0 {
                 let conversation:PFObject = GConversation.createConversation(
                     postObject,
-                    myLocation: myLocation,
+                    myLocation: postObject[GPOST.LOCATION] as PFGeoPoint,
                     replier: DEVICE_UUID)
-                GMessage.createFirstMessage(conversation, parentPost: postObject, location: myLocation)
+                GMessage.createFirstMessage(conversation, parentPost: postObject, location: postObject[GPOST.LOCATION] as PFGeoPoint)
                 NSLog("findOrCreateMyConversation", "found conversation and returning")
                 return conversation
             } else {
                 let conversation:PFObject = objects[0] as PFObject
-                GMessage.createFirstMessage(conversation, parentPost: postObject, location: myLocation)
+                GMessage.createFirstMessage(conversation, parentPost: postObject, location: postObject[GPOST.LOCATION] as PFGeoPoint)
                 NSLog("findOrCreateMyConversation", "creating conversation and returning")
                 return conversation
             }
