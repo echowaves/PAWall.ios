@@ -46,6 +46,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //setup parse
         // Parse.setApplicationId("", clientKey: "")
+        // parse prod
+        // parse dev
 
         
         // Register for Push Notitications and/or Alerts
