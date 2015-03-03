@@ -162,7 +162,7 @@
                                 <color key="barTintColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="My New Post" id="0ra-dn-dje">
-                                        <barButtonItem key="leftBarButtonItem" image="ic_cancel_black_48dp" id="Gfa-xb-fHs">
+                                        <barButtonItem key="leftBarButtonItem" image="ic_close_black_48dp" id="Gfa-xb-fHs">
                                             <connections>
                                                 <segue destination="TZO-hv-g0F" kind="unwind" unwindAction="unwindToHome:" id="b3k-AI-uqb"/>
                                             </connections>
@@ -179,7 +179,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="225" id="Tdg-3p-Qai"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="twitter"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
@@ -272,8 +272,8 @@
                                 </constraints>
                                 <color key="barTintColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
-                                    <navigationItem title="Posts near you" id="ajb-lq-A9g">
-                                        <barButtonItem key="leftBarButtonItem" image="ic_cancel_black_48dp" id="WFg-RD-GMx">
+                                    <navigationItem title="Posts Near You" id="ajb-lq-A9g">
+                                        <barButtonItem key="leftBarButtonItem" image="ic_close_black_48dp" id="WFg-RD-GMx">
                                             <connections>
                                                 <segue destination="7Xx-T8-nfr" kind="unwind" unwindAction="unwindToHome:" id="TKq-M9-Vej"/>
                                             </connections>
@@ -317,7 +317,7 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="details" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iKg-1U-nRG">
                                                     <rect key="frame" x="8" y="29" width="544" height="51"/>
-                                                    <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -447,7 +447,7 @@
                                 <color key="barTintColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="My Alerts" id="5z2-Ku-okP">
-                                        <barButtonItem key="leftBarButtonItem" image="ic_cancel_black_48dp" id="jH0-W6-gO3">
+                                        <barButtonItem key="leftBarButtonItem" image="ic_close_black_48dp" id="jH0-W6-gO3">
                                             <connections>
                                                 <segue destination="p80-4B-LGX" kind="unwind" unwindAction="unwindToHome:" id="dWG-Kt-ZvW"/>
                                             </connections>
@@ -492,7 +492,7 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="post body" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5G-ih-LBo">
                                                     <rect key="frame" x="8" y="70" width="584" height="21"/>
-                                                    <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -549,7 +549,7 @@
                                                         <constraint firstAttribute="width" constant="527" id="3Oj-Ta-zGC"/>
                                                         <constraint firstAttribute="height" constant="103" id="czl-kb-yRX"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -633,7 +633,7 @@
                                 <color key="barTintColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="Chat" id="QDm-Qn-Yt6">
-                                        <barButtonItem key="leftBarButtonItem" image="ic_cancel_black_48dp" id="YoE-MS-Gck">
+                                        <barButtonItem key="leftBarButtonItem" image="ic_close_black_48dp" id="YoE-MS-Gck">
                                             <connections>
                                                 <action selector="goBackAction:" destination="2nD-sd-aN4" id="MMX-PI-tiT"/>
                                             </connections>
@@ -662,7 +662,7 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="body" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLt-yG-gc7">
                                                     <rect key="frame" x="8" y="37" width="584" height="92"/>
-                                                    <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -762,7 +762,7 @@
                                 <color key="barTintColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="My Bookmarks" id="M5q-He-mcL">
-                                        <barButtonItem key="leftBarButtonItem" image="ic_cancel_black_48dp" id="NeS-Qi-LZn">
+                                        <barButtonItem key="leftBarButtonItem" image="ic_close_black_48dp" id="NeS-Qi-LZn">
                                             <connections>
                                                 <segue destination="oyc-2R-V09" kind="unwind" unwindAction="unwindToHome:" id="Uuu-mw-9du"/>
                                             </connections>
@@ -805,7 +805,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="K6T-lT-gRt"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -875,8 +875,8 @@
         <image name="ic_add_circle_outline_black_48dp" width="48" height="48"/>
         <image name="ic_bookmark_black_48dp" width="48" height="48"/>
         <image name="ic_bookmark_outline_black_48dp" width="48" height="48"/>
-        <image name="ic_cancel_black_48dp" width="48" height="48"/>
         <image name="ic_chevron_right_black_48dp" width="48" height="48"/>
+        <image name="ic_close_black_48dp" width="48" height="48"/>
         <image name="ic_delete_black_48dp" width="48" height="48"/>
         <image name="ic_notifications_black_48dp" width="48" height="48"/>
         <image name="ic_search_black_48dp" width="48" height="48"/>
