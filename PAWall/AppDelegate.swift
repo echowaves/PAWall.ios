@@ -65,7 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //generate and store UUID for device if necessey
         if let credentials = BaseDataModel.getStoredCredential() {
             NSLog("getting GUID from nsuserdefaults")
-            DEVICE_PHONE_NUMBER = credentials.user!
+//            DEVICE_PHONE_NUMBER = credentials.user!
             DEVICE_UUID = credentials.password!
         }
         if DEVICE_UUID == "" {
@@ -74,7 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            var uuidRef:CFUUIDRef  = CFUUIDCreate(kCFAllocatorDefault)
 //            var uuidString = CFUUIDCreateString(nil, uuidRef)
             NSLog("uuid: \(uuidString)")
-            BaseDataModel.storeCredential(DEVICE_PHONE_NUMBER, uuid: uuidString)
+            BaseDataModel.storeCredential(uuidString)
             DEVICE_UUID = uuidString
         }
 //        NSLog("UUID: \(DEVICE_UUID)")

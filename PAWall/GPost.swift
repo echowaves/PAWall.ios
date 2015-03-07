@@ -53,4 +53,44 @@ class GPost : BaseDataModel {
         }
     }
     
+    
+    class func findPostNearMe(
+        location: PFGeoPoint,
+        searchText: String,
+        resultsLimit: Int,
+        succeeded:(results:[PFObject]) -> (),
+        failed:(error: NSError!) -> ()
+        ) -> () {
+            
+            
+            // Create a query for places
+            var query = PFQuery(className:GPOST.CLASS_NAME)
+            // Interested in locations near user.
+            query.whereKey(GPOST.LOCATION, nearGeoPoint:location)
+            query.whereKey(GPOST.ACTIVE, equalTo: true)
+            query.whereKey(GPOST.POSTED_BY, notEqualTo: DEVICE_UUID)
+            NSLog("Searching for string \(searchText)")
+            if !searchText.isEmpty {
+                let textArr = split(searchText.lowercaseString.stringByReplacingOccurrencesOfString("#", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)) {$0 == " "}
+                
+                query.whereKey(GPOST.HASH_TAGS, containsAllObjectsInArray: textArr)
+            }
+            // Limit what could be a lot of points.
+            query.limit = resultsLimit
+            // Final list of objects
+            //                self.postsNearMe =
+            
+            query.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]!, error: NSError!) -> Void in
+                if error == nil {
+                    // The find succeeded.
+                    // Do something with the found objects
+                    succeeded(results: objects as [PFObject])                    
+                } else {
+                    // Log details of the failure
+                    failed(error: error)
+                }
+            })
+            
+    }
+    
 }

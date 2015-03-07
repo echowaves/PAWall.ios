@@ -113,28 +113,17 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
                 // do something with the new geoPoint
                 self.myLocation = geoPoint
                 
-                // Create a query for places
-                var query = PFQuery(className:GPOST.CLASS_NAME)
-                // Interested in locations near user.
-                query.whereKey(GPOST.LOCATION, nearGeoPoint:self.myLocation)
-                query.whereKey(GPOST.ACTIVE, equalTo: true)
-                query.whereKey(GPOST.POSTED_BY, notEqualTo: DEVICE_UUID)
-                // Limit what could be a lot of points.
-                query.limit = 1000
-                // Final list of objects
-                //                self.postsNearMe =
-                
-                query.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]!, error: NSError!) -> Void in
-                    if error == nil {
-                        // The find succeeded.
-                        // Do something with the found objects
-                        NSLog("Successfully retrieved \(objects.count)")
-                        if objects.count > 0 {
-                            self.postsNearMe = objects as [PFObject]
+                GPost.findPostNearMe(
+                    self.myLocation,
+                    searchText: "",
+                    resultsLimit: 1000,
+                    succeeded: { (results) -> () in
+                        if results.count > 0 {
+                            self.postsNearMe = results as [PFObject]
                             self.tableView.reloadData()
                         }
                         
-                    } else {
+                    }, failed: { (error) -> () in
                         // Log details of the failure
                         NSLog("Error: %@ %@", error, error.userInfo!)
                         
@@ -142,9 +131,8 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
                         let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
                         alertMessage.addAction(ok)
                         self.presentViewController(alertMessage, animated: true, completion: nil)
-                        
-                    }
                 })
+                
             }
         }
         
@@ -162,48 +150,27 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
             if error == nil {
                 // do something with the new geoPoint
                 self.myLocation = geoPoint
-                
-                // Create a query for places
-                var query = PFQuery(className:GPOST.CLASS_NAME)
-                // Interested in locations near user.
-                query.whereKey(GPOST.LOCATION, nearGeoPoint:self.myLocation)
-                query.whereKey(GPOST.ACTIVE, equalTo: true)
-                query.whereKey(GPOST.POSTED_BY, notEqualTo: DEVICE_UUID)
-                NSLog("Searching for string \(searchText)")
-                if !searchText.isEmpty {
-                    let textArr = split(searchText.lowercaseString.stringByReplacingOccurrencesOfString("#", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)) {$0 == " "}
 
-                    query.whereKey(GPOST.HASH_TAGS, containsAllObjectsInArray: textArr)
-                }
-                // Limit what could be a lot of points.
-                query.limit = 300
-                // Final list of objects
-                //                self.postsNearMe =
                 
-                query.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]!, error: NSError!) -> Void in
-                    if error == nil {
-                        // The find succeeded.
-                        // Do something with the found objects
-                        
-                        
-                        NSLog("Successfully retrieved \(objects.count)")
-//                        if objects.count > 0 {
-                            self.filteredPostsNearMe = objects as [PFObject]
-                            self.searchDisplayController?.searchResultsTableView.reloadData()
-                            //                                self.searchDisplayController?.searchResultsTableView.reloadInputViews()
-//                        }
-                        
-                    } else {
-                        // Log details of the failure
+                GPost.findPostNearMe(
+                    self.myLocation,
+                    searchText: searchText,
+                    resultsLimit: 300,
+                    succeeded: { (results) -> () in
+                        self.filteredPostsNearMe = results as [PFObject]
+                        self.searchDisplayController?.searchResultsTableView.reloadData()
+                    },
+                    failed: { (error) -> () in
                         NSLog("Error: %@ %@", error, error.userInfo!)
                         
                         let alertMessage = UIAlertController(title: "Error", message: "Error retreiving ads, try agin.", preferredStyle: UIAlertControllerStyle.Alert)
                         let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
                         alertMessage.addAction(ok)
                         self.presentViewController(alertMessage, animated: true, completion: nil)
-                        
-                    }
+
                 })
+                
+                
             }
         }
     }
