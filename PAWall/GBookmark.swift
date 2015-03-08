@@ -22,7 +22,7 @@ class GBookmark : BaseDataModel {
     class func createBookmark(myBookmark: String) -> Void {
         var gBookmark:PFObject = PFObject(className:GBOOKMARK.CLASS_NAME)
         var query:PFQuery = PFQuery(className:GBOOKMARK.CLASS_NAME)
-        query.whereKey(GBOOKMARK.SEARCH_TEXT, equalTo: myBookmark)
+        query.whereKey(GBOOKMARK.SEARCH_TEXT, equalTo: myBookmark.lowercaseString)
         query.whereKey(GBOOKMARK.CREATED_BY, equalTo: DEVICE_UUID)
         
         query.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]!, error: NSError!) -> Void in
@@ -35,7 +35,7 @@ class GBookmark : BaseDataModel {
                     // update the found alert here
                     gBookmark = objects[0] as PFObject
                 } else {
-                    gBookmark[GBOOKMARK.SEARCH_TEXT] = myBookmark
+                    gBookmark[GBOOKMARK.SEARCH_TEXT] = myBookmark.lowercaseString
                     gBookmark[GBOOKMARK.CREATED_BY] = DEVICE_UUID
                 }
                 gBookmark[GBOOKMARK.LOCATION] = APP_DELEGATE.getCurrentLocation()!
