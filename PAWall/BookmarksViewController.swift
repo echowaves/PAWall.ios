@@ -29,32 +29,17 @@ class BookmarksViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        var query = PFQuery(className:GBOOKMARK.CLASS_NAME)
-        
-        query.whereKey(GBOOKMARK.CREATED_BY, equalTo: DEVICE_UUID) // all bookmarks created by me
-        query.orderByDescending("createdAt")
-        
-        // Limit what could be a lot of points.
-        
-        query.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]!, error: NSError!) -> Void in
-            if error == nil {
-                // The find succeeded.
-                // Do something with the found objects
-                
-                NSLog("Successfully retrieved \(objects.count) bookmarks")
-                self.myBookmarks = objects as [PFObject]
+        GBookmark.findMyBookmarks(DEVICE_UUID,
+            succeeded: { (results) -> () in
+                self.myBookmarks = results
                 self.tableView.reloadData()
                 
-            } else {
-                // Log details of the failure
-                NSLog("Error: %@ %@", error, error.userInfo!)
-                
-                let alertMessage = UIAlertController(title: "Error", message: "Error retreiving bookmarks, try agin.", preferredStyle: UIAlertControllerStyle.Alert)
-                let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
-                alertMessage.addAction(ok)
-                self.presentViewController(alertMessage, animated: true, completion: nil)
-            }
-        })
+        }) { (error) -> () in
+            let alertMessage = UIAlertController(title: "Error", message: "Error retreiving bookmarks, try agin.", preferredStyle: UIAlertControllerStyle.Alert)
+            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
+            alertMessage.addAction(ok)
+            self.presentViewController(alertMessage, animated: true, completion: nil)
+        }
     }
     
     

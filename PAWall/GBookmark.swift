@@ -53,4 +53,37 @@ class GBookmark : BaseDataModel {
         })
     }
     
+    class func findMyBookmarks(
+        createdBy: String,
+        succeeded:(results:[PFObject]) -> (),
+        failed:(error: NSError!) -> ()
+        ) -> () {
+     
+            var query = PFQuery(className:GBOOKMARK.CLASS_NAME)
+            
+            query.whereKey(GBOOKMARK.CREATED_BY, equalTo: createdBy)
+            query.orderByDescending("createdAt")
+            
+            // Limit what could be a lot of points.
+            
+            query.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]!, error: NSError!) -> Void in
+                if error == nil {
+                    // The find succeeded.
+                    // Do something with the found objects
+                    
+                    NSLog("Successfully retrieved \(objects.count) bookmarks")
+                    succeeded(results: objects as [PFObject])
+                    
+                } else {
+                    // Log details of the failure
+                    NSLog("Error: %@ %@", error, error.userInfo!)
+                        failed(error: error)
+                }
+            })
+
+            
+            
+    }
+    
+    
 }
