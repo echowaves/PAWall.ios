@@ -12,11 +12,8 @@ import Foundation
 class CreatePostViewController: UIViewController {
     
     
-    @IBOutlet weak var locationLable: UILabel!
     @IBOutlet weak var adDescription: UITextView!
-    
-    var currentLocation:PFGeoPoint?
-    
+        
     @IBAction func unwindToCreateAd (segue : UIStoryboardSegue) {
         NSLog("CreatePost seque from segue id: \(segue.identifier)")
     }
@@ -24,27 +21,6 @@ class CreatePostViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        PFGeoPoint.geoPointForCurrentLocationInBackground {
-            (geoPoint: PFGeoPoint!, error: NSError!) -> Void in
-            
-            if error == nil {
-                // do something with the new geoPoint
-                // 1
-                var location = CLLocationCoordinate2D(
-                    latitude: geoPoint.latitude,
-                    longitude: geoPoint.longitude
-                )
-                self.currentLocation = geoPoint
-                
-                self.locationLable.text = "Current Location Detected"
-            } else {
-                self.locationLable.text = "Unable to detect current location. Make sure to enable GPS."
-                self.locationLable.backgroundColor = UIColor.redColor()
-                self.adDescription.editable = false
-            }
-            
-        }
         
     }
     
@@ -76,7 +52,7 @@ class CreatePostViewController: UIViewController {
                 
                 GPost.createPost(
                     self.adDescription!.text,
-                    location: self.currentLocation!,
+                    location: APP_DELEGATE.getCurrentLocation()!,
                     postedBy: DEVICE_UUID,
                     succeeded: { () -> () in
                         self.dismissViewControllerAnimated(false, completion: nil)

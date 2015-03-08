@@ -32,6 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
+    var CURRENT_LOCATION:PFGeoPoint?
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -78,8 +80,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             DEVICE_UUID = uuidString
         }
 //        NSLog("UUID: \(DEVICE_UUID)")
+        
+        getCurrentLocation()
         getAlerts()
         return true
+    }
+    
+    func getCurrentLocation() -> PFGeoPoint? {
+        if CURRENT_LOCATION == nil {
+            PFGeoPoint.geoPointForCurrentLocationInBackground {
+                (geoPoint: PFGeoPoint!, error: NSError!) -> Void in
+                if !(error != nil) {
+                    self.CURRENT_LOCATION = geoPoint!
+                }
+            }
+        }
+     return CURRENT_LOCATION
     }
     
     func applicationWillResignActive(application: UIApplication) {

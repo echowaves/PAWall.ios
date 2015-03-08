@@ -15,9 +15,7 @@ class BookmarksViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @IBOutlet weak var tableView: UITableView!
     
-    var myLocation:PFGeoPoint = PFGeoPoint()
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,16 +28,6 @@ class BookmarksViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
-        PFGeoPoint.geoPointForCurrentLocationInBackground {
-            //TODO: handle error properly
-            (geoPoint: PFGeoPoint!, error: NSError!) -> Void in
-            
-            if error == nil {
-                // do something with the new geoPoint
-                self.myLocation = geoPoint
-            }
-        }
         
         var query = PFQuery(className:GBOOKMARK.CLASS_NAME)
         
@@ -86,7 +74,7 @@ class BookmarksViewController: UIViewController, UITableViewDelegate, UITableVie
         df.dateFormat = "MM-dd-yyyy"
         cell.createdAt.text = NSString(format: "%@", df.stringFromDate(bookmark.createdAt))
         cell.bookmarkText.text = bookmark[GBOOKMARK.SEARCH_TEXT] as? String
-        let roundedDistance = roundMoney((bookmark[GBOOKMARK.LOCATION] as PFGeoPoint).distanceInMilesTo(myLocation))
+        let roundedDistance = roundMoney((bookmark[GBOOKMARK.LOCATION] as PFGeoPoint).distanceInMilesTo(APP_DELEGATE.getCurrentLocation()!))
 //        cell.distance.text = "\(roundedDistance) Miles"
         
         let deleteButton:UIButton = cell.deleteButton

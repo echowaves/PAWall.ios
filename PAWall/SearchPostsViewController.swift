@@ -13,7 +13,6 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
     
     var postsNearMe:[PFObject] = [PFObject]()
     var filteredPostsNearMe:[PFObject] = [PFObject]()
-    var myLocation:PFGeoPoint = PFGeoPoint()
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
@@ -48,7 +47,7 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
                         gBookmark[GBOOKMARK.SEARCH_TEXT] = self.searchBar.text
                         gBookmark[GBOOKMARK.CREATED_BY] = DEVICE_UUID
                     }
-                    gBookmark[GBOOKMARK.LOCATION] = self.myLocation
+                    gBookmark[GBOOKMARK.LOCATION] = APP_DELEGATE.getCurrentLocation()!
                     gBookmark.saveEventually({ (success: Bool, error: NSError!) -> Void in
                         if !success {
                             //                    self.dismissViewControllerAnimated(false, completion: nil)
@@ -106,15 +105,9 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        PFGeoPoint.geoPointForCurrentLocationInBackground {
-            (geoPoint: PFGeoPoint!, error: NSError!) -> Void in
-            
-            if error == nil {
-                // do something with the new geoPoint
-                self.myLocation = geoPoint
-                
+        
                 GPost.findPostNearMe(
-                    self.myLocation,
+                    APP_DELEGATE.getCurrentLocation()!,
                     searchText: "",
                     resultsLimit: 1000,
                     succeeded: { (results) -> () in
@@ -133,48 +126,36 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
                         self.presentViewController(alertMessage, animated: true, completion: nil)
                 })
                 
-            }
+
         }
-        
-        
-    }
+    
     
     func filterContentForSearchText(searchText:String) {
         
         //        self.postsNearMe = []
         //        self.tableView.reloadData()
-
-        PFGeoPoint.geoPointForCurrentLocationInBackground {
-            (geoPoint: PFGeoPoint!, error: NSError!) -> Void in
-            
-            if error == nil {
-                // do something with the new geoPoint
-                self.myLocation = geoPoint
-
+        
+        GPost.findPostNearMe(
+            APP_DELEGATE.getCurrentLocation()!,
+            searchText: searchText,
+            resultsLimit: 300,
+            succeeded: { (results) -> () in
+                self.filteredPostsNearMe = results as [PFObject]
+                self.searchDisplayController?.searchResultsTableView.reloadData()
+            },
+            failed: { (error) -> () in
+                NSLog("Error: %@ %@", error, error.userInfo!)
                 
-                GPost.findPostNearMe(
-                    self.myLocation,
-                    searchText: searchText,
-                    resultsLimit: 300,
-                    succeeded: { (results) -> () in
-                        self.filteredPostsNearMe = results as [PFObject]
-                        self.searchDisplayController?.searchResultsTableView.reloadData()
-                    },
-                    failed: { (error) -> () in
-                        NSLog("Error: %@ %@", error, error.userInfo!)
-                        
-                        let alertMessage = UIAlertController(title: "Error", message: "Error retreiving ads, try agin.", preferredStyle: UIAlertControllerStyle.Alert)
-                        let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
-                        alertMessage.addAction(ok)
-                        self.presentViewController(alertMessage, animated: true, completion: nil)
-
-                })
+                let alertMessage = UIAlertController(title: "Error", message: "Error retreiving ads, try agin.", preferredStyle: UIAlertControllerStyle.Alert)
+                let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
+                alertMessage.addAction(ok)
+                self.presentViewController(alertMessage, animated: true, completion: nil)
                 
-                
-            }
-        }
+        })
+        
+        
     }
-    
+
 //    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
 //        filterContentForSearchText(searchBar.text)
 //        println("editing")
@@ -219,7 +200,7 @@ class SearchPostsViewController: UIViewController, UITableViewDelegate, UITableV
         cell.postedAt.text = NSString(format: "%@", df.stringFromDate(post.createdAt))
         cell.details.text = post[GPOST.BODY] as? String
         
-        let roundedDistance = roundMoney((post[GPOST.LOCATION] as PFGeoPoint).distanceInMilesTo(myLocation))
+        let roundedDistance = roundMoney((post[GPOST.LOCATION] as PFGeoPoint).distanceInMilesTo(APP_DELEGATE.getCurrentLocation()!))
         cell.distance.text = "\(roundedDistance) Miles"
         
         //        cell.details.sizeToFit()

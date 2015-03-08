@@ -24,5 +24,18 @@ class HomeViewControler: UIViewController {
             NSLog("----calling prepareForSegue myNewPostSegue")
         }
     }
+    
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+        if APP_DELEGATE.getCurrentLocation() != nil {
+            return true
+        } else {
+            let alertMessage = UIAlertController(title: "Error", message: "Enable GPS, or wait few seconds for location to be detected and try again.", preferredStyle: UIAlertControllerStyle.Alert)
+            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in})
+            alertMessage.addAction(ok)
+            presentViewController(alertMessage, animated: true, completion: nil)
+        }
+        return false
+    }
 
 }

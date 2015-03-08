@@ -17,8 +17,6 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     // parent post should always be passed from chid controller
     var parentPost:PFObject?
     
-    var currentLocation:PFGeoPoint?
-    
     @IBOutlet weak var textView: UITextView!
 //    @IBOutlet weak var sendImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
@@ -62,7 +60,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         } else {
             let chatReply:PFObject = PFObject(className:GMESSAGE.CLASS_NAME)
             chatReply[GMESSAGE.BODY] = textView.text
-            chatReply[GMESSAGE.LOCATION] = currentLocation!
+            chatReply[GMESSAGE.LOCATION] = APP_DELEGATE.getCurrentLocation()!
             chatReply[GMESSAGE.PARENT_CONVERSATION] = parentConversation
             chatReply[GMESSAGE.REPLIED_BY] = DEVICE_UUID
             chatReply.saveInBackgroundWithBlock { (success: Bool, error: NSError!) -> Void in
@@ -124,29 +122,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
 
-
-        PFGeoPoint.geoPointForCurrentLocationInBackground {
-            (geoPoint: PFGeoPoint!, error: NSError!) -> Void in
-            
-            if error == nil {
-                // do something with the new geoPoint
-                // 1
-                var location = CLLocationCoordinate2D(
-                    latitude: geoPoint.latitude,
-                    longitude: geoPoint.longitude
-                )
-                self.currentLocation = geoPoint
-                
-                self.retrieveAllMessages()
-                
-            } else {
-                let alertMessage = UIAlertController(title: "Error", message: "Enable GPS and try again.", preferredStyle: UIAlertControllerStyle.Alert)
-                let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
-                })
-                alertMessage.addAction(ok)
-                self.presentViewController(alertMessage, animated: true, completion: nil)
-            }
-        }
+        self.retrieveAllMessages()
     }
     
     func retrieveAllMessages() -> Void {
@@ -206,7 +182,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         if chatMessage[GMESSAGE.REPLIED_BY] as? String == DEVICE_UUID {
             cell.postedAt.text = "Replied by me - \(cell.postedAt.text!)"
         } else {
-            let roundedDistance = roundMoney((chatMessage[GMESSAGE.LOCATION] as PFGeoPoint).distanceInMilesTo(currentLocation))
+            let roundedDistance = roundMoney((chatMessage[GMESSAGE.LOCATION] as PFGeoPoint).distanceInMilesTo(APP_DELEGATE.getCurrentLocation()!))
             cell.postedAt.text = "\(roundedDistance) Miles - \(cell.postedAt.text!)"
         }
         

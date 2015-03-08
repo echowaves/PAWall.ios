@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="DrG-Fe-498">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14D87p" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="DrG-Fe-498">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -171,14 +171,11 @@
                                 </items>
                             </navigationBar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c1k-au-acX">
-                                <rect key="frame" x="16" y="113" width="512" height="225"/>
+                                <rect key="frame" x="16" y="64" width="512" height="225"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" hint="" label="">
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="225" id="Tdg-3p-Qai"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="twitter"/>
                                 <userDefinedRuntimeAttributes>
@@ -190,20 +187,11 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="...detecting current location..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="t2e-xF-BBV">
-                                <rect key="frame" x="0.0" y="64" width="600" height="41"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="41" id="7N6-WP-CL8"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9If-no-wfW">
-                                <rect key="frame" x="536" y="113" width="48" height="48"/>
+                                <rect key="frame" x="536" y="64" width="48" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="48" id="WoD-ve-0wG"/>
-                                    <constraint firstAttribute="height" constant="48" id="i5A-BW-r70"/>
+                                    <constraint firstAttribute="width" constant="48" id="128-YV-rbn"/>
+                                    <constraint firstAttribute="height" constant="48" id="bhw-qy-1zz"/>
                                 </constraints>
                                 <state key="normal" image="ic_send_black_48dp">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -215,18 +203,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="t2e-xF-BBV" firstAttribute="top" secondItem="5dw-Sn-AFY" secondAttribute="bottom" id="4m9-Zp-aqH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5dw-Sn-AFY" secondAttribute="trailing" constant="-16" id="6rV-nx-KGk"/>
-                            <constraint firstItem="9If-no-wfW" firstAttribute="leading" secondItem="c1k-au-acX" secondAttribute="trailing" constant="8" id="7WH-Ui-QAf"/>
-                            <constraint firstItem="t2e-xF-BBV" firstAttribute="leading" secondItem="zp4-sA-5bq" secondAttribute="leadingMargin" constant="-16" id="AJ1-9F-K9J"/>
                             <constraint firstItem="5dw-Sn-AFY" firstAttribute="top" secondItem="JCN-cD-8RI" secondAttribute="bottom" id="N1S-tW-nmE"/>
-                            <constraint firstItem="9If-no-wfW" firstAttribute="trailing" secondItem="zp4-sA-5bq" secondAttribute="trailingMargin" id="UB0-7I-NQ1"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="t2e-xF-BBV" secondAttribute="trailing" constant="-16" id="Vhb-Vm-gus"/>
+                            <constraint firstItem="o9O-7y-M0P" firstAttribute="top" secondItem="c1k-au-acX" secondAttribute="bottom" constant="267" id="Sfm-SE-lu0"/>
+                            <constraint firstItem="9If-no-wfW" firstAttribute="trailing" secondItem="zp4-sA-5bq" secondAttribute="trailingMargin" id="UAN-Pg-fCD"/>
                             <constraint firstItem="5dw-Sn-AFY" firstAttribute="leading" secondItem="zp4-sA-5bq" secondAttribute="leadingMargin" constant="-16" id="W0o-fE-sfr"/>
-                            <constraint firstItem="9If-no-wfW" firstAttribute="top" secondItem="t2e-xF-BBV" secondAttribute="bottom" constant="8" id="g2G-lc-2mI"/>
-                            <constraint firstItem="9If-no-wfW" firstAttribute="leading" secondItem="c1k-au-acX" secondAttribute="trailing" constant="8" id="ow4-fi-A1B"/>
-                            <constraint firstItem="c1k-au-acX" firstAttribute="leading" secondItem="zp4-sA-5bq" secondAttribute="leadingMargin" id="xCt-Iq-IJL"/>
-                            <constraint firstItem="c1k-au-acX" firstAttribute="top" secondItem="t2e-xF-BBV" secondAttribute="bottom" constant="8" id="yzl-ko-9fT"/>
+                            <constraint firstItem="9If-no-wfW" firstAttribute="top" secondItem="5dw-Sn-AFY" secondAttribute="bottom" id="aVZ-Gy-2kE"/>
+                            <constraint firstItem="c1k-au-acX" firstAttribute="leading" secondItem="zp4-sA-5bq" secondAttribute="leadingMargin" id="kxJ-LA-6Wa"/>
+                            <constraint firstItem="9If-no-wfW" firstAttribute="leading" secondItem="c1k-au-acX" secondAttribute="trailing" constant="8" id="nTl-qL-Tbc"/>
+                            <constraint firstItem="c1k-au-acX" firstAttribute="top" secondItem="5dw-Sn-AFY" secondAttribute="bottom" id="sF5-1w-Ueg"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -234,7 +219,6 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="adDescription" destination="c1k-au-acX" id="gHR-CA-2l5"/>
-                        <outlet property="locationLable" destination="t2e-xF-BBV" id="35v-fq-8Cm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lvh-fX-qMS" userLabel="First Responder" sceneMemberID="firstResponder"/>

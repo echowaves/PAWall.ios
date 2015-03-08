@@ -14,8 +14,6 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBOutlet weak var tableView: UITableView!
     
-    var myLocation:PFGeoPoint = PFGeoPoint()
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,16 +32,6 @@ class AlertsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 //        APP_DELEGATE.getAlerts()
 //        self.tableView.setNeedsDisplay()
 //        self.tableView.setNeedsLayout()
-
-        PFGeoPoint.geoPointForCurrentLocationInBackground {
-            //TODO: handle error properly
-            (geoPoint: PFGeoPoint!, error: NSError!) -> Void in
-            
-            if error == nil {
-                // do something with the new geoPoint
-                self.myLocation = geoPoint
-            }
-        }
         
         var query = PFQuery(className:GALERT.CLASS_NAME)
         
