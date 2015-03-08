@@ -58,7 +58,7 @@ class GBookmark : BaseDataModel {
         succeeded:(results:[PFObject]) -> (),
         failed:(error: NSError!) -> ()
         ) -> () {
-     
+            
             var query = PFQuery(className:GBOOKMARK.CLASS_NAME)
             
             query.whereKey(GBOOKMARK.CREATED_BY, equalTo: createdBy)
@@ -77,12 +77,9 @@ class GBookmark : BaseDataModel {
                 } else {
                     // Log details of the failure
                     NSLog("Error: %@ %@", error, error.userInfo!)
-                        failed(error: error)
+                    failed(error: error)
                 }
             })
-
-            
-            
     }
     
     

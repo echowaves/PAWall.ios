@@ -171,7 +171,7 @@
                                 </items>
                             </navigationBar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c1k-au-acX">
-                                <rect key="frame" x="16" y="64" width="512" height="225"/>
+                                <rect key="frame" x="16" y="79" width="512" height="225"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" hint="" label="">
                                     <bool key="isElement" value="YES"/>
@@ -188,10 +188,10 @@
                                 </userDefinedRuntimeAttributes>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9If-no-wfW">
-                                <rect key="frame" x="536" y="64" width="48" height="48"/>
+                                <rect key="frame" x="536" y="79" width="48" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="48" id="128-YV-rbn"/>
-                                    <constraint firstAttribute="height" constant="48" id="bhw-qy-1zz"/>
+                                    <constraint firstAttribute="width" constant="48" id="1hy-dB-e9J"/>
+                                    <constraint firstAttribute="height" constant="48" id="WL3-GH-Nab"/>
                                 </constraints>
                                 <state key="normal" image="ic_send_black_48dp">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -203,15 +203,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="9If-no-wfW" firstAttribute="leading" secondItem="c1k-au-acX" secondAttribute="trailing" constant="8" id="60k-qr-TDe"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5dw-Sn-AFY" secondAttribute="trailing" constant="-16" id="6rV-nx-KGk"/>
+                            <constraint firstItem="c1k-au-acX" firstAttribute="top" secondItem="5dw-Sn-AFY" secondAttribute="bottom" constant="15" id="9yE-Bs-kS7"/>
+                            <constraint firstItem="c1k-au-acX" firstAttribute="leading" secondItem="zp4-sA-5bq" secondAttribute="leadingMargin" id="DRU-Js-xXv"/>
+                            <constraint firstItem="o9O-7y-M0P" firstAttribute="top" secondItem="c1k-au-acX" secondAttribute="bottom" constant="252" id="KT4-E8-EID"/>
                             <constraint firstItem="5dw-Sn-AFY" firstAttribute="top" secondItem="JCN-cD-8RI" secondAttribute="bottom" id="N1S-tW-nmE"/>
-                            <constraint firstItem="o9O-7y-M0P" firstAttribute="top" secondItem="c1k-au-acX" secondAttribute="bottom" constant="267" id="Sfm-SE-lu0"/>
-                            <constraint firstItem="9If-no-wfW" firstAttribute="trailing" secondItem="zp4-sA-5bq" secondAttribute="trailingMargin" id="UAN-Pg-fCD"/>
+                            <constraint firstItem="9If-no-wfW" firstAttribute="top" secondItem="5dw-Sn-AFY" secondAttribute="bottom" constant="15" id="Pmo-G7-XJL"/>
                             <constraint firstItem="5dw-Sn-AFY" firstAttribute="leading" secondItem="zp4-sA-5bq" secondAttribute="leadingMargin" constant="-16" id="W0o-fE-sfr"/>
-                            <constraint firstItem="9If-no-wfW" firstAttribute="top" secondItem="5dw-Sn-AFY" secondAttribute="bottom" id="aVZ-Gy-2kE"/>
-                            <constraint firstItem="c1k-au-acX" firstAttribute="leading" secondItem="zp4-sA-5bq" secondAttribute="leadingMargin" id="kxJ-LA-6Wa"/>
-                            <constraint firstItem="9If-no-wfW" firstAttribute="leading" secondItem="c1k-au-acX" secondAttribute="trailing" constant="8" id="nTl-qL-Tbc"/>
-                            <constraint firstItem="c1k-au-acX" firstAttribute="top" secondItem="5dw-Sn-AFY" secondAttribute="bottom" id="sF5-1w-Ueg"/>
+                            <constraint firstItem="9If-no-wfW" firstAttribute="trailing" secondItem="zp4-sA-5bq" secondAttribute="trailingMargin" id="iNF-vN-oVV"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -302,7 +302,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="details" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iKg-1U-nRG">
                                                     <rect key="frame" x="8" y="29" width="544" height="51"/>
                                                     <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="12"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Replies:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qkV-W5-xK7">
@@ -471,13 +471,13 @@
                                                         <constraint firstAttribute="height" constant="21" id="7eO-9C-dVC"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="post body" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5G-ih-LBo">
                                                     <rect key="frame" x="8" y="70" width="584" height="21"/>
                                                     <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="updatedAt" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tuG-G2-zFp">
@@ -534,7 +534,7 @@
                                                         <constraint firstAttribute="height" constant="103" id="czl-kb-yRX"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="createdAt" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hka-xu-Ek0">
@@ -647,7 +647,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="body" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLt-yG-gc7">
                                                     <rect key="frame" x="8" y="37" width="584" height="92"/>
                                                     <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -790,7 +790,7 @@
                                                         <constraint firstAttribute="height" constant="21" id="K6T-lT-gRt"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
