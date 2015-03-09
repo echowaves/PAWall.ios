@@ -123,5 +123,36 @@ class GAlert : BaseDataModel {
 
     }
     
+    
+    class func findMyAlerts(
+        target: String,
+        succeeded:(results:[PFObject]) -> (),
+        failed:(error: NSError!) -> ()
+        ) -> () {
+            
+            var query = PFQuery(className:GALERT.CLASS_NAME)
+            
+            query.whereKey(GALERT.TARGET, equalTo: target)
+            query.orderByDescending("updatedAt")
+            
+            // Limit what could be a lot of points.
+            
+            query.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]!, error: NSError!) -> Void in
+                if error == nil {
+                    // The find succeeded.
+                    // Do something with the found objects
+                    
+                    NSLog("Successfully retrieved \(objects.count) bookmarks")
+                    succeeded(results: objects as [PFObject])
+                    
+                } else {
+                    // Log details of the failure
+                    NSLog("Error: %@ %@", error, error.userInfo!)
+                    failed(error: error)
+                }
+            })
+    }
+    
+
 
 }
